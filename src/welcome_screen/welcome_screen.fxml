@@ -43,7 +43,7 @@
                         <Insets />
                     </VBox.margin>
                 </Button>
-                <Button id="startGameBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #fb8498; -fx-background-radius: 20px;" stylesheets="@main.css" text="See credit" textAlignment="CENTER" textFill="WHITE">
+                <Button id="seeCreditBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #fb8498; -fx-background-radius: 20px;" stylesheets="@main.css" text="See credit" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Cartoonist Kooky" size="15.0" />
                     </font>
