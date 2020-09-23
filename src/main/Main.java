@@ -1,4 +1,4 @@
-package main_ui;
+package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("main_ui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/fxml/main_ui.fxml"));
         primaryStage.setTitle("Welcome Screen");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();

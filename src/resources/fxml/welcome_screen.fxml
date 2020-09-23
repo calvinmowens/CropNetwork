@@ -14,22 +14,22 @@
     <children>
         <ImageView fitHeight="720.0" fitWidth="796.0" layoutX="268.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="50.0">
             <image>
-                <Image url="@../resources/grass.png" />
+                <Image url="@../images/grass.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="298.0" fitWidth="384.0" layoutX="878.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/cow3@4x.png" />
+                <Image url="@../images/cow3@4x.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="403.0" fitWidth="521.0" layoutX="-15.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/sowing@4x.png" />
+                <Image url="@../images/sowing@4x.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="612.0" fitWidth="944.0" layoutX="218.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/fence@4x.png" />
+                <Image url="@../images/fence@4x.png" />
             </image>
         </ImageView>
         <Pane layoutX="272.0" layoutY="91.0" prefHeight="513.0" prefWidth="746.0" style="-fx-background-color: black; -fx-opacity: .5;" />
@@ -55,7 +55,7 @@
         </VBox>
         <ImageView fitHeight="251.0" fitWidth="277.0" layoutX="59.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/cow2@4x.png" />
+                <Image url="@../images/cow2@4x.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="107.0" fitWidth="130.0" layoutX="1111.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">

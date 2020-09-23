@@ -3,5 +3,5 @@ module cropNetwork {
     requires javafx.fxml;
     requires javafx.graphics;
 
-    opens main_ui;
+    opens main;
 }
