@@ -7,10 +7,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private static Stage gameStage;
+
+    public static Stage getGameStage() {
+        return gameStage;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("game_config.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../welcome_screen/game_config.fxml"));
+        gameStage = primaryStage;
         primaryStage.setTitle("Welcome Screen");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
@@ -19,4 +25,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

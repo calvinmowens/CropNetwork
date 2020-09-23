@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #83AD28;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #83AD28;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="welcome_screen.welcomeController">
     <children>
         <ImageView fitHeight="720.0" fitWidth="796.0" layoutX="268.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="50.0">
             <image>
@@ -35,7 +35,7 @@
         <Pane layoutX="272.0" layoutY="91.0" prefHeight="513.0" prefWidth="746.0" style="-fx-background-color: black; -fx-opacity: .5;" />
         <VBox layoutX="500.0" layoutY="333.0" prefHeight="148.0" prefWidth="301.0">
             <children>
-                <Button id="startGameBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" stylesheets="@main.css" text="Start Game" textAlignment="CENTER" textFill="WHITE">
+                <Button onMouseClicked="#changeScreen" id="startGameBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" stylesheets="@main.css" text="Start Game" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Cartoonist Kooky" size="15.0" />
                     </font>
