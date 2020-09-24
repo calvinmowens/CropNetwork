@@ -38,7 +38,9 @@ public class game_configController implements Initializable {
         difficulty.getItems().add("Hardcore");
 
         startingSeed.getItems().add("Corn");
-        startingSeed.getItems().add("Wheat");
+        startingSeed.getItems().add("Onion");
+        startingSeed.getItems().add("Watermelon");
+        startingSeed.getItems().add("Potato");
 
         startingSeason.getItems().add("Spring");
         startingSeason.getItems().add("Summer");
