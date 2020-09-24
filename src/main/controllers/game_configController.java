@@ -37,7 +37,8 @@ public class game_configController implements Initializable {
         difficulty.getItems().add("Regular");
         difficulty.getItems().add("Hardcore");
 
-        startingSeed.getItems().add("");
+        startingSeed.getItems().add("Corn");
+        startingSeed.getItems().add("Wheat");
 
         startingSeason.getItems().add("Spring");
         startingSeason.getItems().add("Summer");
@@ -51,6 +52,10 @@ public class game_configController implements Initializable {
         Game newGame = new Game();
         newGame.setName(name.getText());
         newGame.setGender(((RadioButton)gender.getSelectedToggle()).getText());
+        newGame.setDifficulty(difficulty.getValue());
+        newGame.setStartingSeed(startingSeed.getValue());
+        newGame.setStartingSeason(startingSeason.getValue());
+
 
         // setting up the loader
         FXMLLoader loader = new FXMLLoader();
@@ -58,8 +63,8 @@ public class game_configController implements Initializable {
         Parent startGame = loader.load();
         Scene startGameScene = new Scene(startGame);
 
-//        main_uiController controller = loader.getController();
-//        controller.initData(newGame);
+        main_uiController controller = loader.getController();
+        controller.initData(newGame);
 
         // Stage and show the new scene
         Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();

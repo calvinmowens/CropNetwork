@@ -45,7 +45,8 @@ public class main_uiController implements Initializable {
     public void initData(Game game) {
         myGame = game;
         String[] seasonImages = {"spring.png", "summer.png", "fall.png", "winter.png"};
-
+        myGame.setMoney(myGame.getDifficulty());
+        System.out.println(myGame.toString());
     }
 
 

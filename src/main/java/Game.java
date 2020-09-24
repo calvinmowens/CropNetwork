@@ -4,10 +4,10 @@ public class Game {
 
     private String name;
     private String gender;
-    private int difficulty; // 1-3
+    private String difficulty; // 1-3
     private String startingSeed; // convert this to an int??
-    private int startingSeason; // convert this to an int??
-    private int money;
+    private String startingSeason; // convert this to an int??
+    private int money = 0;
 
     public String getName() {
         return name;
@@ -25,11 +25,11 @@ public class Game {
         this.gender = gender;
     }
 
-    public int getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
@@ -41,11 +41,11 @@ public class Game {
         this.startingSeed = startingSeed;
     }
 
-    public int getStartingSeason() {
+    public String getStartingSeason() {
         return startingSeason;
     }
 
-    public void setStartingSeason(int startingSeason) {
+    public void setStartingSeason(String startingSeason) {
         this.startingSeason = startingSeason;
     }
 
@@ -54,17 +54,29 @@ public class Game {
         return money;
     }
 
-    public void setMoney(int difficulty) {
+    public void setMoney(String difficulty) {
         switch (difficulty) {
-            case (1):
+            case ("Casual"):
                 money = 1000;
                 break;
-            case (2):
+            case ("Regular"):
                 money = 5000;
                 break;
-            case (3):
+            case ("Hardcore"):
                 money = 10000;
                 break;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", difficulty='" + difficulty + '\'' +
+                ", startingSeed='" + startingSeed + '\'' +
+                ", startingSeason='" + startingSeason + '\'' +
+                ", money=" + money +
+                '}';
     }
 }
