@@ -3,16 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="366dc92c-38bc-41a0-a0fb-7903e391c3f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/game_configController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/game_configController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/main_uiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/main_uiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/java/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/java/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/game_config.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/game_config.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/main_ui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/game_configController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/game_configController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/screens/game_config.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/game_config.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/main/java/GameTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,7 +71,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources2" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="cs2340_team44_m_" />
@@ -73,6 +80,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cs2340_team44_m_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.java" />
+      <option name="MAIN_CLASS_NAME" value="main.java.GameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.GameTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,33 +121,43 @@
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600957773874" />
-    <state x="1065" y="327" key="#com.intellij.ide.util.MemberChooser" timestamp="1600960259170">
-      <screen x="0" y="23" width="2560" height="1353" />
+    <state x="599" y="182" key="#com.intellij.ide.util.MemberChooser" timestamp="1600963169453">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="599" y="182" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1600963169453" />
     <state x="1065" y="327" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1353@0.23.2560.1353" timestamp="1600960259170" />
-    <state width="2498" height="323" key="GridCell.Tab.0.bottom" timestamp="1600959263748">
+    <state width="2498" height="177" key="GridCell.Tab.0.bottom" timestamp="1600969136833">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2498" height="177" key="GridCell.Tab.0.bottom/-1440.801.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1600969136833" />
+    <state width="1378" height="177" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600965062499" />
     <state width="2498" height="323" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263747" />
     <state width="2242" height="324" key="GridCell.Tab.0.bottom/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
-    <state width="2498" height="323" key="GridCell.Tab.0.center" timestamp="1600959263745">
+    <state width="2498" height="177" key="GridCell.Tab.0.center" timestamp="1600969136830">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2498" height="177" key="GridCell.Tab.0.center/-1440.801.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1600969136830" />
+    <state width="1378" height="177" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600965062498" />
     <state width="2498" height="323" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263745" />
     <state width="2242" height="324" key="GridCell.Tab.0.center/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
-    <state width="2498" height="323" key="GridCell.Tab.0.left" timestamp="1600959263744">
+    <state width="2498" height="177" key="GridCell.Tab.0.left" timestamp="1600969136829">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2498" height="177" key="GridCell.Tab.0.left/-1440.801.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1600969136829" />
+    <state width="1378" height="177" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600965062497" />
     <state width="2498" height="323" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263744" />
     <state width="2242" height="324" key="GridCell.Tab.0.left/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
-    <state width="2498" height="323" key="GridCell.Tab.0.right" timestamp="1600959263746">
+    <state width="2498" height="177" key="GridCell.Tab.0.right" timestamp="1600969136831">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="2498" height="177" key="GridCell.Tab.0.right/-1440.801.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1600969136831" />
+    <state width="1378" height="177" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600965062498" />
     <state width="2498" height="323" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263746" />
     <state width="2242" height="324" key="GridCell.Tab.0.right/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
-    <state x="659" y="165" key="SettingsEditor" timestamp="1600960231650">
-      <screen x="0" y="23" width="2560" height="1353" />
+    <state x="194" y="3" key="SettingsEditor" timestamp="1600965044426">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="194" y="3" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1600965044426" />
     <state x="659" y="165" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1600960231650" />
     <state x="918" y="557" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1600959665177">
       <screen x="0" y="23" width="2560" height="1353" />
@@ -126,5 +167,19 @@
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="951" y="141" width="521" height="965" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600959646722" />
+    <state x="710" y="299" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600968810527">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="710" y="299" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1440.801.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1600968810527" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

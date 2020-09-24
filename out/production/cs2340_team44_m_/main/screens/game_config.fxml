@@ -36,7 +36,7 @@
                   <Insets left="120.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="27.0" prefWidth="166.0">
+            <TextField fx:id="name" prefHeight="27.0" prefWidth="166.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -89,7 +89,7 @@
                   <Insets left="96.0" top="15.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefHeight="27.0" prefWidth="203.0">
+            <ChoiceBox fx:id="difficulty" prefHeight="27.0" prefWidth="203.0">
                <VBox.margin>
                   <Insets left="43.0" top="10.0" />
                </VBox.margin></ChoiceBox>
@@ -101,7 +101,7 @@
                   <Insets left="80.0" top="15.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefWidth="203.0">
+            <ChoiceBox fx:id="startingSeed" prefWidth="203.0">
                <VBox.margin>
                   <Insets left="43.0" top="10.0" />
                </VBox.margin></ChoiceBox>
@@ -113,7 +113,7 @@
                   <Insets left="64.0" top="15.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefWidth="203.0">
+            <ChoiceBox fx:id="startingSeason" prefWidth="203.0">
                <VBox.margin>
                   <Insets left="43.0" top="10.0" />
                </VBox.margin>
@@ -145,12 +145,12 @@
       </ImageView>
       <ImageView fitHeight="607.0" fitWidth="552.0" layoutX="895.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/green%20house@4x.png" />
+            <Image url="@../resources/green_house@4x.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="976.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/chicken%201@4x.png" />
+            <Image url="@../resources/chicken_1@4x.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="234.0" fitWidth="270.0" layoutX="81.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
