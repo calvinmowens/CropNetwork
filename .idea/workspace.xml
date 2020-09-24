@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="366dc92c-38bc-41a0-a0fb-7903e391c3f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/welcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/welcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chicken 1@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chicken 2@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chicken eating@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/cow2@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/cow3@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/fence@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/green house.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/green house@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/harvest@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sowing@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/tractor@4x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/game_config.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/welcome_screen.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hxdwnKmR4imfOhSVrffckTPNIQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="cs2340_team44_m_" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../devfiles/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="366dc92c-38bc-41a0-a0fb-7903e391c3f4" name="Default Changelist" comment="" />
+      <created>1600956917573</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600956917573</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600957773874">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600957773874" />
+    <state width="2242" height="324" key="GridCell.Tab.0.bottom" timestamp="1600957748222">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state width="2242" height="324" key="GridCell.Tab.0.bottom/0.23.2560.1353@0.23.2560.1353" timestamp="1600957748222" />
+    <state width="2242" height="324" key="GridCell.Tab.0.center" timestamp="1600957748221">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state width="2242" height="324" key="GridCell.Tab.0.center/0.23.2560.1353@0.23.2560.1353" timestamp="1600957748221" />
+    <state width="2242" height="324" key="GridCell.Tab.0.left" timestamp="1600957748221">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state width="2242" height="324" key="GridCell.Tab.0.left/0.23.2560.1353@0.23.2560.1353" timestamp="1600957748221" />
+    <state width="2242" height="324" key="GridCell.Tab.0.right" timestamp="1600957748222">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state width="2242" height="324" key="GridCell.Tab.0.right/0.23.2560.1353@0.23.2560.1353" timestamp="1600957748222" />
+    <state x="659" y="165" key="SettingsEditor" timestamp="1600957040598">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="659" y="165" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1600957040598" />
+  </component>
+</project>
