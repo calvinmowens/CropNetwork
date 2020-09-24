@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="366dc92c-38bc-41a0-a0fb-7903e391c3f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/controllers/welcome_screenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/welcome_screenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/game_configController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/game_configController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/screens/game_config.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/game_config.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -34,14 +40,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="main.java" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources2" />
     </key>
@@ -72,29 +90,41 @@
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600957773874" />
-    <state width="2498" height="324" key="GridCell.Tab.0.bottom" timestamp="1600958152561">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2498" height="324" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1600958152561" />
-    <state width="2242" height="324" key="GridCell.Tab.0.bottom/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
-    <state width="2498" height="324" key="GridCell.Tab.0.center" timestamp="1600958152560">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2498" height="324" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1600958152560" />
-    <state width="2242" height="324" key="GridCell.Tab.0.center/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
-    <state width="2498" height="324" key="GridCell.Tab.0.left" timestamp="1600958152559">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2498" height="324" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1600958152559" />
-    <state width="2242" height="324" key="GridCell.Tab.0.left/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
-    <state width="2498" height="324" key="GridCell.Tab.0.right" timestamp="1600958152561">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2498" height="324" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1600958152561" />
-    <state width="2242" height="324" key="GridCell.Tab.0.right/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
-    <state x="659" y="165" key="SettingsEditor" timestamp="1600957040598">
+    <state x="1065" y="327" key="#com.intellij.ide.util.MemberChooser" timestamp="1600960259170">
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
-    <state x="659" y="165" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1600957040598" />
+    <state x="1065" y="327" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1353@0.23.2560.1353" timestamp="1600960259170" />
+    <state width="2498" height="323" key="GridCell.Tab.0.bottom" timestamp="1600959263748">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2498" height="323" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263747" />
+    <state width="2242" height="324" key="GridCell.Tab.0.bottom/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
+    <state width="2498" height="323" key="GridCell.Tab.0.center" timestamp="1600959263745">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2498" height="323" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263745" />
+    <state width="2242" height="324" key="GridCell.Tab.0.center/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
+    <state width="2498" height="323" key="GridCell.Tab.0.left" timestamp="1600959263744">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2498" height="323" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263744" />
+    <state width="2242" height="324" key="GridCell.Tab.0.left/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893910" />
+    <state width="2498" height="323" key="GridCell.Tab.0.right" timestamp="1600959263746">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2498" height="323" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1600959263746" />
+    <state width="2242" height="324" key="GridCell.Tab.0.right/0.23.2560.1353@0.23.2560.1353" timestamp="1600957893911" />
+    <state x="659" y="165" key="SettingsEditor" timestamp="1600960231650">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="659" y="165" key="SettingsEditor/0.23.2560.1353@0.23.2560.1353" timestamp="1600960231650" />
+    <state x="918" y="557" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1600959665177">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="918" y="557" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.2560.1353@0.23.2560.1353" timestamp="1600959665177" />
+    <state x="951" y="141" width="521" height="965" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1600959646722">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="951" y="141" width="521" height="965" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600959646722" />
   </component>
 </project>

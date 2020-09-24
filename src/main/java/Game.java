@@ -7,6 +7,7 @@ public class Game {
     private int difficulty; // 1-3
     private String startingSeed; // convert this to an int??
     private int startingSeason; // convert this to an int??
+    private int money;
 
     public String getName() {
         return name;
@@ -46,5 +47,24 @@ public class Game {
 
     public void setStartingSeason(int startingSeason) {
         this.startingSeason = startingSeason;
+    }
+
+    public int getMoney() {
+        setMoney(difficulty);
+        return money;
+    }
+
+    public void setMoney(int difficulty) {
+        switch (difficulty) {
+            case (1):
+                money = 1000;
+                break;
+            case (2):
+                money = 5000;
+                break;
+            case (3):
+                money = 10000;
+                break;
+        }
     }
 }
