@@ -60,7 +60,7 @@
         </ImageView>
         <ImageView fitHeight="107.0" fitWidth="130.0" layoutX="1111.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/chicken%201@4x.png" />
+                <Image url="@../resources/chicken_1@4x.png" />
             </image>
         </ImageView>
         <Label alignment="CENTER" graphicTextGap="2.0" layoutX="338.0" layoutY="161.0" prefHeight="155.0" prefWidth="632.0" text="CROP NETWORK" textAlignment="CENTER" textFill="WHITE">
@@ -75,12 +75,12 @@
         </Label>
         <ImageView fitHeight="117.0" fitWidth="119.0" layoutX="105.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/chicken%202@4x.png" />
+                <Image url="@../resources/chicken_2@4x.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="173.0" fitWidth="249.0" layoutX="983.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/chicken%20eating@4x.png" />
+                <Image url="@../resources/chicken_eating@4x.png" />
             </image>
         </ImageView>
     </children>
