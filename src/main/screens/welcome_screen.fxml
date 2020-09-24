@@ -35,7 +35,7 @@
         <Pane layoutX="272.0" layoutY="91.0" prefHeight="513.0" prefWidth="746.0" style="-fx-background-color: black; -fx-opacity: .5;" />
         <VBox layoutX="500.0" layoutY="333.0" prefHeight="148.0" prefWidth="301.0">
             <children>
-                <Button onMouseClicked="#changeScreen" id="startGameBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" stylesheets="@main.css" text="Start Game" textAlignment="CENTER" textFill="WHITE">
+                <Button onMouseClicked="#changeScreen" id="startGameBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="Start Game" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Cartoonist Kooky" size="15.0" />
                     </font>
@@ -43,7 +43,7 @@
                         <Insets />
                     </VBox.margin>
                 </Button>
-                <Button id="seeCreditBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #fb8498; -fx-background-radius: 20px;" stylesheets="@main.css" text="See credit" textAlignment="CENTER" textFill="WHITE">
+                <Button id="seeCreditBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #fb8498; -fx-background-radius: 20px;" text="See credit" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Cartoonist Kooky" size="15.0" />
                     </font>

@@ -49,30 +49,27 @@ public class game_configController implements Initializable {
     }
 
     public void startGame(ActionEvent actionEvent) throws IOException {
+        if (name.getText() != null && !name.getText().isBlank() && difficulty.getValue() != null && startingSeed.getValue()!= null && startingSeason.getValue() != null && gender.getSelectedToggle() != null) {
+            // Creates a new Game object with information from the Screen.
+            Game newGame = new Game();
+            newGame.setName(name.getText());
+            newGame.setGender(((RadioButton) gender.getSelectedToggle()).getText());
+            newGame.setDifficulty(difficulty.getValue());
+            newGame.setStartingSeed(startingSeed.getValue());
+            newGame.setStartingSeason(startingSeason.getValue());
 
-        // Creates a new Game object with information from the Screen.
-        Game newGame = new Game();
-        newGame.setName(name.getText());
-        newGame.setGender(((RadioButton)gender.getSelectedToggle()).getText());
-        newGame.setDifficulty(difficulty.getValue());
-        newGame.setStartingSeed(startingSeed.getValue());
-        newGame.setStartingSeason(startingSeason.getValue());
+            // setting up the loader
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../screens/main_ui.FXML"));
+            Parent startGame = loader.load();
+            Scene startGameScene = new Scene(startGame);
 
-
-
-        // setting up the loader
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../screens/main_ui.FXML"));
-        Parent startGame = loader.load();
-        Scene startGameScene = new Scene(startGame);
-
-        main_uiController controller = loader.getController();
-        controller.initData(newGame);
-
-        // Stage and show the new scene
-        Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(startGameScene);
-        window.show();
+            main_uiController controller = loader.getController();
+            controller.initData(newGame);
+            // Stage and show the new scene
+            Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            window.setScene(startGameScene);
+            window.show();
+        }
     }
 }
