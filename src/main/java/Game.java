@@ -57,13 +57,13 @@ public class Game {
     public void setMoney(String difficulty) {
         switch (difficulty) {
             case ("Casual"):
-                money = 1000;
+                money = 10000;
                 break;
             case ("Regular"):
                 money = 5000;
                 break;
             case ("Hardcore"):
-                money = 10000;
+                money = 1000;
                 break;
         }
     }

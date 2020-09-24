@@ -57,6 +57,7 @@ public class game_configController implements Initializable {
         newGame.setStartingSeason(startingSeason.getValue());
 
 
+
         // setting up the loader
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../screens/main_ui.FXML"));

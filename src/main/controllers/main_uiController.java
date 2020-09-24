@@ -40,12 +40,13 @@ public class main_uiController implements Initializable {
     /**
      * This method initializes the Game UI with settings from the prev scene
      * TODO: Parth implement this
-     * @param game  param to get information from prev scene
+     * @param newGame  param to get information from prev scene
      */
-    public void initData(Game game) {
-        myGame = game;
+    public void initData(Game newGame) {
+        myGame = newGame;
         String[] seasonImages = {"spring.png", "summer.png", "fall.png", "winter.png"};
         myGame.setMoney(myGame.getDifficulty());
+
         System.out.println(myGame.toString());
     }
 
