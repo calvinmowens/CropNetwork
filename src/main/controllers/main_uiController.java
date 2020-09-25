@@ -86,7 +86,7 @@ public class main_uiController implements Initializable {
     private String setStartingSeedHelper() {
         String[] seedImages = {"../resources/potatoes.png", "../resources/watermelon.png", "../resources/corn.png", "../resources/onion.png"};
         switch(myGame.getStartingSeed()) {
-            case ("Potatoes"):
+            case ("Potato"):
                 return seedImages[0];
             case ("Watermelon"):
                 return seedImages[1];

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="366dc92c-38bc-41a0-a0fb-7903e391c3f4" name="Default Changelist" comment="">
+    <list default="true" id="f7763c3a-36a2-4138-9f07-9e2eb6568e26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/game_configController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/controllers/game_configController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controllers/game_configController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/game_configController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/screens/welcome_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/welcome_screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/welcome_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs2340_team44_m_/main/screens/welcome_screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/main_uiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,9 +116,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600957773874">
-      <screen x="0" y="23" width="2560" height="1353" />
+    <state x="362" y="71" key="#Project_Structure" timestamp="1601001658518">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="362" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1601001658518" />
+    <state x="455" y="157" width="782" height="592" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600999157637">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="455" y="157" width="782" height="592" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1600999157637" />
     <state x="759" y="280" width="1079" height="971" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1353@0.23.2560.1353" timestamp="1600957773874" />
     <state x="1065" y="291" key="#com.intellij.ide.util.MemberChooser" timestamp="1600969547140">
       <screen x="0" y="0" width="2560" height="1440" />
