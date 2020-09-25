@@ -60,7 +60,7 @@ public class game_configController implements Initializable {
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../screens/main_ui.FXML"));
+            loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
             Parent startGame = loader.load();
             Scene startGameScene = new Scene(startGame);
 
