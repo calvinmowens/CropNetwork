@@ -54,7 +54,7 @@ public class main_uiController implements Initializable {
         farm_name.setText(myGame.getName());
 
         if (myGame.getGender().equals("FEMALE")) {
-            avatar.setImage(new Image(getClass().getResourceAsStream("../resources/female.png")));
+            avatar.setImage(new Image(getClass().getResourceAsStream("/main/resources/female.png")));
         }
 
         background_season.setImage(new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
@@ -68,7 +68,7 @@ public class main_uiController implements Initializable {
     }
 
     private String setStartingSeasonHelper() {
-        String[] seasonImages = {"../resources/spring.png", "../resources/summer.png", "../resources/fall.png", "../resources/winter.png"};
+        String[] seasonImages = {"/main/resources/spring.png", "/main/resources/summer.png", "/main/resources/fall.png", "/main/resources/winter.png"};
         switch(myGame.getStartingSeason()) {
             case ("Spring"):
                 return seasonImages[0];
@@ -84,7 +84,7 @@ public class main_uiController implements Initializable {
     }
 
     private String setStartingSeedHelper() {
-        String[] seedImages = {"../resources/potatoes.png", "../resources/watermelon.png", "../resources/corn.png", "../resources/onion.png"};
+        String[] seedImages = {"/main/resources/potatoes.png", "/main/resources/watermelon.png", "/main/resources/corn.png", "/main/resources/onion.png"};
         switch(myGame.getStartingSeed()) {
             case ("Potato"):
                 return seedImages[0];
