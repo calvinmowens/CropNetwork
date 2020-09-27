@@ -16,6 +16,7 @@ public class WelcomeScreenController {
         Scene scene = new Scene(root);
 
         Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setTitle("Config Screen");
         window.setScene(scene);
         window.show();
 
