@@ -42,8 +42,10 @@ public class MainUiController implements Initializable {
 
     /**
      * This method is used to hide certain scene elements prior to page load.
-     * @param url
-     * @param resourceBundle
+     * @param url The location used to resolve
+     *            relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to
+     *                       localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

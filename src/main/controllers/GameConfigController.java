@@ -33,8 +33,10 @@ public class GameConfigController implements Initializable {
     /**
      * This method initializes out choice boxes with the selection items we want
      * them to have.
-     * @param url
-     * @param resourceBundle
+     * @param url The location used to resolve
+     *            relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to
+     *                       localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
