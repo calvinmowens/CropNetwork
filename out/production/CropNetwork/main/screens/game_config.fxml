@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #83AD28;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.GameConfigController">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="796.0" layoutX="268.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="268.0" AnchorPane.topAnchor="50.0">
+            <image>
+                <Image url="@../resources/grass.png" />
+            </image>
+        </ImageView>
+        <VBox layoutX="500.0" layoutY="184.0" prefHeight="420.0" prefWidth="301.0">
+            <children>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="51.0" text="Name" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="120.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="name" prefHeight="27.0" prefWidth="166.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Calibri" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="68.0" text="Gender" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="113.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="21.0" prefWidth="301.0">
+               <children>
+                  <RadioButton id="MaleRadioBtn" mnemonicParsing="false" text="MALE">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Cartoonist Kooky" size="13.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton id="FemaleRadioBtn" mnemonicParsing="false" text="FEMALE" toggleGroup="$gender">
+                     <HBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Cartoonist Kooky" size="13.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="73.0" />
+               </padding>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="96.0" text="Difficulty" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="96.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="difficulty" prefHeight="27.0" prefWidth="203.0">
+               <VBox.margin>
+                  <Insets left="43.0" top="10.0" />
+               </VBox.margin></ChoiceBox>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="133.0" text="Starting Seed" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="80.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="startingSeed" prefWidth="203.0">
+               <VBox.margin>
+                  <Insets left="43.0" top="10.0" />
+               </VBox.margin></ChoiceBox>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="160.0" text="Starting Season" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="64.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="startingSeason" prefWidth="203.0">
+               <VBox.margin>
+                  <Insets left="43.0" top="10.0" />
+               </VBox.margin>
+            </ChoiceBox>
+                <Button id="startGameBtn" mnemonicParsing="false" onAction="#startGame" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="Start Game" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Cartoonist Kooky" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="25.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+        <Label alignment="CENTER" graphicTextGap="2.0" layoutX="462.0" layoutY="83.0" prefHeight="65.0" prefWidth="376.0" text="CROP NETWORK" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="GROBOLD" size="41.0" />
+            </font>
+        </Label>
+        <Label layoutX="574.0" layoutY="676.0" text="© Crop Network - GT" textFill="WHITE">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+      <ImageView fitHeight="400.0" fitWidth="222.0" layoutX="107.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/harvest@4x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="607.0" fitWidth="552.0" layoutX="895.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/green_house@4x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="976.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/chicken_1@4x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="234.0" fitWidth="270.0" layoutX="81.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/cow2@4x.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
+
+<!--
+Graphic Credits
+    <a href="https://www.freepik.com/vectors/design">Design vector created by macrovector - www.freepik.com</a>
+    <a href="https://www.freepik.com/vectors/food">Food vector created by macrovector - www.freepik.com</a>
+-->

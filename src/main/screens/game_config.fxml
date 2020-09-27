@@ -49,7 +49,7 @@
             </Label>
             <HBox prefHeight="21.0" prefWidth="301.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="MALE">
+                  <RadioButton id="MaleRadioBtn" mnemonicParsing="false" text="MALE">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
@@ -60,7 +60,7 @@
                         <ToggleGroup fx:id="gender" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="FEMALE" toggleGroup="$gender">
+                  <RadioButton id="FemaleRadioBtn" mnemonicParsing="false" text="FEMALE" toggleGroup="$gender">
                      <HBox.margin>
                         <Insets left="20.0" top="5.0" />
                      </HBox.margin>

@@ -1,5 +1,7 @@
 package main.controllers;
 
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +13,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 import main.java.Game;
+import org.w3c.dom.Text;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +34,56 @@ public class GameConfigController implements Initializable {
     private ChoiceBox<String> startingSeed;
     @FXML
     private ChoiceBox<String> startingSeason;
+
+    public void setName(String name) {
+        this.name = new TextField(name);
+    }
+    public TextField getName() {
+        return this.name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = new ToggleGroup();
+        RadioButton male = new RadioButton("MALE");
+        male.setToggleGroup(this.gender);
+        male.setUserData("M");
+
+        RadioButton female = new RadioButton("FEMALE");
+        female.setToggleGroup(this.gender);
+        female.setUserData("F");
+        ObservableList<Toggle> m = this.gender.getToggles();
+        this.gender.selectToggle(this.gender.getToggles().get(gender == "MALE" ? 0 : 1));
+    }
+    public ToggleGroup getGender() {
+        return this.gender;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = new ChoiceBox<>();
+        this.difficulty.setValue(difficulty);
+    }
+
+    public ChoiceBox<String> getDifficulty() {
+        return this.difficulty;
+    }
+
+    public void setStartingSeed(String seed) {
+        this.startingSeed = new ChoiceBox<>();
+        this.startingSeed.setValue(seed);
+    }
+
+    public ChoiceBox<String> getStartingSeed() {
+        return this.startingSeed;
+    }
+
+    public void setStartingSeason(String season) {
+        this.startingSeason = new ChoiceBox<>();
+        this.startingSeason.setValue(season);
+    }
+
+    public ChoiceBox<String> getStartingSeason() {
+        return this.startingSeason;
+    }
 
     /**
      * This method initializes out choice boxes with the selection items we want
@@ -77,6 +132,7 @@ public class GameConfigController implements Initializable {
             controller.initData(newGame);
             // Stage and show the new scene
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            window.setTitle("Main UI");
             window.setScene(startGameScene);
             window.show();
         }
