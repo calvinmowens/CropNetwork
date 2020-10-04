@@ -158,7 +158,7 @@ Graphic Credits
          </image>
       </ImageView>
       <Button id="plot12" layoutX="875.0" layoutY="335.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-        <AnchorPane id="blackPanelForCropInventory" fx:id="background" opacity="0.46" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
+        <AnchorPane id="blackPanel" fx:id="background" opacity="0.46" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
       <Label layoutX="61.0" layoutY="584.0" prefHeight="0.0" prefWidth="16.0" styleClass="part_of_overlay_modal_and_original" text="^" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="23.0" />
@@ -212,7 +212,6 @@ Graphic Credits
             </ImageView>
          </graphic>
       </Button>
-      <AnchorPane id="blackPanelForSeedBag" fx:id="background1" opacity="0.46" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
       <Label id="cornCropCounter" layoutX="89.0" layoutY="447.0" text="10" />
         <Label layoutX="414.0" layoutY="584.0" prefHeight="0.0" prefWidth="16.0" styleClass="part_of_overlay_modal_and_original" text="^" textFill="WHITE">
             <font>
