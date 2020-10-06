@@ -5,12 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MarketInventoryUiController {
+
+    public Label currentPlayerMoney;
+    public ImageView selectedItemImage;
+    public Label selectedItemName;
+    public Label selectedItemPrice;
+    public TextField selectedItemQuantity;
+    public Label selectedItemTotal;
 
     public void switchToMarket(MouseEvent mouseEvent) throws IOException {
         Parent marketView = FXMLLoader.load(getClass().getResource("/main/screens/market_ui.FXML"));
@@ -26,5 +36,17 @@ public class MarketInventoryUiController {
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
+    }
+
+    public void exitMarket(MouseEvent mouseEvent) throws IOException{
+        Parent exitMarket = FXMLLoader.load(getClass().getResource("/main/screens/main_ui.FXML"));
+        Scene exitMarketScene = new Scene(exitMarket);
+
+        //TODO Reimplement initdata with Game
+
+        Stage window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+
+        window.setScene(exitMarketScene);
+        window.show();
     }
 }

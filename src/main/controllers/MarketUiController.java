@@ -36,4 +36,16 @@ public class MarketUiController {
 
     public void buyItem(ActionEvent actionEvent) {
     }
+
+    public void exitMarket(MouseEvent mouseEvent) throws IOException {
+        Parent exitMarket = FXMLLoader.load(getClass().getResource("/main/screens/main_ui.FXML"));
+        Scene exitMarketScene = new Scene(exitMarket);
+
+        //TODO Reimplement initdata with Game
+
+        Stage window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+
+        window.setScene(exitMarketScene);
+        window.show();
+    }
 }
