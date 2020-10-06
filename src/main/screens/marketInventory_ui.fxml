@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +16,7 @@
             <Image url="@../resources/market_inventoryUI.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="149.0" layoutX="47.0" layoutY="313.0" onMouseClicked="#switchToMarket" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="64.0" fitWidth="149.0" layoutX="47.0" layoutY="313.0" onMouseClicked="#switchToMarket" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/market_button.png" />
          </image>
@@ -23,142 +24,159 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="633.0" layoutY="271.0" prefHeight="17.0" prefWidth="97.0" text="MONEY" textAlignment="RIGHT" textFill="WHITE">
+      <Label fx:id="currentPlayerMoney" layoutX="633.0" layoutY="270.0" prefHeight="17.0" prefWidth="97.0" text="MONEY" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="265.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane layoutX="959.0" layoutY="71.0" prefHeight="570.0" prefWidth="244.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+            <ImageView fx:id="selectedItemImage" fitHeight="199.0" fitWidth="168.0" layoutX="40.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="selectedItemName" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="262.0" prefHeight="31.0" prefWidth="210.0" text="INVENTORY ITEM" textAlignment="CENTER">
                <font>
-                  <Font size="9.0" />
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="18.0" layoutY="337.0" prefHeight="21.0" prefWidth="106.0" text="PRICE PER ITEM:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="18.0" layoutY="377.0" prefHeight="21.0" prefWidth="106.0" text="QUANTITY:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="18.0" layoutY="419.0" prefHeight="21.0" prefWidth="106.0" text="TOTAL:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectedItemPrice" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="165.0" layoutY="337.0" prefHeight="21.0" prefWidth="63.0" text="\$PRICE" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="selectedItemQuantity" layoutX="168.0" layoutY="374.0" prefHeight="18.0" prefWidth="61.0" />
+            <Label fx:id="selectedItemTotal" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="163.0" layoutY="419.0" prefHeight="21.0" prefWidth="63.0" text="\$PRICE" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button id="startGameBtn" layoutX="18.0" layoutY="479.0" mnemonicParsing="false" onAction="#sellItem" onMouseClicked="#changeScreen" prefHeight="54.0" prefWidth="212.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="SELL" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cartoonist Kooky" size="15.0" />
                </font>
             </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="398.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem1" layoutX="257.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="533.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem2" layoutX="392.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="665.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem3" layoutX="525.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="265.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem4" layoutX="660.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="398.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem5" layoutX="257.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="533.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem6" layoutX="392.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="266.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem7" layoutX="525.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="398.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem8" layoutX="660.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="665.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem9" layoutX="257.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="533.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem10" layoutX="392.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
-      <AnchorPane layoutX="666.0" layoutY="391.0" prefHeight="79.0" prefWidth="82.0">
+      <AnchorPane fx:id="inventoryItem11" layoutX="525.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
-            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+            <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="inventoryItem12" layoutX="660.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
+         <children>
+            <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

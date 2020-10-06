@@ -114,7 +114,6 @@ public class MainUiController implements Initializable {
         }
     }
 
-
     public void toggleSeedModal(ActionEvent actionEvent) {
         seedBagClick.set(!seedBagClick.get());
     }
