@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MarketInventoryUiController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/market_inventoryUI.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="149.0" layoutX="47.0" layoutY="313.0" onMouseClicked="#switchToMarket" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/market_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="633.0" layoutY="271.0" prefHeight="17.0" prefWidth="97.0" text="MONEY" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="265.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="398.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="533.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="665.0" layoutY="301.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="265.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="398.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="533.0" layoutY="392.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="266.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="398.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="665.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="533.0" layoutY="482.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="666.0" layoutY="391.0" prefHeight="79.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="75.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="9.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="17.0" prefWidth="60.0" text="Button">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="16.0" layoutY="58.0" text="ItemCost" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
