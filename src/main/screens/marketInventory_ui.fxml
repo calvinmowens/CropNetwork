@@ -63,7 +63,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button id="startGameBtn" layoutX="18.0" layoutY="479.0" mnemonicParsing="false" onAction="#sellItem" onMouseClicked="#changeScreen" prefHeight="54.0" prefWidth="212.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="SELL" textAlignment="CENTER" textFill="WHITE">
+            <Button id="startGameBtn" layoutX="18.0" layoutY="479.0" mnemonicParsing="false" onAction="#sellItem" prefHeight="54.0" prefWidth="212.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="SELL" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Cartoonist Kooky" size="15.0" />
                </font>
