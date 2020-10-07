@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
 
+    public AnchorPane inventoryModal;
     @FXML
     private ImageView seedImage;
     @FXML
@@ -40,6 +42,9 @@ public class MainUiController implements Initializable {
     private Label farmName;
 
     private BooleanProperty seedBagClick = new SimpleBooleanProperty(false);
+    private BooleanProperty inventoryClick = new SimpleBooleanProperty(false);
+    private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
+
 
     /**
      * Create clock method and update time on 10ms basis. Best way to do this?
@@ -56,7 +61,8 @@ public class MainUiController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         seedModal.visibleProperty().bind(seedBagClick);
-        background.visibleProperty().bind(seedBagClick);
+        background.visibleProperty().bind(backgroundToggle);
+        inventoryModal.visibleProperty().bind(inventoryClick);
     }
 
     /**
@@ -122,6 +128,7 @@ public class MainUiController implements Initializable {
 
     public void toggleSeedModal(ActionEvent actionEvent) {
         seedBagClick.set(!seedBagClick.get());
+        backgroundToggle.set(!backgroundToggle.get());
     }
 
     public void openMarket(ActionEvent actionEvent) throws IOException {
@@ -137,5 +144,10 @@ public class MainUiController implements Initializable {
         window.setTitle("Market: Buy");
         window.setScene(startOpenMarket);
         window.show();
+    }
+
+    public void openInventoryModal(ActionEvent actionEvent) {
+        inventoryClick.set(!inventoryClick.get());
+        backgroundToggle.set(!backgroundToggle.get());
     }
 }
