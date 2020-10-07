@@ -9,6 +9,9 @@ public class Game {
     private String startingSeason; // convert this to an int??
     private int money = 0;
 
+    private Market market;
+    private Item[] inventory = new Item[12]; // should we do an arraylist with no resizing?
+
     public String getName() {
         return name;
     }
