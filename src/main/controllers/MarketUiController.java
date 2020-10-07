@@ -2,6 +2,7 @@ package main.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,10 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import main.java.Game;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MarketUiController {
+public class MarketUiController implements Initializable {
+
+    private Game myGame;
+
     public Label currentPlayerMoney;
     public ImageView selectedItemImage;
     public Label selectedItemName;
@@ -21,13 +28,26 @@ public class MarketUiController {
     public TextField selectedItemQuantity;
     public Label selectedItemTotal;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO set all selectedItem window to zero
+    }
+
+    public void initData(Game currentGame) {
+        myGame = currentGame;
+    }
+
     public void switchToInventory(MouseEvent mouseEvent) throws IOException {
-        Parent marketView = FXMLLoader.load(getClass().getResource("/main/screens/marketInventory_ui.FXML"));
-        Scene newPageScene = new Scene(marketView);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/screens/marketInventory_ui.FXML"));
+        Parent marketInventory = loader.load();
+        Scene startMarketInventory = new Scene(marketInventory);
 
-        Stage window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-
-        window.setScene(newPageScene);
+        MarketInventoryUiController controller = loader.getController();
+        controller.initData(myGame);
+        Stage window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        window.setTitle("Market: Sell");
+        window.setScene(startMarketInventory);
         window.show();
     }
 
@@ -38,14 +58,17 @@ public class MarketUiController {
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException {
-        Parent exitMarket = FXMLLoader.load(getClass().getResource("/main/screens/main_ui.FXML"));
-        Scene exitMarketScene = new Scene(exitMarket);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
+        Parent exitMarket = loader.load();
+        Scene startExitMarket = new Scene(exitMarket);
 
-        //TODO Reimplement initdata with Game
-
-        Stage window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-
-        window.setScene(exitMarketScene);
+        MainUiController controller = loader.getController();
+        controller.initData(myGame);
+        // Stage and show the new scene
+        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setTitle("Welcome, " + myGame.getName());
+        window.setScene(startExitMarket);
         window.show();
     }
 }

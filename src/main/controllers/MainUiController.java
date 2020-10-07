@@ -125,12 +125,17 @@ public class MainUiController implements Initializable {
     }
 
     public void openMarket(ActionEvent actionEvent) throws IOException {
-        Parent openMarketView = FXMLLoader.load(getClass().getResource("/main/screens/market_ui.FXML"));
-        Scene marketView = new Scene(openMarketView);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/screens/market_ui.FXML"));
+        Parent openMarket = loader.load();
+        Scene startOpenMarket = new Scene(openMarket);
 
-        Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(marketView);
+        MarketUiController controller = loader.getController();
+        controller.initData(myGame);
+        // Stage and show the new scene
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setTitle("Market: Buy");
+        window.setScene(startOpenMarket);
         window.show();
     }
 }
