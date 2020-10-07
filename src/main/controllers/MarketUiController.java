@@ -30,11 +30,15 @@ public class MarketUiController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO set all selectedItem window to zero
+        selectedItemImage.setImage(null);
+        selectedItemName.setText(null);
+        selectedItemPrice.setText(null);
     }
 
     public void initData(Game currentGame) {
         myGame = currentGame;
+        currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+        // TODO update with inventory and store items
     }
 
     public void switchToInventory(MouseEvent mouseEvent) throws IOException {
