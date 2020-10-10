@@ -1,6 +1,7 @@
 package main.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -8,10 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.Market;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +31,10 @@ public class MarketUiController implements Initializable {
     public Label selectedItemPrice;
     public TextField selectedItemQuantity;
     public Label selectedItemTotal;
+    @FXML
+    private AnchorPane marketItem1;
+    @FXML
+    private AnchorPane marketItem2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,7 +45,22 @@ public class MarketUiController implements Initializable {
 
     public void initData(Game currentGame) {
         myGame = currentGame;
+        Market myMarket = myGame.getMarket();
+
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+
+        /** Add corn to marketplace */
+        ImageView item1Image = (ImageView) (marketItem1.getChildren().get(0));
+        Label item1Label = (Label) (marketItem1.getChildren().get(1));
+        item1Image.setImage(myMarket.getCornSeed().getImage());
+        item1Label.setText("$"+myMarket.getCornSeed().getBasePrice());
+
+        /** Add watermelon to marketplace */
+        ImageView item2Image = (ImageView) (marketItem2.getChildren().get(0));
+        Label item2Label = (Label) (marketItem2.getChildren().get(1));
+        item2Image.setImage(myMarket.getWatermelonSeed().getImage());
+        item2Label.setText("$"+myMarket.getWatermelonSeed().getBasePrice());
+
         // TODO update with inventory and store items
     }
 
@@ -56,6 +79,7 @@ public class MarketUiController implements Initializable {
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
+        System.out.println(mouseEvent.getTarget());
     }
 
     public void buyItem(ActionEvent actionEvent) {

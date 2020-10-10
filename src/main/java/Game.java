@@ -8,9 +8,26 @@ public class Game {
     private String startingSeed; // convert this to an int??
     private String startingSeason; // convert this to an int??
     private int money = 0;
+    private Inventory inventory;
+
+    public void setMarket(Market market) {
+        this.market = market;
+    }
+
+    public Market getMarket() {
+        return market;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
 
     private Market market;
-    private Item[] inventory = new Item[12]; // should we do an arraylist with no resizing?
+   // private Item[] inventory = new Item[12]; // should we do an arraylist with no resizing?
 
     public String getName() {
         return name;
@@ -72,6 +89,8 @@ public class Game {
             break;
         }
     }
+
+
 
     @Override
     public String toString() {

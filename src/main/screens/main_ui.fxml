@@ -184,7 +184,7 @@ Graphic Credits
                   </ImageView>
                </graphic>
             </Button>
-            <Label id="onionCropCounter" layoutX="64.0" layoutY="166.0" text="10" />
+            <Label fx:id="onionCropCounter" id="onionCropCounter" layoutX="64.0" layoutY="166.0" text="0" />
             <Button id="potatoInventorySpace" layoutX="103.0" layoutY="105.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                <graphic>
                   <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -194,7 +194,7 @@ Graphic Credits
                   </ImageView>
                </graphic>
             </Button>
-            <Label id="potatoCropCounter" layoutX="167.0" layoutY="166.0" text="10" />
+            <Label fx:id="potatoCropCounter" id="potatoCropCounter" layoutX="167.0" layoutY="166.0" text="0" />
             <Button id="watermelonInventorySpace" layoutX="208.0" layoutY="105.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                <graphic>
                   <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -204,7 +204,7 @@ Graphic Credits
                   </ImageView>
                </graphic>
             </Button>
-            <Label id="watermelonCropCounter" layoutX="272.0" layoutY="166.0" text="10" />
+            <Label fx:id="watermelonCropCounter" id="watermelonCropCounter" layoutX="272.0" layoutY="166.0" text="0" />
             <Button id="cornInventorySpace" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                <graphic>
                   <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -214,7 +214,7 @@ Graphic Credits
                   </ImageView>
                </graphic>
             </Button>
-            <Label id="cornCropCounter" layoutX="64.0" layoutY="61.0" text="10" />
+            <Label fx:id="cornCropCounter" id="cornCropCounter" layoutX="64.0" layoutY="61.0" text="0" />
          </children>
       </AnchorPane>
         <Label layoutX="414.0" layoutY="584.0" prefHeight="0.0" prefWidth="16.0" styleClass="part_of_overlay_modal_and_original" text="^" textFill="WHITE">
@@ -232,7 +232,7 @@ Graphic Credits
             </graphic></Button>
       <AnchorPane fx:id="seedModal" layoutX="379.0" layoutY="400.0">
          <children>
-              <Button id="s" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="onionSeedButton" id="s" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -241,7 +241,7 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-              <Button id="s" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="watermelonSeedButton" id="s" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -250,7 +250,7 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-              <Button id="s" layoutX="217.0" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="potatoSeedButton" id="s" layoutX="217.0" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -259,7 +259,7 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-              <Button id="s" layoutX="217.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="dragonfruitSeedButton" id="s" layoutX="217.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -268,7 +268,7 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-              <Button id="s" layoutX="110.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="cornSeedButton" id="s" layoutX="110.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -277,7 +277,7 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-              <Button id="s" layoutX="110.0" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+              <Button fx:id="almondSeedButton" id="s" layoutX="110.0" layoutY="98.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
                   <graphic>
                       <ImageView fitHeight="47.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -286,12 +286,12 @@ Graphic Credits
                       </ImageView>
                   </graphic>
               </Button>
-            <Label id="watermelonSeedBagCounter" layoutX="65.0" layoutY="63.0" text="10" />
-            <Label id="cornSeedBagCounter" layoutX="175.0" layoutY="65.0" text="10" />
-            <Label id="dragonfruitSeedBagCounter" layoutX="282.0" layoutY="65.0" text="10" />
-            <Label id="onionSeedBagCounter" layoutX="64.0" layoutY="162.0" text="10" />
-            <Label id="almondSeedBagCounter" layoutX="176.0" layoutY="164.0" text="10" />
-            <Label id="potatoSeedBagCounter" layoutX="282.0" layoutY="162.0" text="10" />
+            <Label fx:id="watermelonSeedBagCounter" id="watermelonSeedBagCounter" layoutX="65.0" layoutY="63.0" text="0" />
+            <Label fx:id="cornSeedBagCounter" id="cornSeedBagCounter" layoutX="175.0" layoutY="65.0" text="0" />
+            <Label fx:id="dragonfruitSeedBagCounter" id="dragonfruitSeedBagCounter" layoutX="282.0" layoutY="65.0" text="0" />
+            <Label fx:id="onionSeedBagCounter" id="onionSeedBagCounter" layoutX="64.0" layoutY="162.0" text="0" />
+            <Label fx:id="almondSeedBagCounter" id="almondSeedBagCounter" layoutX="176.0" layoutY="164.0" text="0" />
+            <Label fx:id="potatoSeedBagCounter" id="potatoSeedBagCounter" layoutX="282.0" layoutY="162.0" text="0" />
          </children>
       </AnchorPane>
     </children>

@@ -38,6 +38,8 @@ public class MarketInventoryUiController implements Initializable {
     public void initData(Game currentGame) {
         myGame = currentGame;
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+        System.out.println(myGame.getInventory().toString());
+
         // TODO update with inventory and store items
     }
 

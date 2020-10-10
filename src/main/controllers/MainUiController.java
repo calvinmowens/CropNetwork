@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.Market;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,11 +41,43 @@ public class MainUiController implements Initializable {
     private Label money;
     @FXML
     private Label farmName;
+    @FXML
+    private Label onionCropCounter;
+    @FXML
+    private Label potatoCropCounter;
+    @FXML
+    private Label watermelonCropCounter;
+    @FXML
+    private Label cornCropCounter;
+    @FXML
+    private Button almondSeedButton;
+    @FXML
+    private Button onionSeedButton;
+    @FXML
+    private Button potatoSeedButton;
+    @FXML
+    private Button watermelonSeedButton;
+    @FXML
+    private Button cornSeedButton;
+    @FXML
+    private Button dragonfruitSeedButton;
+    @FXML
+    private Label watermelonSeedBagCounter;
+    @FXML
+    private Label almondSeedBagCounter;
+    @FXML
+    private Label dragonfruitSeedBagCounter;
+    @FXML
+    private Label potatoSeedBagCounter;
+    @FXML
+    private Label cornSeedBagCounter;
+    @FXML
+    private Label onionSeedBagCounter;
+
 
     private BooleanProperty seedBagClick = new SimpleBooleanProperty(false);
     private BooleanProperty inventoryClick = new SimpleBooleanProperty(false);
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
-
 
     /**
      * Create clock method and update time on 10ms basis. Best way to do this?
@@ -63,6 +96,7 @@ public class MainUiController implements Initializable {
         seedModal.visibleProperty().bind(seedBagClick);
         background.visibleProperty().bind(backgroundToggle);
         inventoryModal.visibleProperty().bind(inventoryClick);
+
     }
 
     /**
@@ -88,6 +122,24 @@ public class MainUiController implements Initializable {
         myGame.setMoney(myGame.getDifficulty());
         money.setText("$" + Integer.toString(myGame.getMoney()));
 
+        switch (myGame.getStartingSeed()) {
+            case "Onion":
+                onionSeedBagCounter.setText("10");
+                myGame.getInventory().setOnionSeedCount(10);
+                break;
+            case "Corn":
+                cornSeedBagCounter.setText("10");
+                myGame.getInventory().setCornSeedCount(10);
+                break;
+            case "Watermelon":
+                watermelonSeedBagCounter.setText("10");
+                myGame.getInventory().setWatermelonSeedCount(10);
+                break;
+            case "Potato":
+                potatoSeedBagCounter.setText("10");
+                myGame.getInventory().setPotatoSeedCount(10);
+                break;
+        }
         System.out.println(myGame.toString());
     }
 
@@ -138,6 +190,7 @@ public class MainUiController implements Initializable {
         Scene startOpenMarket = new Scene(openMarket);
 
         MarketUiController controller = loader.getController();
+        myGame.setMarket(new Market());
         controller.initData(myGame);
         // Stage and show the new scene
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -147,7 +200,9 @@ public class MainUiController implements Initializable {
     }
 
     public void openInventoryModal(ActionEvent actionEvent) {
+        System.out.println("hello");
         inventoryClick.set(!inventoryClick.get());
         backgroundToggle.set(!backgroundToggle.get());
+
     }
 }

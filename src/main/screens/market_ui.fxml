@@ -72,7 +72,7 @@
       </AnchorPane>
       <AnchorPane fx:id="marketItem1" layoutX="225.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
-            <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="marketItem1Img" fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
          <cursor>
@@ -81,7 +81,7 @@
       </AnchorPane>
       <AnchorPane fx:id="marketItem2" layoutX="319.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
-            <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="marketItem2Img" fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
          </children>
          <cursor>

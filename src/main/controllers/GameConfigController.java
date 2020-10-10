@@ -15,6 +15,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.Inventory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -113,11 +114,13 @@ public class GameConfigController implements Initializable {
                 && gender.getSelectedToggle() != null) {
             // Creates a new Game object with information from the Screen.
             Game newGame = new Game();
+
             newGame.setName(name.getText());
             newGame.setGender(((RadioButton) gender.getSelectedToggle()).getText());
             newGame.setDifficulty(difficulty.getValue());
             newGame.setStartingSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
+            newGame.setInventory(new Inventory());
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();
