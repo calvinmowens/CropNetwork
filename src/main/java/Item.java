@@ -1,35 +1,55 @@
-/**
- * This class will be to store market and inventory items that will display in the market.
- */
-
 package main.java;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Item {
+    private int basePrice;
+    private String itemName;
+    private String imgUrl;
 
-    private String name;
-    private Image image;
-
-    public Item(String name, Image image) {
-        this.name = name;
-        this.image = image;
+    public Item() {
+        this(100, "Corn Seed", "/main/resources/corn.png");
     }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Item(int basePrice, String itemName, String imgUrl) {
+        this.basePrice = basePrice;
+        this.itemName = itemName;
+        this.imgUrl = imgUrl;
     }
 
     public Image getImage() {
-        return image;
+        Image img = new Image(this.imgUrl);
+        return img;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public Label getLabel() {
+        Label label = new Label("$" + this.basePrice);
+        return label;
+    }
+
+    public void setBasePrice(int basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 }

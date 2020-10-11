@@ -1,5 +1,9 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Game {
 
     private String name;
@@ -9,6 +13,8 @@ public class Game {
     private String startingSeason; // convert this to an int??
     private int money = 0;
     private Inventory inventory;
+    private List<InventoryItem> inventoryList = new ArrayList<>();
+
 
     public void setMarket(Market market) {
         this.market = market;
@@ -103,4 +109,9 @@ public class Game {
                 + ", money=" + money
                 + '}';
     }
+
+    public List<InventoryItem> getInventoryList() {
+        return inventoryList;
+    }
+
 }

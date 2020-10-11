@@ -13,6 +13,8 @@ public class Inventory {
     private int watermelonCount = 0;
     private int cornCount = 0;
 
+
+
     public int getCornSeedCount() {
         return cornSeedCount;
     }
