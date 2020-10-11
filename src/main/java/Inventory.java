@@ -13,6 +13,32 @@ public class Inventory {
     private int watermelonCount = 0;
     private int cornCount = 0;
 
+    public void sellFromInventory(String itemName, int amount) {
+        switch (itemName) {
+            case "Corn":
+                if (getCornCount() - amount >= 0) {
+                    setCornCount(getCornCount() - amount);
+                }
+                break;
+            case "Watermelon":
+                if (getWatermelonCount() - amount >= 0) {
+                    setWatermelonCount(getWatermelonCount() - amount);
+                }
+                break;
+            case "Onion":
+                if (getOnionCount() - amount >= 0) {
+                    setOnionCount(getOnionCount() - amount);
+                }
+                break;
+            case "Potato":
+                if (getPotatoCount() - amount >= 0) {
+                    setPotatoCount(getPotatoCount() - amount);
+                }
+                break;
+            default:
+                System.out.println("Item not selected");
+        }
+    }
     public void buyFromMarket(String itemName, int amount) {
         switch (itemName) {
             case "Corn":
@@ -36,7 +62,7 @@ public class Inventory {
                 }
                 break;
             default:
-                System.out.println("You're bad");
+                System.out.println("Item not selected");
         }
     }
 
