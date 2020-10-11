@@ -26,13 +26,13 @@ public class MainUiController implements Initializable {
 
     public AnchorPane inventoryModal;
     @FXML
-    private ImageView plot1Image;
+    private ImageView plot2Image;
     @FXML
-    private ImageView plot3Image;
+    private ImageView plot4Image;
     @FXML
-    private ImageView plot5Image;
+    private ImageView plot6Image;
     @FXML
-    private ImageView plot8Image;
+    private ImageView plot9Image;
     @FXML
     private ImageView seedImage;
     @FXML
@@ -215,6 +215,27 @@ public class MainUiController implements Initializable {
     }
 
     public void harvestCrop(ActionEvent actionEvent) {
-        System.out.println(actionEvent.getSource());
+        String id = ((Node) actionEvent.getSource()).getId();
+        switch (id) {
+            case "plot2":
+                plot2Image.setImage(new Image("/main/resources/blank.png"));
+                myGame.getInventory().setWatermelonCount(myGame.getInventory().getWatermelonCount() + 1);
+                break;
+            case "plot4":
+                plot4Image.setImage(new Image("/main/resources/blank.png"));
+                myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 1);
+                break;
+            case "plot6":
+                plot6Image.setImage(new Image("/main/resources/blank.png"));
+                myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 1);
+                break;
+            case "plot9":
+                plot9Image.setImage(new Image("/main/resources/blank.png"));
+                myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 1);
+                break;
+            default:
+                System.out.println("Not mature");
+        }
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
     }
 }

@@ -92,7 +92,7 @@ Graphic Credits
          </image>
       </ImageView>
       <Button onAction="#harvestCrop" id="plot1" layoutX="240.0" layoutY="335.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="plot1Image" id="watermelonMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="308.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="plot2Image" id="watermelonMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="308.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/watermelon_mature.png" />
          </image>
@@ -104,7 +104,7 @@ Graphic Credits
          </image>
       </ImageView>
       <Button  onAction="#harvestCrop" id="plot3" layoutX="454.0" layoutY="252.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="plot3Image" id="potatoMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="512.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="plot4Image" id="potatoMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="512.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/potato_mature.png" />
          </image>
@@ -116,7 +116,7 @@ Graphic Credits
          </image>
       </ImageView>
       <Button onAction="#harvestCrop" id="plot5" layoutX="391.0" layoutY="398.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="plot5Image" id="cornMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="457.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="plot6Image" id="cornMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="457.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/corn_mature.png" />
          </image>
@@ -134,7 +134,7 @@ Graphic Credits
          </image>
       </ImageView>
       <Button onAction="#harvestCrop" id="plot8" layoutX="710.0" layoutY="275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="plot8Image" id="onionMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="531.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="plot9Image" id="onionMaturePlot" fitHeight="150.0" fitWidth="200.0" layoutX="531.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/onion_mature.png" />
          </image>

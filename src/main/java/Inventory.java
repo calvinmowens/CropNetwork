@@ -13,59 +13,6 @@ public class Inventory {
     private int watermelonCount = 0;
     private int cornCount = 0;
 
-    public void sellFromInventory(String itemName, int amount, int price) {
-        switch (itemName) {
-            case "Corn":
-                if (getCornCount() - amount >= 0) {
-                    setCornCount(getCornCount() - amount);
-                }
-                break;
-            case "Watermelon":
-                if (getWatermelonCount() - amount >= 0) {
-                    setWatermelonCount(getWatermelonCount() - amount);
-                }
-                break;
-            case "Onion":
-                if (getOnionCount() - amount >= 0) {
-                    setOnionCount(getOnionCount() - amount);
-                }
-                break;
-            case "Potato":
-                if (getPotatoCount() - amount >= 0) {
-                    setPotatoCount(getPotatoCount() - amount);
-                }
-                break;
-            default:
-                System.out.println("Item not selected");
-        }
-    }
-    public void buyFromMarket(String itemName, int amount, int price) {
-        switch (itemName) {
-            case "Corn":
-                if (getCornSeedCount() + amount <= 10) {
-                    setCornSeedCount(getCornSeedCount() + amount);
-                }
-                break;
-            case "Watermelon":
-                if (getWatermelonSeedCount() + amount <= 10) {
-                    setWatermelonSeedCount(getWatermelonSeedCount() + amount);
-                }
-                break;
-            case "Onion":
-                if (getOnionSeedCount() + amount <= 10) {
-                    setOnionSeedCount(getOnionSeedCount() + amount);
-                }
-                break;
-            case "Potato":
-                if (getPotatoSeedCount() + amount <= 10) {
-                    setPotatoSeedCount(getPotatoSeedCount() + amount);
-                }
-                break;
-            default:
-                System.out.println("Item not selected");
-        }
-    }
-
     public int getCornSeedCount() {
         return cornSeedCount;
     }

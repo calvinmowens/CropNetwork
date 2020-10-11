@@ -9,6 +9,24 @@ public class Game {
     private String startingSeason; // convert this to an int??
     private int money = 0;
     private Inventory inventory;
+    private int cropPrice;
+    private int seedPrice;
+
+    public int getSeedPrice() {
+        return seedPrice;
+    }
+
+    public void setSeedPrice(int seedPrice) {
+        this.seedPrice = seedPrice;
+    }
+
+    public int getCropPrice() {
+        return cropPrice;
+    }
+
+    public void setCropPrice(int cropPrice) {
+        this.cropPrice = cropPrice;
+    }
 
     public void setMarket(Market market) {
         this.market = market;
@@ -78,12 +96,18 @@ public class Game {
         switch (difficulty) {
         case ("Casual"):
             money = 10000;
+            seedPrice = 70;
+            cropPrice = 130;
             break;
         case ("Regular"):
             money = 5000;
+            seedPrice = 100;
+            cropPrice = 100;
             break;
         case ("Hardcore"):
             money = 1000;
+            seedPrice = 130;
+            cropPrice = 70;
             break;
         default:
             break;
@@ -123,6 +147,7 @@ public class Game {
             default:
                 System.out.println("Item not selected");
         }
+        System.out.println(money);
     }
     public void buyFromMarket(String itemName, int amount, int price) {
         switch (itemName) {
@@ -153,6 +178,7 @@ public class Game {
             default:
                 System.out.println("Item not selected");
         }
+        System.out.println(money);
     }
 
 
