@@ -83,6 +83,9 @@ public class MarketUiController implements Initializable {
     }
 
     public void buyItem(ActionEvent actionEvent) {
+        int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
+        String selectedItem = selectedItemName.getText();
+        myGame.getInventory().buyFromMarket(selectedItem, buyAmount);
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException {

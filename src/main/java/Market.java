@@ -2,7 +2,7 @@ package main.java;
 
 public class Market {
 
-    private Item[] avaliableItems = new Item[18];
+    private Item[] availableItems = new Item[18];
 
     private MarketItem CornSeed = new MarketItem(100, "Corn Seed", "/main/resources/corn.png");
 
