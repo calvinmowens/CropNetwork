@@ -60,7 +60,8 @@ public class MarketInventoryUiController implements Initializable {
     public void sellItem(ActionEvent actionEvent) {
         int sellAmount = Integer.parseInt(selectedItemQuantity.getText());
         String selectedItem = selectedItemName.getText();
-        myGame.getInventory().sellFromInventory(selectedItem, sellAmount);
+        int price = Integer.parseInt(selectedItemPrice.getText());
+        myGame.sellFromInventory(selectedItem, sellAmount, price);
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {

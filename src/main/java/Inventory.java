@@ -13,7 +13,7 @@ public class Inventory {
     private int watermelonCount = 0;
     private int cornCount = 0;
 
-    public void sellFromInventory(String itemName, int amount) {
+    public void sellFromInventory(String itemName, int amount, int price) {
         switch (itemName) {
             case "Corn":
                 if (getCornCount() - amount >= 0) {
@@ -39,7 +39,7 @@ public class Inventory {
                 System.out.println("Item not selected");
         }
     }
-    public void buyFromMarket(String itemName, int amount) {
+    public void buyFromMarket(String itemName, int amount, int price) {
         switch (itemName) {
             case "Corn":
                 if (getCornSeedCount() + amount <= 10) {

@@ -26,6 +26,14 @@ public class MainUiController implements Initializable {
 
     public AnchorPane inventoryModal;
     @FXML
+    private ImageView plot1Image;
+    @FXML
+    private ImageView plot3Image;
+    @FXML
+    private ImageView plot5Image;
+    @FXML
+    private ImageView plot8Image;
+    @FXML
     private ImageView seedImage;
     @FXML
     private ImageView avatar;
@@ -204,5 +212,9 @@ public class MainUiController implements Initializable {
         inventoryClick.set(!inventoryClick.get());
         backgroundToggle.set(!backgroundToggle.get());
 
+    }
+
+    public void harvestCrop(ActionEvent actionEvent) {
+        System.out.println(actionEvent.getSource());
     }
 }
