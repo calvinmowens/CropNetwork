@@ -16,6 +16,8 @@ import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 import main.java.Game;
 import main.java.Inventory;
+import main.java.InventoryItem;
+import main.java.Item;
 
 import java.io.IOException;
 import java.net.URL;
@@ -121,6 +123,8 @@ public class GameConfigController implements Initializable {
             newGame.setStartingSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
+
+            newGame.getInventoryList().add(new InventoryItem(100, "Corn Seed", "/main/resources/corn.png", 10));
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();

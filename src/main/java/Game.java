@@ -1,5 +1,9 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Game {
 
     private String name;
@@ -27,6 +31,8 @@ public class Game {
     public void setCropPrice(int cropPrice) {
         this.cropPrice = cropPrice;
     }
+    private List<InventoryItem> inventoryList = new ArrayList<>();
+
 
     public void setMarket(Market market) {
         this.market = market;
@@ -194,4 +200,9 @@ public class Game {
                 + ", money=" + money
                 + '}';
     }
+
+    public List<InventoryItem> getInventoryList() {
+        return inventoryList;
+    }
+
 }

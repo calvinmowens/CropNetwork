@@ -1,6 +1,7 @@
 package main.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -8,13 +9,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.InventoryItem;
+import main.java.Item;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MarketInventoryUiController implements Initializable {
@@ -27,6 +33,8 @@ public class MarketInventoryUiController implements Initializable {
     public Label selectedItemPrice;
     public TextField selectedItemQuantity;
     public Label selectedItemTotal;
+    @FXML
+    private AnchorPane inventoryItems;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,8 +47,17 @@ public class MarketInventoryUiController implements Initializable {
         myGame = currentGame;
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
         System.out.println(myGame.getInventory().toString());
-
+        System.out.println( myGame.getInventoryList().get(0).getItemName());
+        List<InventoryItem> myInventory = myGame.getInventoryList();
+        for (int i = 0; i < myInventory.size(); i++) {
+            AnchorPane itemSlot = (AnchorPane)(inventoryItems.getChildren().get(0));
+            ImageView itemImg = (ImageView) itemSlot.getChildren().get(0);
+            itemImg.setImage(myInventory.get(i).getImage());
+            Label itemCount = (Label) itemSlot.getChildren().get(1);
+            itemCount.setText(myInventory.get(i).getCount() + "/ 100");
+        }
         // TODO update with inventory and store items
+
     }
 
     public void switchToMarket(MouseEvent mouseEvent) throws IOException {
