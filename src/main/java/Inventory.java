@@ -14,7 +14,6 @@ public class Inventory {
     private int cornCount = 0;
 
 
-
     public int getCornSeedCount() {
         return cornSeedCount;
     }
@@ -78,6 +77,7 @@ public class Inventory {
     public int getCornCount() {
         return cornCount;
     }
+
 
     @Override
     public String toString() {

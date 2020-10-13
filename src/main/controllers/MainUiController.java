@@ -15,12 +15,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.java.Game;
-import main.java.Market;
+import main.java.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.*;
 
 public class MainUiController implements Initializable {
 
@@ -81,7 +81,13 @@ public class MainUiController implements Initializable {
     private Label cornSeedBagCounter;
     @FXML
     private Label onionSeedBagCounter;
+    @FXML
+    private AnchorPane plotPane;
 
+    private boolean plot2harvested = false;
+    private boolean plot4harvested = false;
+    private boolean plot6harvested = false;
+    private boolean plot9harvested = false;
 
     private BooleanProperty seedBagClick = new SimpleBooleanProperty(false);
     private BooleanProperty inventoryClick = new SimpleBooleanProperty(false);
@@ -129,26 +135,37 @@ public class MainUiController implements Initializable {
 
         myGame.setMoney(myGame.getDifficulty());
         money.setText("$" + Integer.toString(myGame.getMoney()));
-
         switch (myGame.getStartingSeed()) {
             case "Onion":
                 onionSeedBagCounter.setText("10");
-                myGame.getInventory().setOnionSeedCount(10);
+
+                //myInventory.add(new InventoryItem(100, "Onion Seed", "/main/resources/onionBag.png", 10));
+//                myGame.getInventory().setOnionSeedCount(10);
                 break;
             case "Corn":
                 cornSeedBagCounter.setText("10");
-                myGame.getInventory().setCornSeedCount(10);
+                //myInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/cornBag.png", 10));
+//                myGame.getInventory().setCornSeedCount(10);
                 break;
             case "Watermelon":
                 watermelonSeedBagCounter.setText("10");
-                myGame.getInventory().setWatermelonSeedCount(10);
+                //myInventory.add(new InventoryItem(100, "Watermelon Seed", "/main/resources/watermelonBag.png", 10));
+//                myGame.getInventory().setWatermelonSeedCount(10);
                 break;
             case "Potato":
                 potatoSeedBagCounter.setText("10");
-                myGame.getInventory().setPotatoSeedCount(10);
+                //myInventory.add(new InventoryItem(100, "Potato Seed", "/main/resources/potatoBag.png", 10));
+//                myGame.getInventory().setPotatoSeedCount(10);
                 break;
         }
-        System.out.println(myGame.toString());
+
+        CropPlot[] myPlots = myGame.getPlots();
+        for (int i = 0; i < myPlots.length; i++) {
+            if (myPlots[i] != null) {
+                ((ImageView)plotPane.getChildren().get(i*2)).setImage(myPlots[i].getImage());
+            }
+        }
+
     }
 
     private String setStartingSeasonHelper() {
@@ -216,26 +233,35 @@ public class MainUiController implements Initializable {
 
     public void harvestCrop(ActionEvent actionEvent) {
         String id = ((Node) actionEvent.getSource()).getId();
-        switch (id) {
-            case "plot2":
-                plot2Image.setImage(new Image("/main/resources/blank.png"));
-                myGame.getInventory().setWatermelonCount(myGame.getInventory().getWatermelonCount() + 1);
-                break;
-            case "plot4":
-                plot4Image.setImage(new Image("/main/resources/blank.png"));
-                myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 1);
-                break;
-            case "plot6":
-                plot6Image.setImage(new Image("/main/resources/blank.png"));
-                myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 1);
-                break;
-            case "plot9":
-                plot9Image.setImage(new Image("/main/resources/blank.png"));
-                myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 1);
-                break;
-            default:
-                System.out.println("Not mature");
+        System.out.println("hello");
+        CropPlot[] myPlots = myGame.getPlots();
+        int plotId = Integer.parseInt(id.substring(4)) - 1;
+        if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
+            switch (id) {
+                case "plot2":
+                    myGame.getInventory().setWatermelonCount(myGame.getInventory().getWatermelonCount() + 1);
+                    myGame.getInventoryList().add(new InventoryItem(100, "Watermelon", "/main/resources/WatermelonCrop.png", 3));
+                    break;
+                case "plot4":
+                    myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 1);
+                    myGame.getInventoryList().add(new InventoryItem(100, "Potato", "/main/resources/PotatoCrop.png", 3));
+                    break;
+                case "plot6":
+                    myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 1);
+                    myGame.getInventoryList().add(new InventoryItem(100, "Corn", "/main/resources/corn.png", 3));
+                    break;
+                case "plot9":
+                    myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 1);
+                    myGame.getInventoryList().add(new InventoryItem(100, "Onion", "/main/resources/onion.png", 3));
+                    break;
+                default:
+                    System.out.println("Not mature");
+            }
         }
+        myPlots[plotId].setCropName("Empty Plot");
+        myPlots[plotId].setMaturity(0);
+        myPlots[plotId].setImgUrl("/main/resources/blank.png");
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+        this.initData(myGame);
     }
 }

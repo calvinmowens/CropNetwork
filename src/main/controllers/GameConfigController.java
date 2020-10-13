@@ -14,13 +14,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
-import main.java.Game;
-import main.java.Inventory;
-import main.java.InventoryItem;
-import main.java.Item;
+import main.java.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class GameConfigController implements Initializable {
@@ -123,9 +123,38 @@ public class GameConfigController implements Initializable {
             newGame.setStartingSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
+            CropPlot[] plots = newGame.getPlots();
+            plots[1] = new CropPlot("Watermelon Mature", 3, "/main/resources/watermelon_mature.png");
+            plots[3] = new CropPlot("Potato Mature", 3, "/main/resources/potato_mature.png");
+            plots[5] = new CropPlot("Corn Mature", 3, "/main/resources/corn_mature.png");
+            plots[8] = new CropPlot("Onion Mature", 3, "/main/resources/onion_mature.png");
+//            List<InventoryItem> cornInventory = new ArrayList<>();
+//            cornInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/corn.png", 10));
+//            newGame.getInventoryMap().put("Corn Seed", cornInventory);
 
-            newGame.getInventoryList().add(new InventoryItem(100, "Corn Seed", "/main/resources/corn.png", 10));
+            List<InventoryItem> myInventory = newGame.getInventoryList();
+            switch (newGame.getStartingSeed()) {
+                case "Onion":
 
+                    myInventory.add(new InventoryItem(100, "Onion Seed", "/main/resources/onionBag.png", 10));
+//                myGame.getInventory().setOnionSeedCount(10);
+                    break;
+                case "Corn":
+                    //cornSeedBagCounter.setText("10");
+                    myInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/cornBag.png", 10));
+//                myGame.getInventory().setCornSeedCount(10);
+                    break;
+                case "Watermelon":
+                    //watermelonSeedBagCounter.setText("10");
+                    myInventory.add(new InventoryItem(100, "Watermelon Seed", "/main/resources/watermelonBag.png", 10));
+//                myGame.getInventory().setWatermelonSeedCount(10);
+                    break;
+                case "Potato":
+                    //potatoSeedBagCounter.setText("10");
+                    myInventory.add(new InventoryItem(100, "Potato Seed", "/main/resources/potatoBag.png", 10));
+//                myGame.getInventory().setPotatoSeedCount(10);
+                    break;
+            }
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));

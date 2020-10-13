@@ -33,6 +33,10 @@ public class CropPlot {
         return imgUrl;
     }
 
+    public void setImgUrl(String url) {
+        this.imgUrl = url;
+    }
+
     public int getMaturity() {
         return maturity;
     }
@@ -42,10 +46,10 @@ public class CropPlot {
     }
 
     public Image getImage() {
-        return image;
+        return new Image(this.imgUrl);
     }
 
-    public CropPlot(Crop crop, int maturity) {
+    public CropPlot(String cropName, int maturity, String imgUrl) {
         this.cropName = cropName;
         this.maturity = maturity;
         this.imgUrl = imgUrl;

@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.Inventory;
 import main.java.InventoryItem;
 import main.java.Item;
 
@@ -45,18 +46,23 @@ public class MarketInventoryUiController implements Initializable {
 
     public void initData(Game currentGame) {
         myGame = currentGame;
+
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+
         System.out.println(myGame.getInventory().toString());
         System.out.println( myGame.getInventoryList().get(0).getItemName());
         List<InventoryItem> myInventory = myGame.getInventoryList();
+
         for (int i = 0; i < myInventory.size(); i++) {
-            AnchorPane itemSlot = (AnchorPane)(inventoryItems.getChildren().get(0));
+            System.out.println(i+", "+myInventory.get(i).getItemName());
+            AnchorPane itemSlot = (AnchorPane)(inventoryItems.getChildren().get(i));
             ImageView itemImg = (ImageView) itemSlot.getChildren().get(0);
             itemImg.setImage(myInventory.get(i).getImage());
             Label itemCount = (Label) itemSlot.getChildren().get(1);
             itemCount.setText(myInventory.get(i).getCount() + "/ 100");
         }
         // TODO update with inventory and store items
+
 
     }
 
@@ -76,12 +82,27 @@ public class MarketInventoryUiController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         int sellAmount = Integer.parseInt(selectedItemQuantity.getText());
-        String selectedItem = selectedItemName.getText();
-//        int price = Integer.parseInt(selectedItemPrice.getText());
-        myGame.sellFromInventory(selectedItem, sellAmount, myGame.getCropPrice());
+        for (InventoryItem i: myGame.getInventoryList()) {
+            System.out.println(i.getItemName());
+            System.out.println(i.getCount());
+            if (i.getItemName() == selectedItemName.getText() && i.getCount() >= sellAmount) {
+                String selectedItem = selectedItemName.getText();
+                i.setCount(i.getCount() - sellAmount);
+                myGame.sellFromInventory(selectedItem, sellAmount, i.getBasePrice());
+            }
+        }
+        this.initData(myGame);
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
+
+        String id = ((Node) mouseEvent.getSource()).getId();
+        int slotId = Integer.parseInt(id.substring(13)) - 1;
+//        System.out.println(slotId);
+//        System.out.println(mouseEvent.getSource());
+//        System.out.println(myGame.getInventoryList().get(slotId).getItemName());
+        selectedItemName.setText(myGame.getInventoryList().get(slotId).getItemName());
+        selectedItemImage.setImage(myGame.getInventoryList().get(slotId).getImage());
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException{

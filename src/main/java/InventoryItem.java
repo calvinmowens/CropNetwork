@@ -12,4 +12,16 @@ public class InventoryItem extends Item{
     public void setCount(int newCount) {
         this.count = newCount;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        InventoryItem item = (InventoryItem) o;
+        if (item.getItemName() == this.getItemName()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
