@@ -8,7 +8,7 @@ public class Inventory {
     private int potatoSeedCount = 0;
 
     // crop counts
-    private int potatoCount = 1;
+    private int potatoCount = 0;
     private int onionCount = 1;
     private int watermelonCount = 1;
     private int cornCount = 1;
