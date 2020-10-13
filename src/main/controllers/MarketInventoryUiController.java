@@ -1,6 +1,7 @@
 package main.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -8,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
 
@@ -28,6 +31,15 @@ public class MarketInventoryUiController implements Initializable {
     public TextField selectedItemQuantity;
     public Label selectedItemTotal;
 
+    @FXML
+    public AnchorPane inventoryItem1;
+    @FXML
+    public AnchorPane inventoryItem2;
+    @FXML
+    public AnchorPane inventoryItem3;
+    @FXML
+    public AnchorPane inventoryItem4;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedItemImage.setImage(null);
@@ -38,9 +50,35 @@ public class MarketInventoryUiController implements Initializable {
     public void initData(Game currentGame) {
         myGame = currentGame;
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
-        System.out.println(myGame.getInventory().toString());
 
-        // TODO update with inventory and store items
+        if (myGame.getInventory().getCornCount() != 0) {
+            ImageView item1Image = (ImageView) (inventoryItem1.getChildren().get(0));
+            Label item1Label = (Label) (inventoryItem1.getChildren().get(1));
+            item1Image.setImage(new Image("/main/resources/corn.png"));
+            item1Label.setText("$"+myGame.getCropPrice());
+        }
+
+        if (myGame.getInventory().getWatermelonCount() != 0) {
+            ImageView item2Image = (ImageView) (inventoryItem2.getChildren().get(0));
+            Label item2Label = (Label) (inventoryItem2.getChildren().get(1));
+            item2Image.setImage(new Image("/main/resources/corn.png"));
+            item2Label.setText("$"+myGame.getCropPrice());
+        }
+
+        if (myGame.getInventory().getOnionCount() != 0) {
+            ImageView item3Image = (ImageView) (inventoryItem3.getChildren().get(0));
+            Label item3Label = (Label) (inventoryItem3.getChildren().get(1));
+            item3Image.setImage(new Image("/main/resources/corn.png"));
+            item3Label.setText("$"+myGame.getCropPrice());
+        }
+
+        if (myGame.getInventory().getPotatoCount() != 0) {
+            ImageView item4Image = (ImageView) (inventoryItem4.getChildren().get(0));
+            Label item4Label = (Label) (inventoryItem4.getChildren().get(1));
+            item4Image.setImage(new Image("/main/resources/corn.png"));
+            item4Label.setText("$"+myGame.getCropPrice());
+        }
+
     }
 
     public void switchToMarket(MouseEvent mouseEvent) throws IOException {

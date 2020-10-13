@@ -35,6 +35,10 @@ public class MarketUiController implements Initializable {
     private AnchorPane marketItem1;
     @FXML
     private AnchorPane marketItem2;
+    @FXML
+    private AnchorPane marketItem3;
+    @FXML
+    private AnchorPane marketItem4;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,8 +52,8 @@ public class MarketUiController implements Initializable {
 
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
         
-        ImageView item1Image = (ImageView) (marketItem2.getChildren().get(0));
-        Label item1Label = (Label) (marketItem2.getChildren().get(1));
+        ImageView item1Image = (ImageView) (marketItem1.getChildren().get(0));
+        Label item1Label = (Label) (marketItem1.getChildren().get(1));
         item1Image.setImage(new Image("/main/resources/corn.png"));
         item1Label.setText("$"+myGame.getSeedPrice());
 
@@ -58,15 +62,15 @@ public class MarketUiController implements Initializable {
         item2Image.setImage(new Image("/main/resources/watermelon.png"));
         item2Label.setText("$"+myGame.getSeedPrice());
 
-        ImageView item3Image = (ImageView) (marketItem2.getChildren().get(0));
-        Label item3Label = (Label) (marketItem2.getChildren().get(1));
-        item2Image.setImage(new Image("/main/resources/onion.png"));
-        item2Label.setText("$"+myGame.getSeedPrice());
+        ImageView item3Image = (ImageView) (marketItem3.getChildren().get(0));
+        Label item3Label = (Label) (marketItem3.getChildren().get(1));
+        item3Image.setImage(new Image("/main/resources/onion.png"));
+        item3Label.setText("$"+myGame.getSeedPrice());
 
-        ImageView item4Image = (ImageView) (marketItem2.getChildren().get(0));
-        Label item4Label = (Label) (marketItem2.getChildren().get(1));
-        item2Image.setImage(new Image("/main/resources/potatoes.png"));
-        item2Label.setText("$"+myGame.getSeedPrice());
+        ImageView item4Image = (ImageView) (marketItem4.getChildren().get(0));
+        Label item4Label = (Label) (marketItem4.getChildren().get(1));
+        item4Image.setImage(new Image("/main/resources/potatoes.png"));
+        item4Label.setText("$"+myGame.getSeedPrice());
 
     }
 

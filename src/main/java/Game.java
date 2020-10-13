@@ -28,14 +28,6 @@ public class Game {
         this.cropPrice = cropPrice;
     }
 
-    public void setMarket(Market market) {
-        this.market = market;
-    }
-
-    public Market getMarket() {
-        return market;
-    }
-
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
@@ -43,9 +35,6 @@ public class Game {
     public Inventory getInventory() {
         return inventory;
     }
-
-    private Market market;
-   // private Item[] inventory = new Item[12]; // should we do an arraylist with no resizing?
 
     public String getName() {
         return name;

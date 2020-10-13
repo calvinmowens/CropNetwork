@@ -198,7 +198,6 @@ public class MainUiController implements Initializable {
         Scene startOpenMarket = new Scene(openMarket);
 
         MarketUiController controller = loader.getController();
-        myGame.setMarket(new Market());
         controller.initData(myGame);
         // Stage and show the new scene
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
