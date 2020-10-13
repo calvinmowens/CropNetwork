@@ -54,28 +54,28 @@ public class MarketInventoryUiController implements Initializable {
         if (myGame.getInventory().getCornCount() != 0) {
             ImageView item1Image = (ImageView) (inventoryItem1.getChildren().get(0));
             Label item1Label = (Label) (inventoryItem1.getChildren().get(1));
-            item1Image.setImage(new Image("/main/resources/corn.png"));
+            item1Image.setImage(new Image("/main/resources/corn_mature.png"));
             item1Label.setText("$"+myGame.getCropPrice());
         }
 
         if (myGame.getInventory().getWatermelonCount() != 0) {
             ImageView item2Image = (ImageView) (inventoryItem2.getChildren().get(0));
             Label item2Label = (Label) (inventoryItem2.getChildren().get(1));
-            item2Image.setImage(new Image("/main/resources/corn.png"));
+            item2Image.setImage(new Image("/main/resources/WatermelonCrop.png"));
             item2Label.setText("$"+myGame.getCropPrice());
         }
 
         if (myGame.getInventory().getOnionCount() != 0) {
             ImageView item3Image = (ImageView) (inventoryItem3.getChildren().get(0));
             Label item3Label = (Label) (inventoryItem3.getChildren().get(1));
-            item3Image.setImage(new Image("/main/resources/corn.png"));
+            item3Image.setImage(new Image("/main/resources/OnionCrop.png"));
             item3Label.setText("$"+myGame.getCropPrice());
         }
 
         if (myGame.getInventory().getPotatoCount() != 0) {
             ImageView item4Image = (ImageView) (inventoryItem4.getChildren().get(0));
             Label item4Label = (Label) (inventoryItem4.getChildren().get(1));
-            item4Image.setImage(new Image("/main/resources/corn.png"));
+            item4Image.setImage(new Image("/main/resources/PotatoCrop.png"));
             item4Label.setText("$"+myGame.getCropPrice());
         }
 

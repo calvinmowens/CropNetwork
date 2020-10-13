@@ -148,7 +148,12 @@ public class MainUiController implements Initializable {
                 myGame.getInventory().setPotatoSeedCount(10);
                 break;
         }
-        System.out.println(myGame.toString());
+
+        // Set crop counters to default values. Mainly for testing purposes.
+        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
+        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
+        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
+        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
     }
 
     private String setStartingSeasonHelper() {

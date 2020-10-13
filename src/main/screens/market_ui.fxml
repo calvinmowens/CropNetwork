@@ -73,7 +73,7 @@
       <AnchorPane fx:id="marketItem1" layoutX="225.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fx:id="marketItem1Img" fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -82,7 +82,7 @@
       <AnchorPane fx:id="marketItem2" layoutX="319.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fx:id="marketItem2Img" fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -91,7 +91,7 @@
       <AnchorPane fx:id="marketItem3" layoutX="412.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -100,7 +100,7 @@
       <AnchorPane fx:id="marketItem4" layoutX="506.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -109,7 +109,7 @@
       <AnchorPane fx:id="marketItem5" layoutX="600.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -118,7 +118,7 @@
       <AnchorPane fx:id="marketItem6" layoutX="693.0" layoutY="304.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -127,7 +127,7 @@
       <AnchorPane fx:id="marketItem7" layoutX="225.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -136,7 +136,7 @@
       <AnchorPane fx:id="marketItem8" layoutX="319.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -145,7 +145,7 @@
       <AnchorPane fx:id="marketItem9" layoutX="412.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -154,7 +154,7 @@
       <AnchorPane fx:id="marketItem10" layoutX="506.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -163,7 +163,7 @@
       <AnchorPane fx:id="marketItem11" layoutX="600.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -172,7 +172,7 @@
       <AnchorPane fx:id="marketItem12" layoutX="693.0" layoutY="395.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -181,7 +181,7 @@
       <AnchorPane fx:id="marketItem13" layoutX="225.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -190,7 +190,7 @@
       <AnchorPane fx:id="marketItem14" layoutX="319.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -199,7 +199,7 @@
       <AnchorPane fx:id="marketItem15" layoutX="412.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -208,7 +208,7 @@
       <AnchorPane fx:id="marketItem16" layoutX="506.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -217,7 +217,7 @@
       <AnchorPane fx:id="marketItem17" layoutX="600.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -226,7 +226,7 @@
       <AnchorPane fx:id="marketItem18" layoutX="693.0" layoutY="486.0" onMouseClicked="#setSelectedItem" prefHeight="73.0" prefWidth="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="75.0" layoutX="8.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="55.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />

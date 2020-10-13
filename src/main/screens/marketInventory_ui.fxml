@@ -73,7 +73,7 @@
       <AnchorPane fx:id="inventoryItem1" layoutX="257.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -82,7 +82,7 @@
       <AnchorPane fx:id="inventoryItem2" layoutX="392.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -91,7 +91,7 @@
       <AnchorPane fx:id="inventoryItem3" layoutX="525.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -100,7 +100,7 @@
       <AnchorPane fx:id="inventoryItem4" layoutX="660.0" layoutY="302.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -109,7 +109,7 @@
       <AnchorPane fx:id="inventoryItem5" layoutX="257.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -118,7 +118,7 @@
       <AnchorPane fx:id="inventoryItem6" layoutX="392.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -127,7 +127,7 @@
       <AnchorPane fx:id="inventoryItem7" layoutX="525.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -136,7 +136,7 @@
       <AnchorPane fx:id="inventoryItem8" layoutX="660.0" layoutY="392.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -145,7 +145,7 @@
       <AnchorPane fx:id="inventoryItem9" layoutX="257.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -154,7 +154,7 @@
       <AnchorPane fx:id="inventoryItem10" layoutX="392.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -163,7 +163,7 @@
       <AnchorPane fx:id="inventoryItem11" layoutX="525.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -172,7 +172,7 @@
       <AnchorPane fx:id="inventoryItem12" layoutX="660.0" layoutY="482.0" onMouseClicked="#setSelectedItem" prefHeight="79.0" prefWidth="95.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="93.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" text="ItemCost" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="58.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
