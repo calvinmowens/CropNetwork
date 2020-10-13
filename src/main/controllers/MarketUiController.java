@@ -45,23 +45,29 @@ public class MarketUiController implements Initializable {
 
     public void initData(Game currentGame) {
         myGame = currentGame;
-        Market myMarket = myGame.getMarket();
 
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+        
+        ImageView item1Image = (ImageView) (marketItem2.getChildren().get(0));
+        Label item1Label = (Label) (marketItem2.getChildren().get(1));
+        item1Image.setImage(new Image("/main/resources/corn.png"));
+        item1Label.setText("$"+myGame.getSeedPrice());
 
-        /** Add corn to marketplace */
-        ImageView item1Image = (ImageView) (marketItem1.getChildren().get(0));
-        Label item1Label = (Label) (marketItem1.getChildren().get(1));
-        item1Image.setImage(myMarket.getCornSeed().getImage());
-        item1Label.setText("$"+myMarket.getCornSeed().getBasePrice());
-
-        /** Add watermelon to marketplace */
         ImageView item2Image = (ImageView) (marketItem2.getChildren().get(0));
         Label item2Label = (Label) (marketItem2.getChildren().get(1));
-        item2Image.setImage(myMarket.getWatermelonSeed().getImage());
-        item2Label.setText("$"+myMarket.getWatermelonSeed().getBasePrice());
+        item2Image.setImage(new Image("/main/resources/watermelon.png"));
+        item2Label.setText("$"+myGame.getSeedPrice());
 
-        // TODO update with inventory and store items
+        ImageView item3Image = (ImageView) (marketItem2.getChildren().get(0));
+        Label item3Label = (Label) (marketItem2.getChildren().get(1));
+        item2Image.setImage(new Image("/main/resources/onion.png"));
+        item2Label.setText("$"+myGame.getSeedPrice());
+
+        ImageView item4Image = (ImageView) (marketItem2.getChildren().get(0));
+        Label item4Label = (Label) (marketItem2.getChildren().get(1));
+        item2Image.setImage(new Image("/main/resources/potatoes.png"));
+        item2Label.setText("$"+myGame.getSeedPrice());
+
     }
 
     public void switchToInventory(MouseEvent mouseEvent) throws IOException {

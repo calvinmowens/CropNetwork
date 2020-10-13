@@ -208,7 +208,6 @@ public class MainUiController implements Initializable {
     }
 
     public void openInventoryModal(ActionEvent actionEvent) {
-        System.out.println("hello");
         inventoryClick.set(!inventoryClick.get());
         backgroundToggle.set(!backgroundToggle.get());
 
