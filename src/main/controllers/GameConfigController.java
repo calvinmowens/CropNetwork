@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
+import main.java.CropPlot;
 import main.java.Game;
 import main.java.Inventory;
 
@@ -121,6 +122,16 @@ public class GameConfigController implements Initializable {
             newGame.setStartingSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
+            newGame.setMoney(newGame.getDifficulty());
+
+            CropPlot[] plots = newGame.getPlots();
+            plots[1] = new CropPlot("Watermelon Mature", 3, "/main/resources/watermelon_mature.png");
+            plots[3] = new CropPlot("Potato Mature", 3, "/main/resources/potato_mature.png");
+            plots[5] = new CropPlot("Corn Mature", 3, "/main/resources/corn_mature.png");
+            plots[8] = new CropPlot("Onion Mature", 3, "/main/resources/onion_mature.png");
+//            List<InventoryItem> cornInventory = new ArrayList<>();
+//            cornInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/corn.png", 10));
+//            newGame.getInventoryMap().put("Corn Seed", cornInventory);
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();

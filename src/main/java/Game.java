@@ -1,5 +1,9 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Game {
 
     private String name;
@@ -11,6 +15,22 @@ public class Game {
     private Inventory inventory;
     private int cropPrice;
     private int seedPrice;
+    private List<InventoryItem> inventoryList = new ArrayList<>();
+
+    public List<InventoryItem> getInventoryList() {
+        return inventoryList;
+    }
+
+    private HashMap<String, CropPlot> plotMap = new HashMap<>();
+    public HashMap<String, CropPlot> getPlotMap() {
+        return plotMap;
+    }
+    private CropPlot[] plots = new CropPlot[12];
+
+
+    public CropPlot[] getPlots() {
+        return plots;
+    }
 
     public int getSeedPrice() {
         return seedPrice;
@@ -138,6 +158,7 @@ public class Game {
         }
         System.out.println(money);
     }
+
     public void buyFromMarket(String itemName, int amount, int price) {
         switch (itemName) {
             case "Corn":
@@ -167,7 +188,6 @@ public class Game {
             default:
                 System.out.println("Item not selected");
         }
-        System.out.println(money);
     }
 
 

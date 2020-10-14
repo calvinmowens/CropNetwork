@@ -9,9 +9,9 @@ public class Inventory {
 
     // crop counts
     private int potatoCount = 0;
-    private int onionCount = 1;
-    private int watermelonCount = 1;
-    private int cornCount = 1;
+    private int onionCount = 0;
+    private int watermelonCount = 0;
+    private int cornCount = 0;
 
     public int getCornSeedCount() {
         return cornSeedCount;

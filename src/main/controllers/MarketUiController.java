@@ -89,7 +89,13 @@ public class MarketUiController implements Initializable {
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
-        System.out.println(mouseEvent.getTarget());
+
+//        System.out.println(slotId);
+//        System.out.println(mouseEvent.getSource());
+//        System.out.println(myGame.getInventoryList().get(slotId).getItemName());
+        selectedItemName.setText("Test");
+//        selectedItemImage.setImage();
+        selectedItemPrice.setText(Integer.toString(myGame.getSeedPrice()));
     }
 
     public void buyItem(ActionEvent actionEvent) {

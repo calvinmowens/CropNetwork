@@ -15,13 +15,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MarketInventoryUiController implements Initializable {
 
+    public AnchorPane inventoryItems;
     private Game myGame;
 
     public Label currentPlayerMoney;
@@ -49,35 +52,49 @@ public class MarketInventoryUiController implements Initializable {
 
     public void initData(Game currentGame) {
         myGame = currentGame;
+
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
 
-        if (myGame.getInventory().getCornCount() != 0) {
-            ImageView item1Image = (ImageView) (inventoryItem1.getChildren().get(0));
-            Label item1Label = (Label) (inventoryItem1.getChildren().get(1));
-            item1Image.setImage(new Image("/main/resources/corn_mature.png"));
-            item1Label.setText("$"+myGame.getCropPrice());
-        }
+        List<InventoryItem> myInventory = myGame.getInventoryList();
 
-        if (myGame.getInventory().getWatermelonCount() != 0) {
-            ImageView item2Image = (ImageView) (inventoryItem2.getChildren().get(0));
-            Label item2Label = (Label) (inventoryItem2.getChildren().get(1));
-            item2Image.setImage(new Image("/main/resources/WatermelonCrop.png"));
-            item2Label.setText("$"+myGame.getCropPrice());
+        for (int i = 0; i < myInventory.size(); i++) {
+            System.out.println(i+", "+myInventory.get(i).getItemName());
+            AnchorPane itemSlot = (AnchorPane)(inventoryItems.getChildren().get(i));
+            ImageView itemImg = (ImageView) itemSlot.getChildren().get(0);
+            itemImg.setImage(myInventory.get(i).getImage());
+            Label itemCount = (Label) itemSlot.getChildren().get(1);
+            itemCount.setText(myInventory.get(i).getCount() + "/ 100");
         }
-
-        if (myGame.getInventory().getOnionCount() != 0) {
-            ImageView item3Image = (ImageView) (inventoryItem3.getChildren().get(0));
-            Label item3Label = (Label) (inventoryItem3.getChildren().get(1));
-            item3Image.setImage(new Image("/main/resources/OnionCrop.png"));
-            item3Label.setText("$"+myGame.getCropPrice());
-        }
-
-        if (myGame.getInventory().getPotatoCount() != 0) {
-            ImageView item4Image = (ImageView) (inventoryItem4.getChildren().get(0));
-            Label item4Label = (Label) (inventoryItem4.getChildren().get(1));
-            item4Image.setImage(new Image("/main/resources/PotatoCrop.png"));
-            item4Label.setText("$"+myGame.getCropPrice());
-        }
+//        myGame = currentGame;
+//        currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
+//
+//        if (myGame.getInventory().getCornCount() != 0) {
+//            ImageView item1Image = (ImageView) (inventoryItem1.getChildren().get(0));
+//            Label item1Label = (Label) (inventoryItem1.getChildren().get(1));
+//            item1Image.setImage(new Image("/main/resources/corn_mature.png"));
+//            item1Label.setText("$"+myGame.getCropPrice());
+//        }
+//
+//        if (myGame.getInventory().getWatermelonCount() != 0) {
+//            ImageView item2Image = (ImageView) (inventoryItem2.getChildren().get(0));
+//            Label item2Label = (Label) (inventoryItem2.getChildren().get(1));
+//            item2Image.setImage(new Image("/main/resources/WatermelonCrop.png"));
+//            item2Label.setText("$"+myGame.getCropPrice());
+//        }
+//
+//        if (myGame.getInventory().getOnionCount() != 0) {
+//            ImageView item3Image = (ImageView) (inventoryItem3.getChildren().get(0));
+//            Label item3Label = (Label) (inventoryItem3.getChildren().get(1));
+//            item3Image.setImage(new Image("/main/resources/OnionCrop.png"));
+//            item3Label.setText("$"+myGame.getCropPrice());
+//        }
+//
+//        if (myGame.getInventory().getPotatoCount() != 0) {
+//            ImageView item4Image = (ImageView) (inventoryItem4.getChildren().get(0));
+//            Label item4Label = (Label) (inventoryItem4.getChildren().get(1));
+//            item4Image.setImage(new Image("/main/resources/PotatoCrop.png"));
+//            item4Label.setText("$"+myGame.getCropPrice());
+//        }
 
     }
 
@@ -103,6 +120,11 @@ public class MarketInventoryUiController implements Initializable {
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
+        String id = ((Node) mouseEvent.getSource()).getId();
+        int slotId = Integer.parseInt(id.substring(13)) - 1;
+        selectedItemName.setText(myGame.getInventoryList().get(slotId).getItemName());
+        selectedItemImage.setImage(myGame.getInventoryList().get(slotId).getImage());
+        selectedItemPrice.setText(Integer.toString(myGame.getCropPrice()));
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException{
