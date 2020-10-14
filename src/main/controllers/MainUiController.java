@@ -133,7 +133,7 @@ public class MainUiController implements Initializable {
 
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
 
-        myGame.setMoney(myGame.getDifficulty());
+        // myGame.setMoney(myGame.getDifficulty());
         money.setText("$" + Integer.toString(myGame.getMoney()));
         switch (myGame.getStartingSeed()) {
             case "Onion":
@@ -165,6 +165,11 @@ public class MainUiController implements Initializable {
                 ((ImageView)plotPane.getChildren().get(i*2)).setImage(myPlots[i].getImage());
             }
         }
+
+        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
+        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
+        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
+        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
 
     }
 
@@ -210,7 +215,7 @@ public class MainUiController implements Initializable {
 
     public void openMarket(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/screens/market_ui.FXML"));
+        loader.setLocation(getClass().getResource("/main/screens/market_ui.fxml"));
         Parent openMarket = loader.load();
         Scene startOpenMarket = new Scene(openMarket);
 

@@ -133,29 +133,9 @@ public class GameConfigController implements Initializable {
 //            newGame.getInventoryMap().put("Corn Seed", cornInventory);
 
             List<InventoryItem> myInventory = newGame.getInventoryList();
-            switch (newGame.getStartingSeed()) {
-                case "Onion":
 
-                    myInventory.add(new InventoryItem(100, "Onion Seed", "/main/resources/onionBag.png", 10));
-//                myGame.getInventory().setOnionSeedCount(10);
-                    break;
-                case "Corn":
-                    //cornSeedBagCounter.setText("10");
-                    myInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/cornBag.png", 10));
-//                myGame.getInventory().setCornSeedCount(10);
-                    break;
-                case "Watermelon":
-                    //watermelonSeedBagCounter.setText("10");
-                    myInventory.add(new InventoryItem(100, "Watermelon Seed", "/main/resources/watermelonBag.png", 10));
-//                myGame.getInventory().setWatermelonSeedCount(10);
-                    break;
-                case "Potato":
-                    //potatoSeedBagCounter.setText("10");
-                    myInventory.add(new InventoryItem(100, "Potato Seed", "/main/resources/potatoBag.png", 10));
-//                myGame.getInventory().setPotatoSeedCount(10);
-                    break;
-            }
             // setting up the loader
+            newGame.setMoney(newGame.getDifficulty());
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
             Parent startGame = loader.load();
