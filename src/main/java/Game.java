@@ -130,28 +130,32 @@ public class Game {
     public void sellFromInventory(String itemName, int amount, int price) {
         switch (itemName) {
             case "Corn":
-                if (inventory.getCornCount() - amount >= 0) {
-                    inventory.setCornCount(inventory.getCornCount() - amount);
-                    setMoney(getMoney() + amount * price);
-                }
+                inventory.setCornCount(inventory.getCornCount() - amount);
+                setMoney(getMoney() + amount * price);
+//                if (inventory.getCornCount() - amount >= 0) {
+//
+//
+//                }
                 break;
             case "Watermelon":
-                if (inventory.getWatermelonCount() - amount >= 0) {
-                    inventory.setWatermelonCount(inventory.getWatermelonCount() - amount);
-                    setMoney(getMoney() + amount * price);
-                }
+                inventory.setWatermelonCount(inventory.getWatermelonCount() - amount);
+                setMoney(getMoney() + amount * price);
+//                if (inventory.getWatermelonCount() - amount >= 0) {
+//
+//                }
                 break;
             case "Onion":
-                if (inventory.getOnionCount() - amount >= 0) {
-                    inventory.setOnionCount(inventory.getOnionCount() - amount);
-                    setMoney(getMoney() + amount * price);
-                }
+                inventory.setOnionCount(inventory.getOnionCount() - amount);
+                setMoney(getMoney() + amount * price);
+//                if (inventory.getOnionCount() - amount >= 0) {
+//                }
                 break;
             case "Potato":
-                if (inventory.getPotatoCount() - amount >= 0) {
-                    inventory.setPotatoCount(inventory.getPotatoCount() - amount);
-                    setMoney(getMoney() + amount * price);
-                }
+                inventory.setPotatoCount(inventory.getPotatoCount() - amount);
+                setMoney(getMoney() + amount * price);
+//                if (inventory.getPotatoCount() - amount >= 0) {
+//
+//                }
                 break;
             default:
                 System.out.println("Item not selected");

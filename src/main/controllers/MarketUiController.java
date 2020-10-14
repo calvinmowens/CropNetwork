@@ -89,20 +89,30 @@ public class MarketUiController implements Initializable {
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
-
-//        System.out.println(slotId);
-//        System.out.println(mouseEvent.getSource());
-//        System.out.println(myGame.getInventoryList().get(slotId).getItemName());
-        selectedItemName.setText("Test");
-//        selectedItemImage.setImage();
+        String id = ((Node) mouseEvent.getSource()).getId();
+        int slotId = Integer.parseInt(id.substring(10)) - 1;
+        if (slotId == 0) {
+            selectedItemName.setText("Corn");
+            selectedItemImage.setImage(new Image("/main/resources/corn.png"));
+        } else if (slotId == 1) {
+            selectedItemName.setText("Watermelon");
+            selectedItemImage.setImage(new Image("/main/resources/watermelon.png"));
+        } else if (slotId == 2) {
+            selectedItemName.setText("Onion");
+            selectedItemImage.setImage(new Image("/main/resources/onion.png"));
+        } else if (slotId == 3) {
+            selectedItemName.setText("Potato");
+            selectedItemImage.setImage(new Image("/main/resources/potatoes.png"));
+        }
         selectedItemPrice.setText(Integer.toString(myGame.getSeedPrice()));
     }
 
     public void buyItem(ActionEvent actionEvent) {
         int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
         String selectedItem = selectedItemName.getText();
-//        int price = Integer.parseInt(selectedItemPrice.getText());
+        System.out.println(selectedItem);
         myGame.buyFromMarket(selectedItem, buyAmount, myGame.getSeedPrice());
+        this.initData(myGame);
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException {

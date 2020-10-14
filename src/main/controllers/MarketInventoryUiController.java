@@ -114,17 +114,22 @@ public class MarketInventoryUiController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         int sellAmount = Integer.parseInt(selectedItemQuantity.getText());
-        String selectedItem = selectedItemName.getText();
-//        int price = Integer.parseInt(selectedItemPrice.getText());
-        myGame.sellFromInventory(selectedItem, sellAmount, myGame.getCropPrice());
+        for (InventoryItem i: myGame.getInventoryList()) {
+            if (i.getItemName() == selectedItemName.getText() && i.getCount() >= sellAmount) {
+                String selectedItem = selectedItemName.getText();
+                i.setCount(i.getCount() - sellAmount);
+                myGame.sellFromInventory(selectedItem, sellAmount, myGame.getCropPrice());
+            }
+        }
+        this.initData(myGame);
     }
 
     public void setSelectedItem(MouseEvent mouseEvent) {
         String id = ((Node) mouseEvent.getSource()).getId();
         int slotId = Integer.parseInt(id.substring(13)) - 1;
+        System.out.println(myGame.getInventoryList().get(slotId).getItemName());
         selectedItemName.setText(myGame.getInventoryList().get(slotId).getItemName());
         selectedItemImage.setImage(myGame.getInventoryList().get(slotId).getImage());
-        selectedItemPrice.setText(Integer.toString(myGame.getCropPrice()));
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException{

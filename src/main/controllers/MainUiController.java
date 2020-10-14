@@ -133,23 +133,22 @@ public class MainUiController implements Initializable {
         money.setText("$" + Integer.toString(myGame.getMoney()));
         switch (myGame.getStartingSeed()) {
             case "Onion":
-                onionSeedBagCounter.setText("10");
-
+                myGame.getInventory().setOnionSeedCount(10);
                 //myInventory.add(new InventoryItem(100, "Onion Seed", "/main/resources/onionBag.png", 10));
 //                myGame.getInventory().setOnionSeedCount(10);
                 break;
             case "Corn":
-                cornSeedBagCounter.setText("10");
+                myGame.getInventory().setCornSeedCount(10);
                 //myInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/cornBag.png", 10));
 //                myGame.getInventory().setCornSeedCount(10);
                 break;
             case "Watermelon":
-                watermelonSeedBagCounter.setText("10");
+                myGame.getInventory().setWatermelonSeedCount(10);
                 //myInventory.add(new InventoryItem(100, "Watermelon Seed", "/main/resources/watermelonBag.png", 10));
 //                myGame.getInventory().setWatermelonSeedCount(10);
                 break;
             case "Potato":
-                potatoSeedBagCounter.setText("10");
+                myGame.getInventory().setPotatoSeedCount(10);
                 //myInventory.add(new InventoryItem(100, "Potato Seed", "/main/resources/potatoBag.png", 10));
 //                myGame.getInventory().setPotatoSeedCount(10);
                 break;
@@ -162,7 +161,13 @@ public class MainUiController implements Initializable {
             }
         }
 
-        // Set crop counters to default values. Mainly for testing purposes.
+        // Set seed counters to current inventory count.
+        cornSeedBagCounter.setText(Integer.toString(myGame.getInventory().getCornSeedCount()));
+        watermelonSeedBagCounter.setText(Integer.toString(myGame.getInventory().getWatermelonSeedCount()));
+        onionSeedBagCounter.setText(Integer.toString(myGame.getInventory().getOnionSeedCount()));
+        potatoSeedBagCounter.setText(Integer.toString(myGame.getInventory().getPotatoSeedCount()));
+
+        // Set crop counters to current inventory count.
         cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
         watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
         onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
@@ -245,22 +250,22 @@ public class MainUiController implements Initializable {
         if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
             switch (id) {
                 case "plot2":
-                    myGame.getInventory().setWatermelonCount(myGame.getInventory().getWatermelonCount() + 1);
+                    myGame.getInventory().setWatermelonCount(myGame.getInventory().getWatermelonCount() + 3);
                     myGame.getInventoryList().add(new InventoryItem(100, "Watermelon", "/main/resources/WatermelonCrop.png", 3));
                     updateCount();
                     break;
                 case "plot4":
-                    myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 1);
+                    myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 3);
                     myGame.getInventoryList().add(new InventoryItem(100, "Potato", "/main/resources/PotatoCrop.png", 3));
                     updateCount();
                     break;
                 case "plot6":
-                    myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 1);
+                    myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 3);
                     myGame.getInventoryList().add(new InventoryItem(100, "Corn", "/main/resources/corn_mature.png", 3));
                     updateCount();
                     break;
                 case "plot9":
-                    myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 1);
+                    myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 3);
                     myGame.getInventoryList().add(new InventoryItem(100, "Onion", "/main/resources/OnionCrop.png", 3));
                     updateCount();
                     break;

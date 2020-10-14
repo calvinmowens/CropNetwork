@@ -47,22 +47,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="18.0" layoutY="419.0" prefHeight="21.0" prefWidth="106.0" text="TOTAL:" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Label fx:id="selectedItemPrice" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="165.0" layoutY="337.0" prefHeight="21.0" prefWidth="63.0" text="\$PRICE" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="selectedItemQuantity" layoutX="168.0" layoutY="374.0" prefHeight="18.0" prefWidth="61.0" />
-            <Label fx:id="selectedItemTotal" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="163.0" layoutY="419.0" prefHeight="21.0" prefWidth="63.0" text="\$PRICE" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Button id="sellItemBtn" layoutX="18.0" layoutY="479.0" mnemonicParsing="false" onAction="#sellItem" prefHeight="54.0" prefWidth="212.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="SELL" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Cartoonist Kooky" size="15.0" />
