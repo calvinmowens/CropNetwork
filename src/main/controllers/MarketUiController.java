@@ -15,8 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
-import main.java.Market;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,13 +22,18 @@ import java.util.ResourceBundle;
 public class MarketUiController implements Initializable {
 
     private Game myGame;
-
-    public Label currentPlayerMoney;
-    public ImageView selectedItemImage;
-    public Label selectedItemName;
-    public Label selectedItemPrice;
-    public TextField selectedItemQuantity;
-    public Label selectedItemTotal;
+    @FXML
+    private Label currentPlayerMoney;
+    @FXML
+    private ImageView selectedItemImage;
+    @FXML
+    private Label selectedItemName;
+    @FXML
+    private Label selectedItemPrice;
+    @FXML
+    private TextField selectedItemQuantity;
+    @FXML
+    private Label selectedItemTotal;
     @FXML
     private AnchorPane marketItem1;
     @FXML
@@ -39,6 +42,8 @@ public class MarketUiController implements Initializable {
     private AnchorPane marketItem3;
     @FXML
     private AnchorPane marketItem4;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,22 +60,22 @@ public class MarketUiController implements Initializable {
         ImageView item1Image = (ImageView) (marketItem1.getChildren().get(0));
         Label item1Label = (Label) (marketItem1.getChildren().get(1));
         item1Image.setImage(new Image("/main/resources/corn.png"));
-        item1Label.setText("$"+myGame.getSeedPrice());
+        item1Label.setText("$" + myGame.getSeedPrice());
 
         ImageView item2Image = (ImageView) (marketItem2.getChildren().get(0));
         Label item2Label = (Label) (marketItem2.getChildren().get(1));
         item2Image.setImage(new Image("/main/resources/watermelon.png"));
-        item2Label.setText("$"+myGame.getSeedPrice());
+        item2Label.setText("$" + myGame.getSeedPrice());
 
         ImageView item3Image = (ImageView) (marketItem3.getChildren().get(0));
         Label item3Label = (Label) (marketItem3.getChildren().get(1));
         item3Image.setImage(new Image("/main/resources/onion.png"));
-        item3Label.setText("$"+myGame.getSeedPrice());
+        item3Label.setText("$" + myGame.getSeedPrice());
 
         ImageView item4Image = (ImageView) (marketItem4.getChildren().get(0));
         Label item4Label = (Label) (marketItem4.getChildren().get(1));
         item4Image.setImage(new Image("/main/resources/potatoes.png"));
-        item4Label.setText("$"+myGame.getSeedPrice());
+        item4Label.setText("$" + myGame.getSeedPrice());
 
     }
 
@@ -82,7 +87,7 @@ public class MarketUiController implements Initializable {
 
         MarketInventoryUiController controller = loader.getController();
         controller.initData(myGame);
-        Stage window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         window.setTitle("Market: Sell");
         window.setScene(startMarketInventory);
         window.show();
@@ -110,7 +115,6 @@ public class MarketUiController implements Initializable {
     public void buyItem(ActionEvent actionEvent) {
         int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
         String selectedItem = selectedItemName.getText();
-        System.out.println(selectedItem);
         myGame.buyFromMarket(selectedItem, buyAmount, myGame.getSeedPrice());
         this.initData(myGame);
     }

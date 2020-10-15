@@ -34,6 +34,10 @@ public class GameConfigController implements Initializable {
     @FXML
     private ChoiceBox<String> startingSeason;
 
+    private Game newGame;
+    public Game getGame() {
+        return this.newGame;
+    }
     public void setName(String name) {
         this.name = new TextField(name);
     }
@@ -114,7 +118,7 @@ public class GameConfigController implements Initializable {
                 && startingSeed.getValue() != null && startingSeason.getValue() != null
                 && gender.getSelectedToggle() != null) {
             // Creates a new Game object with information from the Screen.
-            Game newGame = new Game();
+            newGame = new Game();
 
             newGame.setName(name.getText());
             newGame.setGender(((RadioButton) gender.getSelectedToggle()).getText());
@@ -125,18 +129,17 @@ public class GameConfigController implements Initializable {
             newGame.setMoney(newGame.getDifficulty());
 
             CropPlot[] plots = newGame.getPlots();
-            plots[1] = new CropPlot("Watermelon Mature", 3, "/main/resources/watermelon_mature.png");
+            String watermelon = "/main/resources/watermelon_mature.png";
+            plots[1] = new CropPlot("Watermelon Mature", 3, watermelon);
             plots[3] = new CropPlot("Potato Mature", 3, "/main/resources/potato_mature.png");
             plots[5] = new CropPlot("Corn Mature", 3, "/main/resources/corn_mature.png");
             plots[8] = new CropPlot("Onion Mature", 3, "/main/resources/onion_mature.png");
-//            List<InventoryItem> cornInventory = new ArrayList<>();
-//            cornInventory.add(new InventoryItem(100, "Corn Seed", "/main/resources/corn.png", 10));
-//            newGame.getInventoryMap().put("Corn Seed", cornInventory);
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
             Parent startGame = loader.load();
+
             Scene startGameScene = new Scene(startGame);
 
             MainUiController controller = loader.getController();

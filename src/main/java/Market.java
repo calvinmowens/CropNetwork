@@ -4,17 +4,19 @@ public class Market {
 
     private Item[] availableItems = new Item[18];
 
-    private MarketItem CornSeed = new MarketItem(100, "Corn Seed", "/main/resources/corn.png");
+    private MarketItem cornSeed =
+            new MarketItem(100, "Corn Seed", "/main/resources/corn.png");
 
     public MarketItem getCornSeed() {
-        return CornSeed;
+        return cornSeed;
     }
 
     public MarketItem getWatermelonSeed() {
-        return WatermelonSeed;
+        return watermelonSeed;
     }
 
-    private MarketItem WatermelonSeed = new MarketItem(150, "Watermelon Seed", "/main/resources/watermelon.png");
+    private MarketItem watermelonSeed =
+            new MarketItem(150, "Watermelon Seed", "/main/resources/watermelon.png");
 
 
 }

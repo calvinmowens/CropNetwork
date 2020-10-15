@@ -2,8 +2,6 @@ package main.java;
 
 import javafx.scene.image.Image;
 
-import java.util.HashMap;
-
 public class CropPlot {
     private String imgUrl;
     /**

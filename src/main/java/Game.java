@@ -97,7 +97,6 @@ public class Game {
     }
 
     public int getMoney() {
-//        setMoney(difficulty);
         return money;
     }
 
@@ -129,68 +128,59 @@ public class Game {
 
     public void sellFromInventory(String itemName, int amount, int price) {
         switch (itemName) {
-            case "Corn":
-                inventory.setCornCount(inventory.getCornCount() - amount);
-                setMoney(getMoney() + amount * price);
-//                if (inventory.getCornCount() - amount >= 0) {
-//
-//
-//                }
-                break;
-            case "Watermelon":
-                inventory.setWatermelonCount(inventory.getWatermelonCount() - amount);
-                setMoney(getMoney() + amount * price);
-//                if (inventory.getWatermelonCount() - amount >= 0) {
-//
-//                }
-                break;
-            case "Onion":
-                inventory.setOnionCount(inventory.getOnionCount() - amount);
-                setMoney(getMoney() + amount * price);
-//                if (inventory.getOnionCount() - amount >= 0) {
-//                }
-                break;
-            case "Potato":
-                inventory.setPotatoCount(inventory.getPotatoCount() - amount);
-                setMoney(getMoney() + amount * price);
-//                if (inventory.getPotatoCount() - amount >= 0) {
-//
-//                }
-                break;
-            default:
-                System.out.println("Item not selected");
+        case "Corn":
+            inventory.setCornCount(inventory.getCornCount() - amount);
+            setMoney(getMoney() + amount * price);
+            break;
+        case "Watermelon":
+            inventory.setWatermelonCount(inventory.getWatermelonCount() - amount);
+            setMoney(getMoney() + amount * price);
+            break;
+        case "Onion":
+            inventory.setOnionCount(inventory.getOnionCount() - amount);
+            setMoney(getMoney() + amount * price);
+            break;
+        case "Potato":
+            inventory.setPotatoCount(inventory.getPotatoCount() - amount);
+            setMoney(getMoney() + amount * price);
+            break;
+        default:
+            System.out.println("Item not selected");
         }
-        System.out.println(money);
     }
 
     public void buyFromMarket(String itemName, int amount, int price) {
         switch (itemName) {
-            case "Corn":
-                if (inventory.getCornSeedCount() + amount <= 10 && (getMoney() - amount * price) > 0) {
-                    inventory.setCornSeedCount(inventory.getCornSeedCount() + amount);
-                    setMoney(getMoney() - amount * price);
-                }
-                break;
-            case "Watermelon":
-                if (inventory.getWatermelonSeedCount() + amount <= 10 && (getMoney() - amount * price) > 0) {
-                    inventory.setWatermelonSeedCount(inventory.getWatermelonSeedCount() + amount);
-                    setMoney(getMoney() - amount * price);
-                }
-                break;
-            case "Onion":
-                if (inventory.getOnionSeedCount() + amount <= 10 && (getMoney() - amount * price) > 0) {
-                    inventory.setOnionSeedCount(inventory.getOnionSeedCount() + amount);
-                    setMoney(getMoney() - amount * price);
-                }
-                break;
-            case "Potato":
-                if (inventory.getPotatoSeedCount() + amount <= 10 && (getMoney() - amount * price) > 0) {
-                    inventory.setPotatoSeedCount(inventory.getPotatoSeedCount() + amount);
-                    setMoney(getMoney() - amount * price);
-                }
-                break;
-            default:
-                System.out.println("Item not selected");
+        case "Corn":
+            if (inventory.getCornSeedCount() + amount <= 100
+                    && (getMoney() - amount * price) > 0) {
+                inventory.setCornSeedCount(inventory.getCornSeedCount() + amount);
+                setMoney(getMoney() - amount * price);
+            }
+            break;
+        case "Watermelon":
+            if (inventory.getWatermelonSeedCount() + amount <= 100
+                    && (getMoney() - amount * price) > 0) {
+                inventory.setWatermelonSeedCount(inventory.getWatermelonSeedCount() + amount);
+                setMoney(getMoney() - amount * price);
+            }
+            break;
+        case "Onion":
+            if (inventory.getOnionSeedCount() + amount <= 100
+                    && (getMoney() - amount * price) > 0) {
+                inventory.setOnionSeedCount(inventory.getOnionSeedCount() + amount);
+                setMoney(getMoney() - amount * price);
+            }
+            break;
+        case "Potato":
+            if (inventory.getPotatoSeedCount() + amount <= 100
+                    && (getMoney() - amount * price) > 0) {
+                inventory.setPotatoSeedCount(inventory.getPotatoSeedCount() + amount);
+                setMoney(getMoney() - amount * price);
+            }
+            break;
+        default:
+            System.out.println("Item not selected");
         }
     }
 

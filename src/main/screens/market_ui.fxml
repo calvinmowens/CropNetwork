@@ -16,7 +16,7 @@
             <Image url="@../resources/marketUI.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="149.0" layoutX="50.0" layoutY="378.0" onMouseClicked="#switchToInventory" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="inventory" fitHeight="64.0" fitWidth="149.0" layoutX="50.0" layoutY="378.0" onMouseClicked="#switchToInventory" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/inventory_button.png" />
          </image>
@@ -52,7 +52,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="selectedItemQuantity" layoutX="168.0" layoutY="374.0" prefHeight="18.0" prefWidth="61.0" />
+            <TextField id="selectedItemQuantity" fx:id="selectedItemQuantity" layoutX="168.0" layoutY="374.0" prefHeight="18.0" prefWidth="61.0" />
             <Button id="buyItemBtn" layoutX="18.0" layoutY="479.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="54.0" prefWidth="212.0" style="-fx-background-color: #ff637d; -fx-background-radius: 20px;" text="BUY" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Cartoonist Kooky" size="15.0" />

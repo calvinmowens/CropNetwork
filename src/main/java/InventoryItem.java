@@ -19,10 +19,6 @@ public class InventoryItem extends Item {
             return false;
         }
         InventoryItem item = (InventoryItem) o;
-        if (item.getItemName() == this.getItemName()) {
-            return true;
-        } else {
-            return false;
-        }
+        return item.getItemName() == this.getItemName();
     }
 }

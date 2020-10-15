@@ -79,15 +79,14 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return "Inventory{" +
-                "cornSeedCount=" + cornSeedCount +
-                ", watermelonSeedCount=" + watermelonSeedCount +
-                ", onionSeedCount=" + onionSeedCount +
-                ", potatoSeedCount=" + potatoSeedCount +
-                ", potatoCount=" + potatoCount +
-                ", onionCount=" + onionCount +
-                ", watermelonCount=" + watermelonCount +
-                ", cornCount=" + cornCount +
-                '}';
+        return "Inventory{"
+                + "cornSeedCount=" + cornSeedCount
+                + ", watermelonSeedCount=" + watermelonSeedCount
+                + ", onionSeedCount=" + onionSeedCount
+                + ", potatoSeedCount=" + potatoSeedCount
+                + ", potatoCount=" + potatoCount
+                + ", onionCount=" + onionCount
+                + ", watermelonCount=" + watermelonCount
+                + ", cornCount=" + cornCount + '}';
     }
 }
