@@ -9,6 +9,7 @@ public class InventoryItem extends Item {
     public int getCount() {
         return this.count;
     }
+
     public void setCount(int newCount) {
         this.count = newCount;
     }

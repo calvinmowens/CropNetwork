@@ -17,9 +17,11 @@ import javafx.stage.Stage;
 import main.java.CropPlot;
 import main.java.Game;
 import main.java.Inventory;
+import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class GameConfigController implements Initializable {
@@ -127,13 +129,36 @@ public class GameConfigController implements Initializable {
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
             newGame.setMoney(newGame.getDifficulty());
+            newGame.initializeInventory();
+            for (int i = 0; i < newGame.getPlots().length; i++) {
+                newGame.getPlots()[i] = new CropPlot("Watermelon Mature", 3, "/main/resources/watermelon_mature.png");
+            }
 
-            CropPlot[] plots = newGame.getPlots();
-            String watermelon = "/main/resources/watermelon_mature.png";
-            plots[1] = new CropPlot("Watermelon Mature", 3, watermelon);
-            plots[3] = new CropPlot("Potato Mature", 3, "/main/resources/potato_mature.png");
-            plots[5] = new CropPlot("Corn Mature", 3, "/main/resources/corn_mature.png");
-            plots[8] = new CropPlot("Onion Mature", 3, "/main/resources/onion_mature.png");
+            Map<String, InventoryItem> myMap = newGame.getInventoryMap();
+            //myMap.put("default", new InventoryItem(0, "default", "/main/resources/blank.png", 0)); // used for getOrDefault()
+            switch(startingSeed.getValue()) {
+                case "Corn":
+                    myMap.put("Corn Seed",
+                            new InventoryItem(10, "Corn Seed",
+                                    "/main/resources/cornBag.png", 10));
+                    break;
+                case "Onion":
+                    myMap.put("Onion Seed",
+                            new InventoryItem(10, "Onion Seed",
+                                    "/main/resources/onionBag.png", 10));
+                    break;
+                case "Potato":
+                    myMap.put("Potato Seed",
+                            new InventoryItem(10, "Potato Seed",
+                                    "/main/resources/potatoBag.png", 10));
+                    break;
+                case "Watermelon":
+                    myMap.put("Watermelon Seed",
+                            new InventoryItem(10, "Watermelon Seed",
+                                    "/main/resources/watermelonBag.png", 10));
+                    break;
+
+            }
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();

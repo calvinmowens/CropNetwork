@@ -14,12 +14,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
+import main.java.Inventory;
 import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class MarketInventoryUiController implements Initializable {
 
@@ -49,6 +52,10 @@ public class MarketInventoryUiController implements Initializable {
     @FXML
     private AnchorPane inventoryItem4;
 
+    private Map<String, InventoryItem> map;
+    private Set<String> keys;
+    private String[] keyArray;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         selectedItemImage.setImage(null);
@@ -61,17 +68,18 @@ public class MarketInventoryUiController implements Initializable {
 
         currentPlayerMoney.setText(Integer.toString(currentGame.getMoney()));
 
-        List<InventoryItem> myInventory = myGame.getInventoryList();
+        //List<InventoryItem> myInventory = myGame.getInventoryList();
+        map = myGame.getInventoryMap();
+        keys = map.keySet();
+        keyArray = keys.toArray(new String[keys.size()]);
 
-        for (int i = 0; i < myInventory.size(); i++) {
+        for (int i = 0; i < keyArray.length; i++) {
             AnchorPane itemSlot = (AnchorPane) (inventoryItems.getChildren().get(i));
             ImageView itemImg = (ImageView) itemSlot.getChildren().get(0);
-            itemImg.setImage(myInventory.get(i).getImage());
+            itemImg.setImage(map.get(keyArray[i]).getImage());
             Label itemCount = (Label) itemSlot.getChildren().get(1);
-            itemCount.setText(myInventory.get(i).getCount() + "/ 100");
+            itemCount.setText(map.get(keyArray[i]).getCount() + "/ 100");
         }
-
-
     }
 
     public void switchToMarket(MouseEvent mouseEvent) throws IOException {
@@ -90,11 +98,11 @@ public class MarketInventoryUiController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         int sellAmount = Integer.parseInt(selectedItemQuantity.getText());
-        for (InventoryItem i: myGame.getInventoryList()) {
+        for (InventoryItem i: map.values()) {
             if (i.getItemName() == selectedItemName.getText() && i.getCount() >= sellAmount) {
                 String selectedItem = selectedItemName.getText();
                 i.setCount(i.getCount() - sellAmount);
-                myGame.sellFromInventory(selectedItem, sellAmount, myGame.getCropPrice());
+                myGame.sellFromInventory(selectedItem, sellAmount, i.getBasePrice());
             }
         }
         this.initData(myGame);
@@ -103,8 +111,9 @@ public class MarketInventoryUiController implements Initializable {
     public void setSelectedItem(MouseEvent mouseEvent) {
         String id = ((Node) mouseEvent.getSource()).getId();
         int slotId = Integer.parseInt(id.substring(13)) - 1;
-        selectedItemName.setText(myGame.getInventoryList().get(slotId).getItemName());
-        selectedItemImage.setImage(myGame.getInventoryList().get(slotId).getImage());
+        System.out.println();
+        selectedItemName.setText(map.get(keyArray[slotId]).getItemName());
+        selectedItemImage.setImage(map.get(keyArray[slotId]).getImage());
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException {

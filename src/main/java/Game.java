@@ -3,6 +3,7 @@ package main.java;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Game {
 
@@ -20,13 +21,49 @@ public class Game {
     public List<InventoryItem> getInventoryList() {
         return inventoryList;
     }
+    private Map<String, InventoryItem> inventoryMap = new HashMap<>();
+
+
 
     private HashMap<String, CropPlot> plotMap = new HashMap<>();
     public HashMap<String, CropPlot> getPlotMap() {
         return plotMap;
     }
     private CropPlot[] plots = new CropPlot[12];
+    private InventoryItem defaultItem = new InventoryItem(0, "default", "/main/resources/blank.png", 0);
 
+//    public void addToInventory(String itemName, int increment, int sellPrice, String imgUrl) {
+//        if (this.inventoryMap.containsKey(itemName)) {
+//            this.inventoryMap.get(itemName).setCount( this.inventoryMap.get(itemName).getCount() + increment);
+//        } else {
+//            this.inventoryMap.put(itemName, new InventoryItem())
+//        }
+//    }
+    public void initializeInventory() {
+        inventoryMap.put("Corn Seed", new InventoryItem(10, "Corn Seed", "/main/resources/cornBag.png", 0));
+        inventoryMap.put("Onion Seed", new InventoryItem(10, "Onion Seed", "/main/resources/onionBag.png", 0));
+        inventoryMap.put("Watermelon Seed", new InventoryItem(10, "Watermelon Seed", "/main/resources/watermelonBag.png", 0));
+        inventoryMap.put("Potato Seed", new InventoryItem(10, "Potato Seed", "/main/resources/potatoBag.png", 0));
+        inventoryMap.put("Corn", new InventoryItem(100, "Corn", "/main/resources/corn.png", 0));
+        inventoryMap.put("Onion", new InventoryItem(100, "Onion", "/main/resources/OnionCrop.png", 0));
+        inventoryMap.put("Watermelon", new InventoryItem(100, "Watermelon", "/main/resources/WatermelonCrop.png", 0));
+        inventoryMap.put("Potato", new InventoryItem(100, "Potato", "/main/resources/PotatoCrop.png", 0));
+    }
+
+    public InventoryItem getDefaultItem() {
+        return this.defaultItem;
+    }
+    // Tells whether to harvest or water or kill
+    private String plotClickMode = "Harvest";
+
+    public String getPlotClickMode() {
+        return this.plotClickMode;
+    }
+    public void setPlotClickMode(String mode) {
+        this.plotClickMode = mode;
+    }
+
+    public Map<String, InventoryItem> getInventoryMap() { return this.inventoryMap; }
 
     public CropPlot[] getPlots() {
         return plots;
@@ -152,30 +189,30 @@ public class Game {
     public void buyFromMarket(String itemName, int amount, int price) {
         switch (itemName) {
         case "Corn":
-            if (inventory.getCornSeedCount() + amount <= 100
+            if (inventoryMap.get("Corn Seed").getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
-                inventory.setCornSeedCount(inventory.getCornSeedCount() + amount);
+                inventoryMap.get("Corn Seed").setCount(inventoryMap.get("Corn Seed").getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
             break;
         case "Watermelon":
-            if (inventory.getWatermelonSeedCount() + amount <= 100
+            if (inventoryMap.get("Watermelon Seed").getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
-                inventory.setWatermelonSeedCount(inventory.getWatermelonSeedCount() + amount);
+                inventoryMap.get("Watermelon Seed").setCount(inventoryMap.get("Watermelon Seed").getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
             break;
         case "Onion":
-            if (inventory.getOnionSeedCount() + amount <= 100
+            if (inventoryMap.get("Onion Seed").getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
-                inventory.setOnionSeedCount(inventory.getOnionSeedCount() + amount);
+                inventoryMap.get("Onion Seed").setCount(inventoryMap.get("Onion Seed").getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
             break;
         case "Potato":
-            if (inventory.getPotatoSeedCount() + amount <= 100
+            if (inventoryMap.get("Potato Seed").getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
-                inventory.setPotatoSeedCount(inventory.getPotatoSeedCount() + amount);
+                inventoryMap.get("Onion Seed").setCount(inventoryMap.get("Onion Seed").getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
             break;

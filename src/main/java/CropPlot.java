@@ -1,19 +1,33 @@
 package main.java;
 
+import com.sun.scenario.effect.Crop;
 import javafx.scene.image.Image;
 
 public class CropPlot {
     private String imgUrl;
     /**
-     * Maturity: meaning
+     * Maturity: stage
      * 0: empty plot
      * 1: seeded
      * 2: immature
      * 3: mature
+     * 4: dead
      * */
     private int maturity;
     private String cropName;
     private Image image;
+
+    /**
+     * TODO: Update imgUrl with the right url
+     * right now they are all corn images. Row 1 should represent corn images, row 2 should represent onions, etc...
+     *
+     */
+//    private final String[][] imgMatrix = {
+//            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
+//            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
+//            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
+//            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
+//    };
 
     public void setMaturity(int maturity) {
         this.maturity = maturity;
@@ -51,6 +65,9 @@ public class CropPlot {
         this.cropName = cropName;
         this.maturity = maturity;
         this.imgUrl = imgUrl;
+    }
+    public CropPlot(String cropName, int maturity) {
+
     }
 
 }
