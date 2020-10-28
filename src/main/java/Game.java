@@ -23,6 +23,8 @@ public class Game {
     }
     private Map<String, InventoryItem> inventoryMap = new HashMap<>();
 
+
+
     private HashMap<String, CropPlot> plotMap = new HashMap<>();
     public HashMap<String, CropPlot> getPlotMap() {
         return plotMap;
@@ -38,14 +40,14 @@ public class Game {
 //        }
 //    }
     public void initializeInventory() {
-        inventoryMap.put("Corn Seed", new InventoryItem(seedPrice, "Corn Seed", "/main/resources/cornBag.png", 0));
-        inventoryMap.put("Onion Seed", new InventoryItem(seedPrice, "Onion Seed", "/main/resources/onionBag.png", 0));
-        inventoryMap.put("Watermelon Seed", new InventoryItem(seedPrice, "Watermelon Seed", "/main/resources/watermelonBag.png", 0));
-        inventoryMap.put("Potato Seed", new InventoryItem(seedPrice, "Potato Seed", "/main/resources/potatoBag.png", 0));
-        inventoryMap.put("Corn", new InventoryItem(cropPrice, "Corn", "/main/resources/corn.png", 0));
-        inventoryMap.put("Onion", new InventoryItem(cropPrice, "Onion", "/main/resources/OnionCrop.png", 0));
-        inventoryMap.put("Watermelon", new InventoryItem(cropPrice, "Watermelon", "/main/resources/WatermelonCrop.png", 0));
-        inventoryMap.put("Potato", new InventoryItem(cropPrice, "Potato", "/main/resources/PotatoCrop.png", 0));
+        inventoryMap.put("Corn Seed", new InventoryItem(10, "Corn Seed", "/main/resources/cornBag.png", 0));
+        inventoryMap.put("Onion Seed", new InventoryItem(10, "Onion Seed", "/main/resources/onionBag.png", 0));
+        inventoryMap.put("Watermelon Seed", new InventoryItem(10, "Watermelon Seed", "/main/resources/watermelonBag.png", 0));
+        inventoryMap.put("Potato Seed", new InventoryItem(10, "Potato Seed", "/main/resources/potatoBag.png", 0));
+        inventoryMap.put("Corn", new InventoryItem(100, "Corn", "/main/resources/corn.png", 0));
+        inventoryMap.put("Onion", new InventoryItem(100, "Onion", "/main/resources/OnionCrop.png", 0));
+        inventoryMap.put("Watermelon", new InventoryItem(100, "Watermelon", "/main/resources/WatermelonCrop.png", 0));
+        inventoryMap.put("Potato", new InventoryItem(100, "Potato", "/main/resources/PotatoCrop.png", 0));
     }
 
     public InventoryItem getDefaultItem() {

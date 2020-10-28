@@ -14,16 +14,12 @@ public class InventoryItem extends Item {
         this.count = newCount;
     }
 
-    public void useItem() {
-        this.count--;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof InventoryItem)) {
+        if (o == null) {
             return false;
         }
         InventoryItem item = (InventoryItem) o;
-        return item.getItemName().equals(this.getItemName());
+        return item.getItemName() == this.getItemName();
     }
 }

@@ -233,14 +233,14 @@ public class MainUiController implements Initializable {
         String mode = myGame.getPlotClickMode();
         if (mode.equals("Harvest")) {
             harvestCrop(id);
-        } else if (mode.equals("Plant")) {
-            plantCrop(id);
         }
     }
 
     public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
+
+        InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
         if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
@@ -251,25 +251,7 @@ public class MainUiController implements Initializable {
         myPlots[plotId].setCropName("Empty Plot");
         myPlots[plotId].setMaturity(0);
         myPlots[plotId].setImgUrl("/main/resources/blank.png");
-        this.initData(myGame);
-    }
-
-    //seedImage is the current seed, need to use that to know what to plant.
-    //Also check if there are enough of them
-    public void plantCrop(String id) {
-        CropPlot[] myPlots = myGame.getPlots();
-        int plotId = Integer.parseInt(id.substring(4)) - 1;
-        InventoryItem defaultItem = myGame.getDefaultItem();
-        Map<String, InventoryItem> inventoryMap = myGame.getInventoryMap();
-        if (!myPlots[plotId].isPlanted()) {
-            String seedName = defaultItem.getItemName();
-            InventoryItem item = inventoryMap.get(seedName);
-            item.setCount(item.getCount() + 5);
-            myPlots[plotId].setCropName(defaultItem.getItemName());
-            myPlots[plotId].setMaturity(0);
-            myPlots[plotId].setImgUrl(defaultItem.getImgUrl());
-            defaultItem.useItem();
-        }
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
         this.initData(myGame);
     }
 }

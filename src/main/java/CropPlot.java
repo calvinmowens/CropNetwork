@@ -1,12 +1,10 @@
 package main.java;
 
-//import com.sun.scenario.effect.Crop;
+import com.sun.scenario.effect.Crop;
 import javafx.scene.image.Image;
 
 public class CropPlot {
     private String imgUrl;
-
-    private int waterLevel;
     /**
      * Maturity: stage
      * 0: empty plot
@@ -16,26 +14,8 @@ public class CropPlot {
      * 4: dead
      * */
     private int maturity;
-
-    public void checkMaturity() {
-        if (this.maturity == 1 || (maturity == 2 && waterLevel > 2)) {
-            this.maturity++;
-        } else if (maturity == 2) {
-            this.maturity += 2;
-        }
-    }
     private String cropName;
     private Image image;
-
-    public boolean isPlanted() {
-        return planted;
-    }
-
-    public void setPlanted(boolean planted) {
-        this.planted = planted;
-    }
-
-    private boolean planted;
 
     /**
      * TODO: Update imgUrl with the right url
