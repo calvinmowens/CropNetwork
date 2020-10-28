@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,12 +16,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="cs2340_team44_m_" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../devfiles/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -48,10 +52,10 @@
       <screen x="1920" y="0" width="2560" height="1040" />
     </state>
     <state x="2792" y="178" key="#Project_Structure/1920.0.2560.1040/0.0.1920.1040@1920.0.2560.1040" timestamp="1601092362701" />
-    <state x="361" y="57" width="1079" height="843" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603889957441">
+    <state x="361" y="23" width="1079" height="820" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603890138961">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="361" y="57" width="1079" height="843" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1603889957441" />
+    <state x="361" y="23" width="1079" height="820" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1603890138961" />
     <state x="2654" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.2560.1040/0.0.1920.1040@1920.0.2560.1040" timestamp="1601092365443" />
     <state x="2979" y="261" key="FileChooserDialogImpl" timestamp="1601092503488">
       <screen x="1920" y="0" width="2560" height="1040" />
