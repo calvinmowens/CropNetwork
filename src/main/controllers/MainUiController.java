@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
 
+    Map<String, InventoryItem> inventory;
     @FXML
     private AnchorPane inventoryModal;
     @FXML
@@ -109,7 +110,7 @@ public class MainUiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         seedModal.visibleProperty().bind(seedBagClick);
         background.visibleProperty().bind(backgroundToggle);
-//        inventoryModal.visibleProperty().bind(inventoryClick);
+        inventoryModal.visibleProperty().bind(inventoryClick);
     }
 
     /**
@@ -132,7 +133,7 @@ public class MainUiController implements Initializable {
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
 
         money.setText("$" + Integer.toString(myGame.getMoney()));
-        Map<String, InventoryItem> inventory = myGame.getInventoryMap();
+        inventory = myGame.getInventoryMap();
 
         CropPlot[] myPlots = myGame.getPlots();
         for (int i = 0; i < myPlots.length; i++) {
@@ -217,12 +218,12 @@ public class MainUiController implements Initializable {
         backgroundToggle.set(!backgroundToggle.get());
     }
 
-//    public void updateCount() {
-//        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
-//        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
-//        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
-//        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
-//    }
+    public void updateCount() {
+        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
+        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
+        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
+        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
+    }
 
     /**
      * TODO: Implement watering feature
@@ -252,6 +253,7 @@ public class MainUiController implements Initializable {
         myPlots[plotId].setMaturity(0);
         myPlots[plotId].setImgUrl("/main/resources/blank.png");
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+
         this.initData(myGame);
     }
 }
