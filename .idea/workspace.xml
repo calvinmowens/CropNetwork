@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="" />
+    <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cs2340_checks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/junit-4.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_checkstyle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controllers/GameConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controllers/MainUiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controllers/MarketInventoryUiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controllers/MarketUiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/controllers/WelcomeScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CropInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CropPlot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/InventoryItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Market.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MarketItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Potato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/screens/game_config.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/screens/marketInventory_ui.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/screens/market_ui.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/screens/welcome_screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/module-info.javaa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,17 +37,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\Harry Bae\Documents\FALL 2020\cs2340\crop_network\cs2340_team44_m_\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1i24R8Cv385tnrIQBGNQha1izn7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
