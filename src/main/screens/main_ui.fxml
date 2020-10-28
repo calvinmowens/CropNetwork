@@ -109,7 +109,7 @@ Graphic Credits
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="fork_tool" layoutX="597.0" layoutY="610.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+        <Button id="fork_tool" layoutX="597.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolHarvestClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
                 <ImageView fitHeight="56.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -118,7 +118,7 @@ Graphic Credits
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="water_tool" layoutX="710.0" layoutY="610.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+        <Button id="water_tool" layoutX="710.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolWaterClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -219,64 +219,64 @@ Graphic Credits
                 </image>
             </ImageView>
             <Button id="plot12" layoutX="875.0" layoutY="330.0" mnemonicParsing="false" onAction="#plotClickedHandler" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="203.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot1" fitHeight="86.0" fitWidth="31.0" layoutX="203.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="313.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot2" fitHeight="86.0" fitWidth="31.0" layoutX="313.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="416.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot3" fitHeight="86.0" fitWidth="31.0" layoutX="416.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="514.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot4" fitHeight="86.0" fitWidth="31.0" layoutX="514.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="355.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot5" fitHeight="86.0" fitWidth="31.0" layoutX="355.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="464.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot6" fitHeight="86.0" fitWidth="31.0" layoutX="464.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="572.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot7" fitHeight="86.0" fitWidth="31.0" layoutX="572.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="668.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot8" fitHeight="86.0" fitWidth="31.0" layoutX="668.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_good.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="532.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot9" fitHeight="86.0" fitWidth="31.0" layoutX="532.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_too_low.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="645.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot10" fitHeight="86.0" fitWidth="31.0" layoutX="645.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_danger.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="740.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot11" fitHeight="86.0" fitWidth="31.0" layoutX="740.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../resources/water_level_too_low.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="86.0" fitWidth="31.0" layoutX="828.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="waterLevel_Plot12" fitHeight="86.0" fitWidth="31.0" layoutX="828.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../resources/water_level_too_full.png" />
+                    <Image url="@../resources/water_level_full.png" />
                 </image>
             </ImageView>
         </children>

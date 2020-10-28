@@ -23,8 +23,6 @@ public class Game {
     }
     private Map<String, InventoryItem> inventoryMap = new HashMap<>();
 
-
-
     private HashMap<String, CropPlot> plotMap = new HashMap<>();
     public HashMap<String, CropPlot> getPlotMap() {
         return plotMap;
@@ -54,11 +52,12 @@ public class Game {
         return this.defaultItem;
     }
     // Tells whether to harvest or water or kill
-    private String plotClickMode = "Harvest";
+    private String plotClickMode = null;
 
     public String getPlotClickMode() {
         return this.plotClickMode;
     }
+
     public void setPlotClickMode(String mode) {
         this.plotClickMode = mode;
     }

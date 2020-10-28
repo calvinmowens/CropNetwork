@@ -6,9 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -26,6 +24,33 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
+
+    @FXML
+    private ImageView waterLevel_Plot1;
+    @FXML
+    private ImageView waterLevel_Plot2;
+    @FXML
+    private ImageView waterLevel_Plot3;
+    @FXML
+    private ImageView waterLevel_Plot4;
+    @FXML
+    private ImageView waterLevel_Plot5;
+    @FXML
+    private ImageView waterLevel_Plot6;
+    @FXML
+    private ImageView waterLevel_Plot7;
+    @FXML
+    private ImageView waterLevel_Plot8;
+    @FXML
+    private ImageView waterLevel_Plot9;
+    @FXML
+    private ImageView waterLevel_Plot10;
+    @FXML
+    private ImageView waterLevel_Plot11;
+    @FXML
+    private ImageView waterLevel_Plot12;
+
+    private ImageView[] waterLevelsArray;
 
     Map<String, InventoryItem> inventory;
     @FXML
@@ -108,9 +133,25 @@ public class MainUiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("initalizable runs");
         seedModal.visibleProperty().bind(seedBagClick);
         background.visibleProperty().bind(backgroundToggle);
         inventoryModal.visibleProperty().bind(inventoryClick);
+
+        waterLevelsArray = new ImageView[] {
+                waterLevel_Plot1,
+                waterLevel_Plot2,
+                waterLevel_Plot3,
+                waterLevel_Plot4,
+                waterLevel_Plot5,
+                waterLevel_Plot6,
+                waterLevel_Plot7,
+                waterLevel_Plot8,
+                waterLevel_Plot9,
+                waterLevel_Plot10,
+                waterLevel_Plot11,
+                waterLevel_Plot12
+        };
     }
 
     /**
@@ -139,6 +180,7 @@ public class MainUiController implements Initializable {
         for (int i = 0; i < myPlots.length; i++) {
             if (myPlots[i] != null) {
                 ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
+                waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
             }
         }
 
@@ -156,6 +198,10 @@ public class MainUiController implements Initializable {
         watermelonCropCounter.setText(Integer.toString(inventory.getOrDefault("Watermelon", defaultItem).getCount()));
         onionCropCounter.setText(Integer.toString(inventory.getOrDefault("Onion", defaultItem).getCount()));
         potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
+    }
+
+    public void initPlots() {
+
     }
 
     private String setStartingSeasonHelper() {
@@ -198,6 +244,11 @@ public class MainUiController implements Initializable {
         backgroundToggle.set(!backgroundToggle.get());
     }
 
+    public void openInventoryModal(ActionEvent actionEvent) {
+        inventoryClick.set(!inventoryClick.get());
+        backgroundToggle.set(!backgroundToggle.get());
+    }
+
     public void openMarket(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/screens/market_ui.FXML"));
@@ -213,27 +264,42 @@ public class MainUiController implements Initializable {
         window.show();
     }
 
-    public void openInventoryModal(ActionEvent actionEvent) {
-        inventoryClick.set(!inventoryClick.get());
-        backgroundToggle.set(!backgroundToggle.get());
+    public void toolHarvestClick(ActionEvent actionEvent) {
+        myGame.setPlotClickMode("Harvest");
+        Scene myScene = ((Node) actionEvent.getSource()).getScene();
+        myScene.setCursor(new ImageCursor(new Image("/main/resources/fork.png")));
     }
 
-    public void updateCount() {
-        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
-        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
-        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
-        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
+    public void toolWaterClick(ActionEvent actionEvent) {
+        myGame.setPlotClickMode("Water");
+        Scene myScene = ((Node) actionEvent.getSource()).getScene();
+        myScene.setCursor(new ImageCursor(new Image("/main/resources/water.png")));
     }
+
+    /**
+     * We can use this to fix our bug on updating inventory modal when harvesting
+     */
+//    public void updateCount() {
+//        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
+//        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
+//        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
+//        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
+//    }
 
     /**
      * TODO: Implement watering feature
      * @param actionEvent
      */
     public void plotClickedHandler(ActionEvent actionEvent) {
+        System.out.println("Plot clicked: " + myGame.getPlotClickMode());
         String id = ((Node) actionEvent.getSource()).getId();
         String mode = myGame.getPlotClickMode();
-        if (mode.equals("Harvest")) {
-            harvestCrop(id);
+        if (mode != null) {
+            if (mode.equals("Harvest")) {
+                harvestCrop(id);
+            } else if (mode.equals("Water")) {
+                waterCrop(id);
+            }
         }
     }
 
@@ -245,15 +311,19 @@ public class MainUiController implements Initializable {
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
         if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
-            String cropName = myCrop.getCropName().substring(0,myCrop.getCropName().length() - 7);
+            String cropName = myCrop.getCropName();
             InventoryItem item = map.get(cropName);
             item.setCount(item.getCount() + 5);
         }
         myPlots[plotId].setCropName("Empty Plot");
         myPlots[plotId].setMaturity(0);
-        myPlots[plotId].setImgUrl("/main/resources/blank.png");
+        myPlots[plotId].setWaterLevel(0);
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
 
         this.initData(myGame);
+    }
+
+    public void waterCrop(String id) {
+        System.out.println("Water crop: " + id);
     }
 }

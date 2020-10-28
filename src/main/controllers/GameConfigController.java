@@ -22,6 +22,7 @@ import main.java.InventoryItem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class GameConfigController implements Initializable {
@@ -131,7 +132,18 @@ public class GameConfigController implements Initializable {
             newGame.setMoney(newGame.getDifficulty());
             newGame.initializeInventory();
             for (int i = 0; i < newGame.getPlots().length; i++) {
-                newGame.getPlots()[i] = new CropPlot("Watermelon Mature", 3, "/main/resources/watermelon_mature.png");
+                Random rand = new Random();
+                int cropNum = rand.nextInt(4) + 1;
+                int maturityNum = rand.nextInt(3) + 1;
+                if (cropNum == 1) {
+                    newGame.getPlots()[i] = new CropPlot("Corn", maturityNum);
+                } else if (cropNum == 2) {
+                    newGame.getPlots()[i] = new CropPlot("Watermelon", maturityNum);
+                } else if (cropNum == 3) {
+                    newGame.getPlots()[i] = new CropPlot("Onion", maturityNum);
+                } else if (cropNum == 4) {
+                    newGame.getPlots()[i] = new CropPlot("Potato", maturityNum);
+                }
             }
 
             Map<String, InventoryItem> myMap = newGame.getInventoryMap();
@@ -168,6 +180,7 @@ public class GameConfigController implements Initializable {
             Scene startGameScene = new Scene(startGame);
 
             MainUiController controller = loader.getController();
+            controller.initPlots();
             controller.initData(newGame);
             // Stage and show the new scene
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
