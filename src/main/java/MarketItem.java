@@ -24,8 +24,6 @@ public class MarketItem {
         return label;
     }
 
-
-
     public void setBasePrice(int basePrice) {
         this.basePrice = basePrice;
     }

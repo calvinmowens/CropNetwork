@@ -17,10 +17,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.CropPlot;
 import main.java.Game;
+import main.java.Inventory;
 import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
@@ -107,7 +109,7 @@ public class MainUiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         seedModal.visibleProperty().bind(seedBagClick);
         background.visibleProperty().bind(backgroundToggle);
-        inventoryModal.visibleProperty().bind(inventoryClick);
+//        inventoryModal.visibleProperty().bind(inventoryClick);
     }
 
     /**
@@ -130,22 +132,7 @@ public class MainUiController implements Initializable {
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
 
         money.setText("$" + Integer.toString(myGame.getMoney()));
-        switch (myGame.getStartingSeed()) {
-        case "Onion":
-            myGame.getInventory().setOnionSeedCount(10);
-            break;
-        case "Corn":
-            myGame.getInventory().setCornSeedCount(10);
-            break;
-        case "Watermelon":
-            myGame.getInventory().setWatermelonSeedCount(10);
-            break;
-        case "Potato":
-            myGame.getInventory().setPotatoSeedCount(10);
-            break;
-        default:
-            break;
-        }
+        Map<String, InventoryItem> inventory = myGame.getInventoryMap();
 
         CropPlot[] myPlots = myGame.getPlots();
         for (int i = 0; i < myPlots.length; i++) {
@@ -155,17 +142,19 @@ public class MainUiController implements Initializable {
         }
 
         // Set seed counters to current inventory count.
-        cornSeedBagCounter.setText(Integer.toString(myGame.getInventory().getCornSeedCount()));
+        InventoryItem defaultItem = myGame.getDefaultItem();
+
+        cornSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Corn Seed", defaultItem).getCount()));
         watermelonSeedBagCounter
-                .setText(Integer.toString(myGame.getInventory().getWatermelonSeedCount()));
-        onionSeedBagCounter.setText(Integer.toString(myGame.getInventory().getOnionSeedCount()));
-        potatoSeedBagCounter.setText(Integer.toString(myGame.getInventory().getPotatoSeedCount()));
+                .setText(Integer.toString(inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
+        onionSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
+        potatoSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Potato Seed", defaultItem).getCount()));
 
         // Set crop counters to current inventory count.
-        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
-        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
-        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
-        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
+        cornCropCounter.setText(Integer.toString(inventory.getOrDefault("Corn", defaultItem).getCount()));
+        watermelonCropCounter.setText(Integer.toString(inventory.getOrDefault("Watermelon", defaultItem).getCount()));
+        onionCropCounter.setText(Integer.toString(inventory.getOrDefault("Onion", defaultItem).getCount()));
+        potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
     }
 
     private String setStartingSeasonHelper() {
@@ -226,50 +215,38 @@ public class MainUiController implements Initializable {
     public void openInventoryModal(ActionEvent actionEvent) {
         inventoryClick.set(!inventoryClick.get());
         backgroundToggle.set(!backgroundToggle.get());
-
     }
 
-    public void updateCount() {
-        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
-        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
-        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
-        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
-    }
+//    public void updateCount() {
+//        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
+//        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
+//        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
+//        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
+//    }
 
-    public void harvestCrop(ActionEvent actionEvent) {
+    /**
+     * TODO: Implement watering feature
+     * @param actionEvent
+     */
+    public void plotClickedHandler(ActionEvent actionEvent) {
         String id = ((Node) actionEvent.getSource()).getId();
+        String mode = myGame.getPlotClickMode();
+        if (mode.equals("Harvest")) {
+            harvestCrop(id);
+        }
+    }
+
+    public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
+
+        InventoryItem defaultItem = myGame.getDefaultItem();
+        Map<String, InventoryItem> map = myGame.getInventoryMap();
+        CropPlot myCrop = myPlots[plotId];
         if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
-            switch (id) {
-            case "plot2":
-                myGame.getInventory()
-                        .setWatermelonCount(myGame.getInventory().getWatermelonCount() + 3);
-                myGame.getInventoryList().add(new InventoryItem(100, "Watermelon",
-                        "/main/resources/WatermelonCrop.png", 3));
-                updateCount();
-                break;
-            case "plot4":
-                myGame.getInventory().setPotatoCount(myGame.getInventory().getPotatoCount() + 3);
-                myGame.getInventoryList().add(new InventoryItem(100, "Potato",
-                        "/main/resources/PotatoCrop.png", 3));
-                updateCount();
-                break;
-            case "plot6":
-                myGame.getInventory().setCornCount(myGame.getInventory().getCornCount() + 3);
-                myGame.getInventoryList().add(new InventoryItem(100, "Corn",
-                        "/main/resources/corn_mature.png", 3));
-                updateCount();
-                break;
-            case "plot9":
-                myGame.getInventory().setOnionCount(myGame.getInventory().getOnionCount() + 3);
-                myGame.getInventoryList().add(new InventoryItem(100, "Onion",
-                        "/main/resources/OnionCrop.png", 3));
-                updateCount();
-                break;
-            default:
-                System.out.println("Not mature");
-            }
+            String cropName = myCrop.getCropName().substring(0,myCrop.getCropName().length() - 7);
+            InventoryItem item = map.get(cropName);
+            item.setCount(item.getCount() + 5);
         }
         myPlots[plotId].setCropName("Empty Plot");
         myPlots[plotId].setMaturity(0);
