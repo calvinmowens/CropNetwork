@@ -50,12 +50,12 @@ public class CropPlot {
     }
 
     public void nextDayCheck() {
-        if(maturity == 1 || (maturity == 2 && waterLevel == 3)) {
+        if((maturity == 1 && waterLevel == 2)|| (maturity == 2 && waterLevel == 2)) {
             maturity++;
         } else if(maturity == 4) {
             maturity = 0;
             cropName = "Empty Plot";
-        } else if (maturity == 2 || maturity == 3) {
+        } else if (maturity == 2 || maturity == 3 || maturity == 1) {
             maturity = 4;
         }
         String imgString = cropImgMatrix[nameToInt(cropName)][maturity];
