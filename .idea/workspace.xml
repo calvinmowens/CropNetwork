@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/controllers/MainUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MainUiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/MarketInventoryUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MarketInventoryUiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -68,28 +68,28 @@
       <screen x="1920" y="0" width="2560" height="1040" />
     </state>
     <state x="2979" y="261" key="FileChooserDialogImpl/1920.0.2560.1040/0.0.1920.1040@1920.0.2560.1040" timestamp="1601092503488" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1603991044337">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1378" height="226" key="GridCell.Tab.0.bottom" timestamp="1603996032062">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1378" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603976350572" />
+    <state width="1378" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603996032062" />
     <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603991044337" />
     <state width="1378" height="226" key="GridCell.Tab.0.bottom/0.23.1440.820@0.23.1440.820" timestamp="1603976055635" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1603991044336">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1378" height="226" key="GridCell.Tab.0.center" timestamp="1603996032060">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1378" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603976350571" />
+    <state width="1378" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603996032060" />
     <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603991044336" />
     <state width="1378" height="226" key="GridCell.Tab.0.center/0.23.1440.820@0.23.1440.820" timestamp="1603976055634" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1603991044336">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1378" height="226" key="GridCell.Tab.0.left" timestamp="1603996032059">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1378" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603976350570" />
+    <state width="1378" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603996032059" />
     <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603991044336" />
     <state width="1378" height="226" key="GridCell.Tab.0.left/0.23.1440.820@0.23.1440.820" timestamp="1603976055633" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1603991044336">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1378" height="226" key="GridCell.Tab.0.right" timestamp="1603996032061">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1378" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603976350572" />
+    <state width="1378" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603996032061" />
     <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603991044336" />
     <state width="1378" height="226" key="GridCell.Tab.0.right/0.23.1440.820@0.23.1440.820" timestamp="1603976055634" />
     <state x="152" y="29" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1603919509673">

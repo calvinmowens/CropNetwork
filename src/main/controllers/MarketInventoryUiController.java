@@ -113,6 +113,7 @@ public class MarketInventoryUiController implements Initializable {
         int slotId = Integer.parseInt(id.substring(13)) - 1;
         System.out.println();
         selectedItemName.setText(map.get(keyArray[slotId]).getItemName());
+        selectedItemPrice.setText(Integer.toString(map.get(keyArray[slotId]).getBasePrice()));
         selectedItemImage.setImage(map.get(keyArray[slotId]).getImage());
     }
 
