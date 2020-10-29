@@ -362,7 +362,7 @@ public class MainUiController implements Initializable {
             if(myPlots[plotId].getMaturity() == 0) {
                 InventoryItem item = map.get(selectedSeed + " Seed");
                 if(item.getCount() > 0) {
-                    item.setCount(item.getCount() - 1);
+                    item.setCount(item.getCount() - 5);
                     myPlots[plotId].setCropName(selectedSeed);
                     myPlots[plotId].setMaturity(1);
                     myPlots[plotId].setWaterLevel(1);
@@ -389,6 +389,9 @@ public class MainUiController implements Initializable {
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
                 item.setCount(item.getCount() + 5);
+                if(item.getCount() > 25) {
+                    item.setCount(25);
+                }
                 System.out.println(cropName);
                 System.out.println(map.get(cropName).getCount());
                 myPlots[plotId].setCropName("Empty Plot");
