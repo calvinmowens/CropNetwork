@@ -2,8 +2,8 @@ package main.java;
 
 public class InventoryItem extends Item {
     private int count;
-    public InventoryItem(int sellPrice, String name, String imgUrl, int count) {
-        super(sellPrice, name, imgUrl);
+    public InventoryItem(int price, String name, String imgUrl, int count) {
+        super(price, name, imgUrl);
         this.count = count;
     }
     public int getCount() {
@@ -16,10 +16,10 @@ public class InventoryItem extends Item {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) {
+        if (!(o instanceof InventoryItem)) {
             return false;
         }
         InventoryItem item = (InventoryItem) o;
-        return item.getItemName() == this.getItemName();
+        return item.getItemName().equals(this.getItemName());
     }
 }

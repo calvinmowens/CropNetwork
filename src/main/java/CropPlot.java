@@ -5,6 +5,11 @@ import javafx.scene.image.Image;
 public class CropPlot {
 
     private String cropName;
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
     private Image image;
     private int waterLevel;
     private int maturity;
@@ -42,6 +47,19 @@ public class CropPlot {
         this.maturity = maturity;
         this.image = getImage();
         this.waterLevel = 2;
+    }
+
+    public void nextDayCheck() {
+        if(maturity == 1 || (maturity == 2 && waterLevel == 3)) {
+            maturity++;
+        } else if(maturity == 4) {
+            maturity = 0;
+            cropName = "Empty Plot";
+        } else if (maturity == 2 || maturity == 3) {
+            maturity = 4;
+        }
+        String imgString = cropImgMatrix[nameToInt(cropName)][maturity];
+        image = new Image(imgString);
     }
 
     public int nameToInt(String cropName) {

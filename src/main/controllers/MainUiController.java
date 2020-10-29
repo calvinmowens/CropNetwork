@@ -26,6 +26,10 @@ import java.util.ResourceBundle;
 public class MainUiController implements Initializable {
 
     @FXML
+    private Image useSeedImage;
+    @FXML
+    private Label daysLabel;
+    @FXML
     private ImageView waterLevel_Plot1;
     @FXML
     private ImageView waterLevel_Plot2;
@@ -113,11 +117,14 @@ public class MainUiController implements Initializable {
     private Label cornSeedBagCounter;
     @FXML
     private Label onionSeedBagCounter;
-
+    private String selectedSeed;
 
     private BooleanProperty seedBagClick = new SimpleBooleanProperty(false);
     private BooleanProperty inventoryClick = new SimpleBooleanProperty(false);
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
+    String[] seedImages = {"/main/resources/potatoes.png",
+            "/main/resources/watermelon.png", "/main/resources/corn.png",
+            "/main/resources/onion.png"};
 
     /**
      * Create clock method and update time on 10ms basis. Best way to do this?
@@ -171,7 +178,15 @@ public class MainUiController implements Initializable {
         backgroundSeason.setImage(new Image(getClass().
                 getResourceAsStream(setStartingSeasonHelper())));
 
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+        if(myGame.getInitCounter() == 0) {
+            seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+            selectedSeed = setStartingSeedHelper().substring(0, setStartingSeedHelper().indexOf('.'));
+            selectedSeed = selectedSeed.substring(16);
+            String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
+            selectedSeed = firstLetter + selectedSeed.substring(1);
+            myGame.setInitCounter(myGame.getInitCounter() + 1);
+//        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper()))); Why is there an extra one here?
+        }
 
         money.setText("$" + Integer.toString(myGame.getMoney()));
         inventory = myGame.getInventoryMap();
@@ -222,20 +237,32 @@ public class MainUiController implements Initializable {
     }
 
     private String setStartingSeedHelper() {
-        String[] seedImages = {"/main/resources/potatoes.png",
-            "/main/resources/watermelon.png", "/main/resources/corn.png",
-            "/main/resources/onion.png"};
-        switch (myGame.getStartingSeed()) {
-        case ("Potato"):
-            return seedImages[0];
-        case ("Watermelon"):
-            return seedImages[1];
-        case ("Corn"):
-            return seedImages[2];
-        case ("Onion"):
-            return seedImages[3];
-        default:
-            throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+        if (myGame.getInitCounter() == 0) {
+            switch (myGame.getStartingSeed()) {
+                case ("Potato"):
+                    return seedImages[0];
+                case ("Watermelon"):
+                    return seedImages[1];
+                case ("Corn"):
+                    return seedImages[2];
+                case ("Onion"):
+                    return seedImages[3];
+                default:
+                    throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+            }
+        } else {
+            switch (selectedSeed) {
+                case ("Potato"):
+                    return seedImages[0];
+                case ("Watermelon"):
+                    return seedImages[1];
+                case ("Corn"):
+                    return seedImages[2];
+                case ("Onion"):
+                    return seedImages[3];
+                default:
+                    throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+            }
         }
     }
 
@@ -271,7 +298,7 @@ public class MainUiController implements Initializable {
     }
 
     public void toolHarvestClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode() == null || myGame.getPlotClickMode().equals("Water")) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Harvest"))) {
             myGame.setPlotClickMode("Harvest");
             Scene myScene = ((Node) actionEvent.getSource()).getScene();
             myScene.setCursor(new ImageCursor(new Image("/main/resources/fork_cursor.png")));
@@ -283,7 +310,7 @@ public class MainUiController implements Initializable {
     }
 
     public void toolWaterClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode() == null || myGame.getPlotClickMode().equals("Harvest")) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Water"))) {
             myGame.setPlotClickMode("Water");
             Scene myScene = ((Node) actionEvent.getSource()).getScene();
             myScene.setCursor(new ImageCursor(new Image("/main/resources/water_cursor.png")));
@@ -318,8 +345,33 @@ public class MainUiController implements Initializable {
                 harvestCrop(id);
             } else if (mode.equals("Water")) {
                 waterCrop(id);
+            } else if (mode.equals("Seed")) {
+                plantCrop(id);
             }
         }
+    }
+
+    private void plantCrop(String id) {
+        CropPlot[] myPlots = myGame.getPlots();
+        int plotId = Integer.parseInt(id.substring(4)) - 1;
+
+        Map<String, InventoryItem> map = myGame.getInventoryMap();
+
+        if(myPlots[plotId] != null) {
+            if(myPlots[plotId].getMaturity() == 0) {
+                InventoryItem item = map.get(selectedSeed);
+                if(item.getCount() > 0) {
+                    item.setCount(item.getCount() - 1);
+                    myPlots[plotId].setCropName(selectedSeed);
+                    myPlots[plotId].setMaturity(1);
+                    myPlots[plotId].setWaterLevel(2);
+
+                }
+            }
+        }
+        System.out.println(myPlots[plotId].getMaturity() + ", " + myPlots[plotId].getCropName());
+        System.out.println(map.get(selectedSeed).getCount());
+        initData(myGame);
     }
 
     public void harvestCrop(String id) {
@@ -344,7 +396,8 @@ public class MainUiController implements Initializable {
                 myPlots[plotId].setWaterLevel(0);
             }
         }
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+        // Why is the below line needed? I'm not sure what it's doing here.
+//        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
         this.initData(myGame); // should we change these to an update method? how taxing is running initData?
     }
 
@@ -364,5 +417,36 @@ public class MainUiController implements Initializable {
     public void killCrop(CropPlot myCrop) {
         myCrop.setMaturity(4);
         myCrop.setWaterLevel(0);
+    }
+
+    public void nextDay(ActionEvent actionEvent) {
+        for (CropPlot plot : myGame.getPlots()) {
+            plot.nextDayCheck();
+            if(!(plot.getCropName().equals("Empty Plot"))) {
+                plot.setWaterLevel(plot.getWaterLevel() - 1);
+            }
+        }
+        myGame.setDay(myGame.getDay() + 1);
+        daysLabel.setText("Day " + myGame.getDay());
+        this.initData(myGame);
+    }
+
+    public void seedClick(ActionEvent mouseEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Seed"))) {
+            myGame.setPlotClickMode("Seed");
+            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.CROSSHAIR);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
+    }
+
+    public void changeSeed(ActionEvent actionEvent) {
+        String buttonClicked = ((Node) actionEvent.getSource()).getId();
+        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
+        selectedSeed = buttonClicked;
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
     }
 }
