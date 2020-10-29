@@ -352,7 +352,7 @@ public class MainUiController implements Initializable {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
         CropPlot myCrop = myPlots[plotId];
-        if (myCrop.getMaturity() != 4) { // if crop is not dead, water
+        if (myCrop.getMaturity() != 4 || myCrop.getMaturity() != 0) { // if crop is not dead, water
             myCrop.setWaterLevel(myCrop.getWaterLevel() + 1);
             if (myCrop.getWaterLevel() == 4) { // if water goes beyond full, kill it
                 killCrop(myCrop);
