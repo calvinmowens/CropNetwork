@@ -261,17 +261,17 @@ Graphic Credits
             </ImageView>
             <ImageView fx:id="waterLevel_Plot9" fitHeight="86.0" fitWidth="31.0" layoutX="532.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../resources/water_level_too_low.png" />
+                    <Image url="@../resources/water_level_danger.png" />
                 </image>
             </ImageView>
             <ImageView fx:id="waterLevel_Plot10" fitHeight="86.0" fitWidth="31.0" layoutX="645.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../resources/water_level_danger.png" />
+                    <Image url="@../resources/water_level_too_low.png" />
                 </image>
             </ImageView>
             <ImageView fx:id="waterLevel_Plot11" fitHeight="86.0" fitWidth="31.0" layoutX="740.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../resources/water_level_too_low.png" />
+                    <Image url="@../resources/water_level_danger.png" />
                 </image>
             </ImageView>
             <ImageView fx:id="waterLevel_Plot12" fitHeight="86.0" fitWidth="31.0" layoutX="828.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">

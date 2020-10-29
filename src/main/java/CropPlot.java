@@ -1,6 +1,5 @@
 package main.java;
 
-import com.sun.scenario.effect.Crop;
 import javafx.scene.image.Image;
 
 public class CropPlot {
@@ -26,9 +25,9 @@ public class CropPlot {
     private final String[][] cropImgMatrix = {
             {"/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png"},
             {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/watermelon_immature.png", "/main/resources/watermelon_mature.png", "/main/resources/dead_watermelon_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/onion_immature.png", "/main/resources/onion_mature.png", "/main/resources/dead_onion_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/potato_immature.png", "/main/resources/potato_mature.png", "/main/resources/dead_potato_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/watermelon_seeded.png", "/main/resources/watermelon_immature.png", "/main/resources/watermelon_mature.png", "/main/resources/dead_watermelon_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/onion_seeded.png", "/main/resources/onion_immature.png", "/main/resources/onion_mature.png", "/main/resources/dead_onion_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/almond_seeded.png", "/main/resources/potato_immature.png", "/main/resources/potato_mature.png", "/main/resources/dead_potato_plot.png"},
     };
 
     private final String[] waterImgArray = {

@@ -15,7 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.CropPlot;
 import main.java.Game;
-import main.java.Inventory;
 import main.java.InventoryItem;
 
 import java.io.IOException;
@@ -265,15 +264,27 @@ public class MainUiController implements Initializable {
     }
 
     public void toolHarvestClick(ActionEvent actionEvent) {
-        myGame.setPlotClickMode("Harvest");
-        Scene myScene = ((Node) actionEvent.getSource()).getScene();
-        myScene.setCursor(new ImageCursor(new Image("/main/resources/fork.png")));
+        if (myGame.getPlotClickMode().equals("Harvest")) {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        } else {
+            myGame.setPlotClickMode("Harvest");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(new ImageCursor(new Image("/main/resources/fork_cursor.png")));
+        }
     }
 
     public void toolWaterClick(ActionEvent actionEvent) {
-        myGame.setPlotClickMode("Water");
-        Scene myScene = ((Node) actionEvent.getSource()).getScene();
-        myScene.setCursor(new ImageCursor(new Image("/main/resources/water.png")));
+        if (myGame.getPlotClickMode().equals("Water")) {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        } else {
+            myGame.setPlotClickMode("Water");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(new ImageCursor(new Image("/main/resources/water_cursor.png")));
+        }
     }
 
     /**
@@ -294,6 +305,7 @@ public class MainUiController implements Initializable {
         System.out.println("Plot clicked: " + myGame.getPlotClickMode());
         String id = ((Node) actionEvent.getSource()).getId();
         String mode = myGame.getPlotClickMode();
+        // Based on the current plotClickMode in Game.java the plots will behave in a certain way.
         if (mode != null) {
             if (mode.equals("Harvest")) {
                 harvestCrop(id);
@@ -310,20 +322,40 @@ public class MainUiController implements Initializable {
         InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
-        if (myPlots[plotId] != null && myPlots[plotId].getMaturity() == 3) {
-            String cropName = myCrop.getCropName();
-            InventoryItem item = map.get(cropName);
-            item.setCount(item.getCount() + 5);
+        // if plot is not empty and fully mature, we can harvest
+        if (myPlots[plotId] != null) {
+            if (myPlots[plotId].getMaturity() == 3) {
+                String cropName = myCrop.getCropName();
+                InventoryItem item = map.get(cropName);
+                item.setCount(item.getCount() + 5);
+                myPlots[plotId].setCropName("Empty Plot");
+                myPlots[plotId].setMaturity(0);
+                myPlots[plotId].setWaterLevel(0);
+            } else if (myPlots[plotId].getMaturity() == 4) {
+                myPlots[plotId].setCropName("Empty Plot");
+                myPlots[plotId].setMaturity(0);
+                myPlots[plotId].setWaterLevel(0);
+            }
         }
-        myPlots[plotId].setCropName("Empty Plot");
-        myPlots[plotId].setMaturity(0);
-        myPlots[plotId].setWaterLevel(0);
         seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
-
-        this.initData(myGame);
+        this.initData(myGame); // should we change these to an update method? how taxing is running initData?
     }
 
     public void waterCrop(String id) {
-        System.out.println("Water crop: " + id);
+        CropPlot[] myPlots = myGame.getPlots();
+        int plotId = Integer.parseInt(id.substring(4)) - 1;
+        CropPlot myCrop = myPlots[plotId];
+        if (myCrop.getMaturity() != 4) { // if crop is not dead, water
+            myCrop.setWaterLevel(myCrop.getWaterLevel() + 1);
+            if (myCrop.getWaterLevel() == 4) { // if water goes beyond full, kill it
+                killCrop(myCrop);
+            }
+        }
+        this.initData(myGame);
+    }
+
+    public void killCrop(CropPlot myCrop) {
+        myCrop.setMaturity(4);
+        myCrop.setWaterLevel(0);
     }
 }
