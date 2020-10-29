@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.CropPlot;
@@ -243,9 +244,15 @@ public class MainUiController implements Initializable {
         backgroundToggle.set(!backgroundToggle.get());
     }
 
-    public void openInventoryModal(ActionEvent actionEvent) {
+    public void toggleInventoryModal(ActionEvent actionEvent) {
         inventoryClick.set(!inventoryClick.get());
         backgroundToggle.set(!backgroundToggle.get());
+    }
+
+    public void closeModals(MouseEvent mouseEvent) {
+        inventoryClick.set(false);
+        seedBagClick.set(false);
+        backgroundToggle.set(false);
     }
 
     public void openMarket(ActionEvent actionEvent) throws IOException {
@@ -264,26 +271,26 @@ public class MainUiController implements Initializable {
     }
 
     public void toolHarvestClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode().equals("Harvest")) {
-            myGame.setPlotClickMode(null);
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.DEFAULT);
-        } else {
+        if (myGame.getPlotClickMode() == null || myGame.getPlotClickMode().equals("Water")) {
             myGame.setPlotClickMode("Harvest");
             Scene myScene = ((Node) actionEvent.getSource()).getScene();
             myScene.setCursor(new ImageCursor(new Image("/main/resources/fork_cursor.png")));
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
         }
     }
 
     public void toolWaterClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode().equals("Water")) {
-            myGame.setPlotClickMode(null);
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.DEFAULT);
-        } else {
+        if (myGame.getPlotClickMode() == null || myGame.getPlotClickMode().equals("Harvest")) {
             myGame.setPlotClickMode("Water");
             Scene myScene = ((Node) actionEvent.getSource()).getScene();
             myScene.setCursor(new ImageCursor(new Image("/main/resources/water_cursor.png")));
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
         }
     }
 

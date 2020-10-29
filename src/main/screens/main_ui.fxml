@@ -290,13 +290,13 @@ Graphic Credits
             </ImageView>
          </graphic>
       </Button>
-        <AnchorPane id="blackPanel" fx:id="background" opacity="0.46" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
+        <AnchorPane id="blackPanel" fx:id="background" onMouseClicked="#closeModals" opacity="0.46" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" />
         <Label layoutX="61.0" layoutY="584.0" prefHeight="0.0" prefWidth="16.0" styleClass="part_of_overlay_modal_and_original" text="^" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="23.0" />
          </font>
       </Label>
-      <Button id="cropInventory" layoutX="26.0" layoutY="610.0" mnemonicParsing="false" onAction="#openInventoryModal" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+      <Button id="cropInventory" layoutX="26.0" layoutY="610.0" mnemonicParsing="false" onAction="#toggleInventoryModal" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
          <graphic>
             <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
