@@ -202,7 +202,7 @@ public class MainUiController implements Initializable {
         // Set seed counters to current inventory count.
         InventoryItem defaultItem = myGame.getDefaultItem();
 
-        cornSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Corn Seed", defaultItem).getCount()));
+        cornSeedBagCounter.setText(Integer.toString(inventory.get("Corn Seed").getCount()));
         watermelonSeedBagCounter
                 .setText(Integer.toString(inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
         onionSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
@@ -356,15 +356,16 @@ public class MainUiController implements Initializable {
         int plotId = Integer.parseInt(id.substring(4)) - 1;
 
         Map<String, InventoryItem> map = myGame.getInventoryMap();
+        System.out.println(selectedSeed);
 
         if(myPlots[plotId] != null) {
             if(myPlots[plotId].getMaturity() == 0) {
-                InventoryItem item = map.get(selectedSeed);
+                InventoryItem item = map.get(selectedSeed + " Seed");
                 if(item.getCount() > 0) {
                     item.setCount(item.getCount() - 1);
                     myPlots[plotId].setCropName(selectedSeed);
                     myPlots[plotId].setMaturity(1);
-                    myPlots[plotId].setWaterLevel(2);
+                    myPlots[plotId].setWaterLevel(1);
 
                 }
             }
@@ -386,7 +387,10 @@ public class MainUiController implements Initializable {
             if (myPlots[plotId].getMaturity() == 3) {
                 String cropName = myCrop.getCropName();
                 InventoryItem item = map.get(cropName);
+                System.out.println(map.get(cropName).getCount());
                 item.setCount(item.getCount() + 5);
+                System.out.println(cropName);
+                System.out.println(map.get(cropName).getCount());
                 myPlots[plotId].setCropName("Empty Plot");
                 myPlots[plotId].setMaturity(0);
                 myPlots[plotId].setWaterLevel(0);
