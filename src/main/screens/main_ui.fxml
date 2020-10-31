@@ -493,5 +493,35 @@ Graphic Credits
                 <Label id="potatoSeedBagCounter" layoutX="282.0" layoutY="162.0" text="10" />
             </children>
         </AnchorPane>
+        <ImageView fitHeight="311.0" fitWidth="677.0" layoutX="266.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resources/locust_popup.png" />
+            </image>
+        </ImageView>
+        <Label id="toalCropDeadByLocust" layoutX="541.0" layoutY="350.0" prefHeight="21.0" prefWidth="31.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resources/drought_popup.png" />
+            </image>
+        </ImageView>
+        <Label id="waterLevelDecreasedDrought" layoutX="603.0" layoutY="402.0" prefHeight="21.0" prefWidth="31.0" text="2" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resources/rain_popup.png" />
+            </image>
+        </ImageView>
+        <Label id="waterLevelIncreaseRain" layoutX="607.0" layoutY="382.0" prefHeight="21.0" prefWidth="31.0" text="3" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
