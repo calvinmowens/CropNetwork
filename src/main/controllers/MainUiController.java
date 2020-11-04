@@ -25,6 +25,10 @@ import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
 
+    public ImageView rainAnimation;
+    public AnchorPane droughtPopup;
+    public AnchorPane rainPopup;
+    public AnchorPane locustPopup;
     @FXML
     private Image useSeedImage;
     @FXML
@@ -119,9 +123,17 @@ public class MainUiController implements Initializable {
     private Label onionSeedBagCounter;
     private String selectedSeed;
 
-    private BooleanProperty seedBagClick = new SimpleBooleanProperty(false);
-    private BooleanProperty inventoryClick = new SimpleBooleanProperty(false);
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
+
+    private BooleanProperty seedBagToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty inventoryToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty rainAnimationToggle = new SimpleBooleanProperty(false);
+
+    // POPUP TOGGLES
+    private BooleanProperty locustPopupToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty rainPopupToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty droughtPopupToggle = new SimpleBooleanProperty(false);
+
     String[] seedImages = {"/main/resources/potatoes.png",
             "/main/resources/watermelon.png", "/main/resources/corn.png",
             "/main/resources/onion.png"};
@@ -141,10 +153,15 @@ public class MainUiController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("initalizable runs");
-        seedModal.visibleProperty().bind(seedBagClick);
+        seedModal.visibleProperty().bind(seedBagToggle);
         background.visibleProperty().bind(backgroundToggle);
-        inventoryModal.visibleProperty().bind(inventoryClick);
+        inventoryModal.visibleProperty().bind(inventoryToggle);
+        rainAnimation.visibleProperty().bind(rainAnimationToggle);
 
+        locustPopup.visibleProperty().bind(locustPopupToggle);
+        rainPopup.visibleProperty().bind(rainPopupToggle);
+        droughtPopup.visibleProperty().bind(droughtPopupToggle);
+        
         waterLevelsArray = new ImageView[] {
                 waterLevel_Plot1,
                 waterLevel_Plot2,
@@ -267,20 +284,20 @@ public class MainUiController implements Initializable {
     }
 
     public void toggleSeedModal(ActionEvent actionEvent) {
-        seedBagClick.set(!seedBagClick.get());
+        seedBagToggle.set(!seedBagToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
     public void toggleInventoryModal(ActionEvent actionEvent) {
-        inventoryClick.set(!inventoryClick.get());
+        inventoryToggle.set(!inventoryToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
-    public void closeModals(MouseEvent mouseEvent) {
-        inventoryClick.set(false);
-        seedBagClick.set(false);
-        backgroundToggle.set(false);
-    }
+//    public void closeModals(MouseEvent mouseEvent) {
+//        inventoryToggle.set(false);
+//        seedBagToggle.set(false);
+//        backgroundToggle.set(false);
+//    }
 
     public void openMarket(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -427,6 +444,7 @@ public class MainUiController implements Initializable {
     }
 
     public void nextDay(ActionEvent actionEvent) {
+        System.out.println("Next Day Runs");
         for (CropPlot plot : myGame.getPlots()) {
             plot.nextDayCheck();
             if(!(plot.getCropName().equals("Empty Plot"))) {

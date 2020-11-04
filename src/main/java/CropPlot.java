@@ -39,7 +39,7 @@ public class CropPlot {
             "/main/resources/water_level_danger.png",
             "/main/resources/water_level_too_low.png",
             "/main/resources/water_level_good.png",
-            "/main/resources/water_level_full.png"
+            "/main/resources/water_level_too_full.png"
     };
 
     public CropPlot(String cropName, int maturity) {
