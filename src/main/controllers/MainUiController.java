@@ -468,7 +468,7 @@ public class MainUiController implements Initializable {
                     item.setCount(item.getCount() - 5);
                     myPlots[plotId].setCropName(selectedSeed);
                     myPlots[plotId].setMaturity(1);
-                    myPlots[plotId].setWaterLevel(1);
+                    myPlots[plotId].setWaterLevel(3);
 
                 }
             }

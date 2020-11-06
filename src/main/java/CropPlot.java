@@ -78,14 +78,14 @@ public class CropPlot {
         // change maturity
         if((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
             maturity++;
-        } else if((maturity > 0 && maturity < 3) && waterLevel == 1) {
-            maturity = 4;
+        } else if((maturity > 0 && maturity < 4) && waterLevel <= 1) {
+            killCrop();
         } else if (maturity == 4) {
             cropName = "Empty Plot";
             waterLevel = 0;
             maturity = 0;
         }
-        if (maturity > 0 && maturity <= 3) {
+        if (maturity > 0 && maturity < 4) {
             waterLevel--;
         }
         String imgString = cropImgMatrix[nameToInt()][maturity];
