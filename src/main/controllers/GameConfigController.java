@@ -180,7 +180,6 @@ public class GameConfigController implements Initializable {
             Scene startGameScene = new Scene(startGame);
 
             MainUiController controller = loader.getController();
-            controller.initPlots();
             controller.initData(newGame);
             // Stage and show the new scene
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
