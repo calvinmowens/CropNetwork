@@ -230,7 +230,7 @@ public class Game {
         case "Potato":
             if (inventoryMap.get("Potato Seed").getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
-                inventoryMap.get("Onion Seed").setCount(inventoryMap.get("Onion Seed").getCount() + amount);
+                inventoryMap.get("Potato Seed").setCount(inventoryMap.get("Potato Seed").getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
             break;

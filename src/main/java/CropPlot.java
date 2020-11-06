@@ -6,12 +6,15 @@ public class CropPlot {
 
     private String cropName;
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
     private Image image;
     private int waterLevel;
+    /**
+     * 0: empty gauge
+     * 1: danger
+     * 2: too-low
+     * 3: good
+     * 4: full
+     */
     private int maturity;
     /**
      * Maturity: stage
@@ -22,11 +25,6 @@ public class CropPlot {
      * 4: dead
      * */
 
-    /**
-     * TODO: Update imgUrl with the right url
-     * right now they are all corn images. Row 1 should represent corn images, row 2 should represent onions, etc...
-     *
-     */
     private final String[][] cropImgMatrix = {
             {"/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png"},
             {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
@@ -36,32 +34,49 @@ public class CropPlot {
     };
 
     private final String[] waterImgArray = {
+            "/main/resources/water_level_empty.png",
             "/main/resources/water_level_danger.png",
             "/main/resources/water_level_too_low.png",
             "/main/resources/water_level_good.png",
             "/main/resources/water_level_too_full.png"
     };
 
+    /**
+     * Just a constructor bro.
+     * image and water level NOT set by arguments
+     *
+     * @param cropName  set cropName to argument
+     * @param maturity  set maturity to argument
+     */
     public CropPlot(String cropName, int maturity) {
         this.cropName = cropName;
         this.maturity = maturity;
         this.image = getImage();
-        this.waterLevel = 2;
+        this.waterLevel = 4;
     }
 
+    /**
+     * logic around advancing day, with water and maturities
+     * TODO: add functionality with fertilizers
+     */
     public void nextDayCheck() {
-        if((maturity == 1 && waterLevel == 2)|| (maturity == 2 && waterLevel == 2)) {
+        // change maturity
+        if((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
             maturity++;
-        } else if(maturity == 4) {
-            maturity = 0;
-            cropName = "Empty Plot";
-        } else if (maturity == 2 || maturity == 3 || maturity == 1) {
+        } else if((maturity > 0 && maturity < 3) && waterLevel == 1) {
             maturity = 4;
+        } else if (maturity == 4) {
+            killCrop();
+        }
+        if (maturity > 0 && maturity <= 3) {
+            waterLevel--;
         }
         String imgString = cropImgMatrix[nameToInt(cropName)][maturity];
         image = new Image(imgString);
     }
 
+    // this method is used in combination with setting the image
+    // because arrays and stuffs
     public int nameToInt(String cropName) {
         switch (cropName) {
             case "Corn":
@@ -76,6 +91,13 @@ public class CropPlot {
                 return 0;
         }
     }
+
+    public void killCrop() {
+        maturity = 4;
+        waterLevel = 0;
+    }
+
+    // GETTERS AND SETTERS
 
     public void setCropName(String cropName) {
         this.cropName = cropName;
@@ -104,6 +126,10 @@ public class CropPlot {
         int myNameInt = nameToInt(cropName);
         String url = cropImgMatrix[myNameInt][maturity];
         return new Image(url);
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
 }

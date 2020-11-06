@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.CropPlot;
@@ -25,123 +23,109 @@ import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
 
-    public ImageView rainAnimation;
-    public AnchorPane droughtPopup;
-    public AnchorPane rainPopup;
-    public AnchorPane locustPopup;
-    @FXML
-    private Image useSeedImage;
-    @FXML
-    private Label daysLabel;
-    @FXML
-    private ImageView waterLevel_Plot1;
-    @FXML
-    private ImageView waterLevel_Plot2;
-    @FXML
-    private ImageView waterLevel_Plot3;
-    @FXML
-    private ImageView waterLevel_Plot4;
-    @FXML
-    private ImageView waterLevel_Plot5;
-    @FXML
-    private ImageView waterLevel_Plot6;
-    @FXML
-    private ImageView waterLevel_Plot7;
-    @FXML
-    private ImageView waterLevel_Plot8;
-    @FXML
-    private ImageView waterLevel_Plot9;
-    @FXML
-    private ImageView waterLevel_Plot10;
-    @FXML
-    private ImageView waterLevel_Plot11;
-    @FXML
-    private ImageView waterLevel_Plot12;
-
-    private ImageView[] waterLevelsArray;
-
-    Map<String, InventoryItem> inventory;
-    @FXML
-    private AnchorPane inventoryModal;
-    @FXML
-    private AnchorPane plotPane;
-    @FXML
-    private ImageView plot2Image;
-    @FXML
-    private ImageView plot4Image;
-    @FXML
-    private ImageView plot6Image;
-    @FXML
-    private ImageView plot9Image;
-    @FXML
-    private ImageView seedImage;
-    @FXML
-    private ImageView avatar;
-    @FXML
+    // non-FXML variables
     private Game myGame;
-    @FXML
-    private AnchorPane background;
-    @FXML
-    private ImageView backgroundSeason;
-    @FXML
-    private AnchorPane seedModal;
-    @FXML
-    private Label money;
-    @FXML
-    private Label farmName;
-    @FXML
-    private Label onionCropCounter;
-    @FXML
-    private Label potatoCropCounter;
-    @FXML
-    private Label watermelonCropCounter;
-    @FXML
-    private Label cornCropCounter;
-    @FXML
-    private Button almondSeedButton;
-    @FXML
-    private Button onionSeedButton;
-    @FXML
-    private Button potatoSeedButton;
-    @FXML
-    private Button watermelonSeedButton;
-    @FXML
-    private Button cornSeedButton;
-    @FXML
-    private Button dragonfruitSeedButton;
-    @FXML
-    private Label watermelonSeedBagCounter;
-    @FXML
-    private Label almondSeedBagCounter;
-    @FXML
-    private Label dragonfruitSeedBagCounter;
-    @FXML
-    private Label potatoSeedBagCounter;
-    @FXML
-    private Label cornSeedBagCounter;
-    @FXML
-    private Label onionSeedBagCounter;
+    private ImageView[] waterLevelsArray;
+    private ImageView[] fertLevelsArray;
+    private ImageView[] pesticideArray;
+    Map<String, InventoryItem> inventory;
     private String selectedSeed;
 
+    // backgrounds
+    @FXML private AnchorPane background;
+    @FXML private ImageView backgroundSeason;
+
+    // top left menu
+    @FXML private ImageView avatar;
+    @FXML private Label farmName;
+    @FXML private Label money;
+    @FXML private Label daysLabel;
+
+    @FXML private AnchorPane plotPane;
+    @FXML private ImageView seedImage;
+
+    // water levels
+    @FXML private ImageView plot1WaterLevel;
+    @FXML private ImageView plot2WaterLevel;
+    @FXML private ImageView plot3WaterLevel;
+    @FXML private ImageView plot4WaterLevel;
+    @FXML private ImageView plot5WaterLevel;
+    @FXML private ImageView plot6WaterLevel;
+    @FXML private ImageView plot7WaterLevel;
+    @FXML private ImageView plot8WaterLevel;
+    @FXML private ImageView plot9WaterLevel;
+    @FXML private ImageView plot10WaterLevel;
+    @FXML private ImageView plot11WaterLevel;
+    @FXML private ImageView plot12WaterLevel;
+
+    // fertilizer levels
+    @FXML private ImageView plot1FertLevel;
+    @FXML private ImageView plot2FertLevel;
+    @FXML private ImageView plot3FertLevel;
+    @FXML private ImageView plot4FertLevel;
+    @FXML private ImageView plot5FertLevel;
+    @FXML private ImageView plot6FertLevel;
+    @FXML private ImageView plot7FertLevel;
+    @FXML private ImageView plot8FertLevel;
+    @FXML private ImageView plot9FertLevel;
+    @FXML private ImageView plot10FertLevel;
+    @FXML private ImageView plot11FertLevel;
+    @FXML private ImageView plot12FertLevel;
+
+    // pesticide images
+    @FXML private ImageView plot1Pesticide;
+    @FXML private ImageView plot2Pesticide;
+    @FXML private ImageView plot3Pesticide;
+    @FXML private ImageView plot4Pesticide;
+    @FXML private ImageView plot5Pesticide;
+    @FXML private ImageView plot6Pesticide;
+    @FXML private ImageView plot7Pesticide;
+    @FXML private ImageView plot8Pesticide;
+    @FXML private ImageView plot9Pesticide;
+    @FXML private ImageView plot10Pesticide;
+    @FXML private ImageView plot11Pesticide;
+    @FXML private ImageView plot12Pesticide;
+
+    // rain animation + popups + labels
+    @FXML private ImageView rainAnimation;
+    @FXML private AnchorPane locustPopup;
+    @FXML private AnchorPane rainPopup;
+    @FXML private AnchorPane droughtPopup;
+    @FXML private Label locustPopupLabel; // these labels will change based on difficulty
+    @FXML private Label rainPopupLabel;
+    @FXML private Label droughtPopupLabel;
+
+    // inventory modal elements
+    @FXML private AnchorPane inventoryModal;
+    @FXML private Label onionCropCounter;
+    @FXML private Label potatoCropCounter;
+    @FXML private Label watermelonCropCounter;
+    @FXML private Label cornCropCounter;
+
+    // seed modal elements
+    @FXML private AnchorPane seedModal;
+    @FXML private Label watermelonSeedBagCounter;
+    @FXML private Label potatoSeedBagCounter;
+    @FXML private Label cornSeedBagCounter;
+    @FXML private Label onionSeedBagCounter;
+
+    // visibility toggles
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
-
-    private BooleanProperty seedBagToggle = new SimpleBooleanProperty(false);
-    private BooleanProperty inventoryToggle = new SimpleBooleanProperty(false);
-    private BooleanProperty rainAnimationToggle = new SimpleBooleanProperty(false);
-
-    // POPUP TOGGLES
+    private BooleanProperty seedModalToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty inventoryModalToggle = new SimpleBooleanProperty(false);
     private BooleanProperty locustPopupToggle = new SimpleBooleanProperty(false);
     private BooleanProperty rainPopupToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty rainAnimationToggle = new SimpleBooleanProperty(false);
     private BooleanProperty droughtPopupToggle = new SimpleBooleanProperty(false);
 
+    // seed image array for displaying starting seed
     String[] seedImages = {"/main/resources/potatoes.png",
-            "/main/resources/watermelon.png", "/main/resources/corn.png",
+            "/main/resources/watermelon.png",
+            "/main/resources/corn.png",
             "/main/resources/onion.png"};
 
-    /**
-     * Create clock method and update time on 10ms basis. Best way to do this?
-     * Update elements based on information from Game.java
-     */
+
+
 
     /**
      * This method is used to hide certain scene elements prior to page load.
@@ -152,29 +136,59 @@ public class MainUiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initalizable runs");
-        seedModal.visibleProperty().bind(seedBagToggle);
+        System.out.println("initilize runs");
+        seedModal.visibleProperty().bind(seedModalToggle);
         background.visibleProperty().bind(backgroundToggle);
-        inventoryModal.visibleProperty().bind(inventoryToggle);
+        inventoryModal.visibleProperty().bind(inventoryModalToggle);
         rainAnimation.visibleProperty().bind(rainAnimationToggle);
 
         locustPopup.visibleProperty().bind(locustPopupToggle);
         rainPopup.visibleProperty().bind(rainPopupToggle);
         droughtPopup.visibleProperty().bind(droughtPopupToggle);
-        
+
         waterLevelsArray = new ImageView[] {
-                waterLevel_Plot1,
-                waterLevel_Plot2,
-                waterLevel_Plot3,
-                waterLevel_Plot4,
-                waterLevel_Plot5,
-                waterLevel_Plot6,
-                waterLevel_Plot7,
-                waterLevel_Plot8,
-                waterLevel_Plot9,
-                waterLevel_Plot10,
-                waterLevel_Plot11,
-                waterLevel_Plot12
+                plot1WaterLevel,
+                plot2WaterLevel,
+                plot3WaterLevel,
+                plot4WaterLevel,
+                plot5WaterLevel,
+                plot6WaterLevel,
+                plot7WaterLevel,
+                plot8WaterLevel,
+                plot9WaterLevel,
+                plot10WaterLevel,
+                plot11WaterLevel,
+                plot12WaterLevel
+        };
+
+        fertLevelsArray = new ImageView[] {
+                plot1FertLevel,
+                plot2FertLevel,
+                plot3FertLevel,
+                plot4FertLevel,
+                plot5FertLevel,
+                plot6FertLevel,
+                plot7FertLevel,
+                plot8FertLevel,
+                plot9FertLevel,
+                plot10FertLevel,
+                plot11FertLevel,
+                plot12FertLevel
+        };
+
+        pesticideArray = new ImageView[] {
+                plot1Pesticide,
+                plot2Pesticide,
+                plot3Pesticide,
+                plot4Pesticide,
+                plot5Pesticide,
+                plot6Pesticide,
+                plot7Pesticide,
+                plot8Pesticide,
+                plot9Pesticide,
+                plot10Pesticide,
+                plot11Pesticide,
+                plot12Pesticide
         };
     }
 
@@ -184,16 +198,18 @@ public class MainUiController implements Initializable {
      * @param newGame  param to get information from prev scene
      */
     public void initData(Game newGame) {
+        System.out.println("init data runs");
+        // establish new game and inventory
         myGame = newGame;
+        inventory = myGame.getInventoryMap();
 
+        // populate TOP LEFT data
         farmName.setText(myGame.getName());
-
         if (myGame.getGender().equals("FEMALE")) {
             avatar.setImage(new Image(getClass().
                     getResourceAsStream("/main/resources/female.png")));
         }
-        backgroundSeason.setImage(new Image(getClass().
-                getResourceAsStream(setStartingSeasonHelper())));
+        backgroundSeason.setImage(new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
 
         if(myGame.getInitCounter() == 0) {
             seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
@@ -202,12 +218,10 @@ public class MainUiController implements Initializable {
             String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
             selectedSeed = firstLetter + selectedSeed.substring(1);
             myGame.setInitCounter(myGame.getInitCounter() + 1);
-//        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper()))); Why is there an extra one here?
         }
-
         money.setText("$" + Integer.toString(myGame.getMoney()));
-        inventory = myGame.getInventoryMap();
 
+        // establish crop plots
         CropPlot[] myPlots = myGame.getPlots();
         for (int i = 0; i < myPlots.length; i++) {
             if (myPlots[i] != null) {
@@ -215,10 +229,9 @@ public class MainUiController implements Initializable {
                 waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
             }
         }
-
-        // Set seed counters to current inventory count.
         InventoryItem defaultItem = myGame.getDefaultItem();
 
+        // Set seed counters to current inventory count.
         cornSeedBagCounter.setText(Integer.toString(inventory.get("Corn Seed").getCount()));
         watermelonSeedBagCounter
                 .setText(Integer.toString(inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
@@ -230,10 +243,6 @@ public class MainUiController implements Initializable {
         watermelonCropCounter.setText(Integer.toString(inventory.getOrDefault("Watermelon", defaultItem).getCount()));
         onionCropCounter.setText(Integer.toString(inventory.getOrDefault("Onion", defaultItem).getCount()));
         potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
-    }
-
-    public void initPlots() {
-
     }
 
     private String setStartingSeasonHelper() {
@@ -284,12 +293,12 @@ public class MainUiController implements Initializable {
     }
 
     public void toggleSeedModal(ActionEvent actionEvent) {
-        seedBagToggle.set(!seedBagToggle.get());
+        seedModalToggle.set(!seedModalToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
     public void toggleInventoryModal(ActionEvent actionEvent) {
-        inventoryToggle.set(!inventoryToggle.get());
+        inventoryModalToggle.set(!inventoryModalToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
@@ -444,15 +453,14 @@ public class MainUiController implements Initializable {
     }
 
     public void nextDay(ActionEvent actionEvent) {
-        System.out.println("Next Day Runs");
+        // plant functions
         for (CropPlot plot : myGame.getPlots()) {
             plot.nextDayCheck();
-            if(!(plot.getCropName().equals("Empty Plot"))) {
-                plot.setWaterLevel(plot.getWaterLevel() - 1);
-            }
         }
+        // change day in Game
         myGame.setDay(myGame.getDay() + 1);
         daysLabel.setText("Day " + myGame.getDay());
+        // update UI
         this.initData(myGame);
     }
 
