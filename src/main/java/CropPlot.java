@@ -4,8 +4,10 @@ import javafx.scene.image.Image;
 
 public class CropPlot {
 
+    ////////////////////////////////////////////////////
+    ///////////////////  Variables   ///////////////////
+    ////////////////////////////////////////////////////
     private String cropName;
-
     private Image image;
     private int waterLevel;
     /**
@@ -25,6 +27,10 @@ public class CropPlot {
      * 4: dead
      * */
 
+
+    ////////////////////////////////////////////////////
+    ///////////////////  Arrays   //////////////////////
+    ////////////////////////////////////////////////////
     private final String[][] cropImgMatrix = {
             {"/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png"},
             {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
@@ -41,6 +47,10 @@ public class CropPlot {
             "/main/resources/water_level_too_full.png"
     };
 
+
+    ////////////////////////////////////////////////////
+    ///////////////////  Constructor   /////////////////
+    ////////////////////////////////////////////////////
     /**
      * Just a constructor bro.
      * image and water level NOT set by arguments
@@ -52,12 +62,17 @@ public class CropPlot {
         this.cropName = cropName;
         this.maturity = maturity;
         this.image = getImage();
-        this.waterLevel = 4;
+        this.waterLevel = 3;
     }
 
+
+    ////////////////////////////////////////////////////
+    ///////////////////  Methods   /////////////////////
+    ////////////////////////////////////////////////////
     /**
-     * logic around advancing day, with water and maturities
-     * TODO: add functionality with fertilizers
+     * Logic around advancing the day based on maturity and water levels.
+     *
+     * TODO: Add functionality with fertilizers.
      */
     public void nextDayCheck() {
         // change maturity
@@ -66,29 +81,23 @@ public class CropPlot {
         } else if((maturity > 0 && maturity < 3) && waterLevel == 1) {
             maturity = 4;
         } else if (maturity == 4) {
-            killCrop();
+            cropName = "Empty Plot";
+            waterLevel = 0;
+            maturity = 0;
         }
         if (maturity > 0 && maturity <= 3) {
             waterLevel--;
         }
-        String imgString = cropImgMatrix[nameToInt(cropName)][maturity];
+        String imgString = cropImgMatrix[nameToInt()][maturity];
         image = new Image(imgString);
     }
 
-    // this method is used in combination with setting the image
-    // because arrays and stuffs
-    public int nameToInt(String cropName) {
-        switch (cropName) {
-            case "Corn":
-                return 1;
-            case "Watermelon":
-                return 2;
-            case "Onion":
-                return 3;
-            case "Potato":
-                return 4;
-            default:
-                return 0;
+    public void waterCrop() {
+        if (maturity != 4) { // if crop is not dead, water
+            waterLevel++;
+            if (waterLevel > 4) { // if water goes beyond full, kill it
+                killCrop();
+            }
         }
     }
 
@@ -97,7 +106,11 @@ public class CropPlot {
         waterLevel = 0;
     }
 
-    // GETTERS AND SETTERS
+
+
+    ////////////////////////////////////////////////////
+    //////////////  Getters & Setters   ////////////////
+    ////////////////////////////////////////////////////
 
     public void setCropName(String cropName) {
         this.cropName = cropName;
@@ -123,13 +136,34 @@ public class CropPlot {
     }
 
     public Image getImage() {
-        int myNameInt = nameToInt(cropName);
+        int myNameInt = nameToInt();
         String url = cropImgMatrix[myNameInt][maturity];
         return new Image(url);
     }
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    /**
+     * This is a method that returns crop name as an int.
+     * We use this for displaying the correct crop image based on type and maturity.
+     *
+     * @return
+     */
+    public int nameToInt() {
+        switch (cropName) {
+            case "Corn":
+                return 1;
+            case "Watermelon":
+                return 2;
+            case "Onion":
+                return 3;
+            case "Potato":
+                return 4;
+            default:
+                return 0;
+        }
     }
 
 }

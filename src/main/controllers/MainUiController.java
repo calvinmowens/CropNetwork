@@ -23,7 +23,10 @@ import java.util.ResourceBundle;
 
 public class MainUiController implements Initializable {
 
-    // non-FXML variables
+    ////////////////////////////////////////////////////
+    /////////////////  Variables   /////////////////////
+    ////////////////////////////////////////////////////
+    // non-FXML
     private Game myGame;
     private ImageView[] waterLevelsArray;
     private ImageView[] fertLevelsArray;
@@ -126,13 +129,17 @@ public class MainUiController implements Initializable {
 
 
 
-
+    ////////////////////////////////////////////////////
+    ///////////  Initialize & InitData   ///////////////
+    ////////////////////////////////////////////////////
     /**
-     * This method is used to hide certain scene elements prior to page load.
-     * @param url The location used to resolve
-     *            relative paths for the root object, or null if the location is not known.
-     * @param resourceBundle The resources used to
-     *                       localize the root object, or null if the root object was not localized.
+     * This method runs before page load.
+     * We use this to hide certain elements and to create arrays of FXML elements.
+     *
+     * @param url               The location used to resolve
+     *                          relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle    The resources used to
+     *                          localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -193,9 +200,9 @@ public class MainUiController implements Initializable {
     }
 
     /**
-     * This method initializes the Game UI with settings from the prev scene
+     * This method updates the UI based on current Game.java data.
      *
-     * @param newGame  param to get information from prev scene
+     * @param newGame   the Game object used to update UI with data
      */
     public void initData(Game newGame) {
         System.out.println("init data runs");
@@ -245,6 +252,14 @@ public class MainUiController implements Initializable {
         potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
     }
 
+    ////////////////////////////////////////////////////
+    ///////////////////  Methods   /////////////////////
+    ////////////////////////////////////////////////////
+    /**
+     * Helper method to correctly display starting season background.
+     *
+     * @return  a String with the image URL for starting season
+     */
     private String setStartingSeasonHelper() {
         String[] seasonImages = {"/main/resources/spring.png",
             "/main/resources/summer.png", "/main/resources/fall.png", "/main/resources/winter.png"};
@@ -262,6 +277,11 @@ public class MainUiController implements Initializable {
         }
     }
 
+    /**
+     * Helper method to correctly display starting seed.
+     *
+     * @return  a String with the image URL for starting seed
+     */
     private String setStartingSeedHelper() {
         if (myGame.getInitCounter() == 0) {
             switch (myGame.getStartingSeed()) {
@@ -323,6 +343,31 @@ public class MainUiController implements Initializable {
         window.show();
     }
 
+    public void seedClick(ActionEvent mouseEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Seed"))) {
+            myGame.setPlotClickMode("Seed");
+            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.CROSSHAIR);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
+    }
+
+    public void changeSeed(ActionEvent actionEvent) {
+        String buttonClicked = ((Node) actionEvent.getSource()).getId();
+        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
+        selectedSeed = buttonClicked;
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+    }
+
+    /**
+     * This method set correct on click command, Harvest, and changes cursor.
+     * Will also remove on click command and reset cursor if already set to Harvest.
+     *
+     * @param actionEvent   mouse click that we use to set cursor
+     */
     public void toolHarvestClick(ActionEvent actionEvent) {
         if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Harvest"))) {
             myGame.setPlotClickMode("Harvest");
@@ -335,6 +380,12 @@ public class MainUiController implements Initializable {
         }
     }
 
+    /**
+     * This method set correct on click command, Water, and changes cursor.
+     * Will also remove on click command and reset cursor if already set to Water.
+     *
+     * @param actionEvent   mouse click that we use to set cursor
+     */
     public void toolWaterClick(ActionEvent actionEvent) {
         if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Water"))) {
             myGame.setPlotClickMode("Water");
@@ -348,17 +399,7 @@ public class MainUiController implements Initializable {
     }
 
     /**
-     * We can use this to fix our bug on updating inventory modal when harvesting
-     */
-//    public void updateCount() {
-//        cornCropCounter.setText(Integer.toString(myGame.getInventory().getCornCount()));
-//        watermelonCropCounter.setText(Integer.toString(myGame.getInventory().getWatermelonCount()));
-//        onionCropCounter.setText(Integer.toString(myGame.getInventory().getOnionCount()));
-//        potatoCropCounter.setText(Integer.toString(myGame.getInventory().getPotatoCount()));
-//    }
-
-    /**
-     * TODO: Implement watering feature
+     *
      * @param actionEvent
      */
     public void plotClickedHandler(ActionEvent actionEvent) {
@@ -377,6 +418,11 @@ public class MainUiController implements Initializable {
         }
     }
 
+    /**
+     * This method interacts with Game, Inventory, and UI to plant new crops.
+     *
+     * @param id    a String containing which plot was clicked
+     */
     private void plantCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
@@ -401,6 +447,11 @@ public class MainUiController implements Initializable {
         initData(myGame);
     }
 
+    /**
+     * This method executes the necessary commands to harvest a crop.
+     *
+     * @param id    a String containing which plot was clicked
+     */
     public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
@@ -415,7 +466,7 @@ public class MainUiController implements Initializable {
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
                 item.setCount(item.getCount() + 5);
-                if(item.getCount() > 25) {
+                if (item.getCount() > 25) {
                     item.setCount(25);
                 }
                 System.out.println(cropName);
@@ -429,27 +480,16 @@ public class MainUiController implements Initializable {
                 myPlots[plotId].setWaterLevel(0);
             }
         }
-        // Why is the below line needed? I'm not sure what it's doing here.
-//        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
-        this.initData(myGame); // should we change these to an update method? how taxing is running initData?
+        this.initData(myGame);
     }
 
     public void waterCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
         CropPlot myCrop = myPlots[plotId];
-        if (myCrop.getMaturity() != 4) { // if crop is not dead, water
-            myCrop.setWaterLevel(myCrop.getWaterLevel() + 1);
-            if (myCrop.getWaterLevel() == 4) { // if water goes beyond full, kill it
-                killCrop(myCrop);
-            }
-        }
-        this.initData(myGame);
-    }
 
-    public void killCrop(CropPlot myCrop) {
-        myCrop.setMaturity(4);
-        myCrop.setWaterLevel(0);
+        myCrop.waterCrop();
+        this.initData(myGame);
     }
 
     public void nextDay(ActionEvent actionEvent) {
@@ -462,24 +502,5 @@ public class MainUiController implements Initializable {
         daysLabel.setText("Day " + myGame.getDay());
         // update UI
         this.initData(myGame);
-    }
-
-    public void seedClick(ActionEvent mouseEvent) {
-        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Seed"))) {
-            myGame.setPlotClickMode("Seed");
-            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.CROSSHAIR);
-        } else {
-            myGame.setPlotClickMode(null);
-            Scene myScene = ((Node) mouseEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.DEFAULT);
-        }
-    }
-
-    public void changeSeed(ActionEvent actionEvent) {
-        String buttonClicked = ((Node) actionEvent.getSource()).getId();
-        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
-        selectedSeed = buttonClicked;
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
     }
 }
