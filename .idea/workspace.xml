@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="143d4237-4da9-420c-96b0-2bbd3d111de7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/MainUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MainUiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CropPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CropPlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CropInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Potato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/screens/main_ui.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

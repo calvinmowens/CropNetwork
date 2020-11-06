@@ -312,22 +312,42 @@ public class MainUiController implements Initializable {
         }
     }
 
+    /**
+     * This method will toggle the background and seed modal on click of seed bag toolbar icon.
+     *
+     * @param actionEvent   location of mouse click
+     */
     public void toggleSeedModal(ActionEvent actionEvent) {
         seedModalToggle.set(!seedModalToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
+    /**
+     * This method will toggle the background and inventory modal on click of inventory (bot-left) icon.
+     *
+     * @param actionEvent   location of mouse click
+     */
     public void toggleInventoryModal(ActionEvent actionEvent) {
         inventoryModalToggle.set(!inventoryModalToggle.get());
         backgroundToggle.set(!backgroundToggle.get());
     }
 
+    /**
+     * This method was used to close modals and background toggle on background click.
+     * May implement later.
+     */
 //    public void closeModals(MouseEvent mouseEvent) {
 //        inventoryToggle.set(false);
 //        seedBagToggle.set(false);
 //        backgroundToggle.set(false);
 //    }
 
+    /**
+     * This method will open the market scene on click of the market button.
+     *
+     * @param actionEvent   location of mouse click, used to get scene and change to market_ui
+     * @throws IOException  not sure??
+     */
     public void openMarket(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/screens/market_ui.FXML"));
@@ -343,6 +363,24 @@ public class MainUiController implements Initializable {
         window.show();
     }
 
+    /**
+     * This method will change the currently selected seed on seed bag click.
+     *
+     * @param actionEvent   location of mouseclick, unused in method
+     */
+    public void changeSeed(ActionEvent actionEvent) {
+        String buttonClicked = ((Node) actionEvent.getSource()).getId();
+        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
+        selectedSeed = buttonClicked;
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+    }
+
+    /**
+     * This method set correct on click command, Seed, and changes cursor.
+     * Will also remove on click command and reset cursor if already set to Seed.
+     *
+     * @param mouseEvent   mouse click that we use to set cursor
+     */
     public void seedClick(ActionEvent mouseEvent) {
         if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Seed"))) {
             myGame.setPlotClickMode("Seed");
@@ -353,13 +391,6 @@ public class MainUiController implements Initializable {
             Scene myScene = ((Node) mouseEvent.getSource()).getScene();
             myScene.setCursor(Cursor.DEFAULT);
         }
-    }
-
-    public void changeSeed(ActionEvent actionEvent) {
-        String buttonClicked = ((Node) actionEvent.getSource()).getId();
-        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
-        selectedSeed = buttonClicked;
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
     }
 
     /**
