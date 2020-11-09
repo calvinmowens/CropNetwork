@@ -144,32 +144,37 @@ public class GameConfigController implements Initializable {
                 } else if (cropNum == 4) {
                     newGame.getPlots()[i] = new CropPlot("Potato", maturityNum);
                 }
+//                System.out.println(newGame.getPlots()[i].getCropName()
+//                + ", " + newGame.getPlots()[i].getMaturity());
             }
 
-            Map<String, InventoryItem> myMap = newGame.getInventoryMap();
-            //myMap.put("default", new InventoryItem(0, "default", "/main/resources/blank.png", 0)); // used for getOrDefault()
-            switch(startingSeed.getValue()) {
-                case "Corn":
-                    myMap.put("Corn Seed",
-                            new InventoryItem(10, "Corn Seed",
-                                    "/main/resources/cornBag.png", 10));
-                    break;
-                case "Onion":
-                    myMap.put("Onion Seed",
-                            new InventoryItem(10, "Onion Seed",
-                                    "/main/resources/onionBag.png", 10));
-                    break;
-                case "Potato":
-                    myMap.put("Potato Seed",
-                            new InventoryItem(10, "Potato Seed",
-                                    "/main/resources/potatoBag.png", 10));
-                    break;
-                case "Watermelon":
-                    myMap.put("Watermelon Seed",
-                            new InventoryItem(10, "Watermelon Seed",
-                                    "/main/resources/watermelonBag.png", 10));
-                    break;
 
+            Map<String, InventoryItem> myMap = newGame.getInventoryMap();
+            //myMap.put("default", new InventoryItem(0, "default",
+            // "/main/resources/blank.png", 0)); // used for getOrDefault()
+            switch (startingSeed.getValue()) {
+            case "Corn":
+                myMap.put("Corn Seed",
+                        new InventoryItem(10, "Corn Seed",
+                                "/main/resources/cornBag.png", 10));
+                break;
+            case "Onion":
+                myMap.put("Onion Seed",
+                        new InventoryItem(10, "Onion Seed",
+                                "/main/resources/onionBag.png", 10));
+                break;
+            case "Potato":
+                myMap.put("Potato Seed",
+                        new InventoryItem(10, "Potato Seed",
+                                "/main/resources/potatoBag.png", 10));
+                break;
+            case "Watermelon":
+                myMap.put("Watermelon Seed",
+                        new InventoryItem(10, "Watermelon Seed",
+                                "/main/resources/watermelonBag.png", 10));
+                break;
+            default:
+                break;
             }
 
             // setting up the loader

@@ -32,19 +32,39 @@ public class CropPlot {
     ///////////////////  Arrays   //////////////////////
     ////////////////////////////////////////////////////
     private final String[][] cropImgMatrix = {
-            {"/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png"},
-            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/watermelon_seeded.png", "/main/resources/watermelon_immature.png", "/main/resources/watermelon_mature.png", "/main/resources/dead_watermelon_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/onion_seeded.png", "/main/resources/onion_immature.png", "/main/resources/onion_mature.png", "/main/resources/dead_onion_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/almond_seeded.png", "/main/resources/potato_immature.png", "/main/resources/potato_mature.png", "/main/resources/dead_potato_plot.png"},
+            {"/main/resources/blank.png",
+                "/main/resources/blank.png",
+                "/main/resources/blank.png",
+                "/main/resources/blank.png",
+                "/main/resources/blank.png"},
+            {"/main/resources/blank.png",
+                "/main/resources/corn_seeded.png",
+                "/main/resources/corn_immature.png",
+                "/main/resources/corn_mature.png",
+                "/main/resources/dead_corn_plot.png"},
+            {"/main/resources/blank.png",
+                "/main/resources/watermelon_seeded.png",
+                "/main/resources/watermelon_immature.png",
+                "/main/resources/watermelon_mature.png",
+                "/main/resources/dead_watermelon_plot.png"},
+            {"/main/resources/blank.png",
+                "/main/resources/onion_seeded.png",
+                "/main/resources/onion_immature.png",
+                "/main/resources/onion_mature.png",
+                "/main/resources/dead_onion_plot.png"},
+            {"/main/resources/blank.png",
+                "/main/resources/almond_seeded.png",
+                "/main/resources/potato_immature.png",
+                "/main/resources/potato_mature.png",
+                "/main/resources/dead_potato_plot.png"},
     };
 
     private final String[] waterImgArray = {
-            "/main/resources/water_level_empty.png",
-            "/main/resources/water_level_danger.png",
-            "/main/resources/water_level_too_low.png",
-            "/main/resources/water_level_good.png",
-            "/main/resources/water_level_too_full.png"
+        "/main/resources/water_level_empty.png",
+        "/main/resources/water_level_danger.png",
+        "/main/resources/water_level_too_low.png",
+        "/main/resources/water_level_good.png",
+        "/main/resources/water_level_too_full.png"
     };
 
 
@@ -76,9 +96,9 @@ public class CropPlot {
      */
     public void nextDayCheck() {
         // change maturity
-        if((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
+        if ((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
             maturity++;
-        } else if((maturity > 0 && maturity < 4) && waterLevel <= 1) {
+        } else if ((maturity > 0 && maturity < 4) && waterLevel <= 1) {
             killCrop();
         } else if (maturity == 4) {
             cropName = "Empty Plot";
@@ -123,16 +143,32 @@ public class CropPlot {
         this.maturity = maturity;
     }
 
-    public int getMaturity() { return maturity; };
+    public int getMaturity() {
+        return maturity;
+    };
 
-    public void setWaterLevel(int waterLevel) { this.waterLevel = waterLevel; }
+    public void setWaterLevel(int waterLevel) {
+        this.waterLevel = waterLevel;
+    }
 
-    public int getWaterLevel() { return waterLevel; }
+    public int getWaterLevel() {
+        return waterLevel;
+    }
 
     public Image getWaterLevelImg() {
+        if (waterLevel > 4)
+            waterLevel = 4;
+        if (waterLevel < 0)
+            waterLevel = 0;
         String url = waterImgArray[waterLevel];
         return new Image(url);
     }
+    public void killPlant() {
+        this.setImage(new Image(cropImgMatrix[0][0]));
+        this.setMaturity(0);
+        this.setWaterLevel(0);
+    }
+
 
     public Image getImage() {
         int myNameInt = nameToInt();
@@ -144,24 +180,27 @@ public class CropPlot {
         this.image = image;
     }
 
+
+
+
     /**
      * This is a method that returns crop name as an int.
      * We use this for displaying the correct crop image based on type and maturity.
      *
-     * @return
+     * @return number corresponding to cropname
      */
     public int nameToInt() {
         switch (cropName) {
-            case "Corn":
-                return 1;
-            case "Watermelon":
-                return 2;
-            case "Onion":
-                return 3;
-            case "Potato":
-                return 4;
-            default:
-                return 0;
+        case "Corn":
+            return 1;
+        case "Watermelon":
+            return 2;
+        case "Onion":
+            return 3;
+        case "Potato":
+            return 4;
+        default:
+            return 0;
         }
     }
 
