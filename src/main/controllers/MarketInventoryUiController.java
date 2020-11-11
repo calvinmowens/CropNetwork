@@ -19,10 +19,7 @@ import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 public class MarketInventoryUiController implements Initializable {
 
@@ -54,7 +51,7 @@ public class MarketInventoryUiController implements Initializable {
 
     private Map<String, InventoryItem> map;
     private Set<String> keys;
-    private String[] keyArray;
+    private String[] keyArray = new String[12];
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,14 +68,25 @@ public class MarketInventoryUiController implements Initializable {
         //List<InventoryItem> myInventory = myGame.getInventoryList();
         map = myGame.getInventoryMap();
         keys = map.keySet();
-        keyArray = keys.toArray(new String[keys.size()]);
-
+        String[] tempKeyArray = keys.toArray(new String[keys.size()]);
+        int count = 0;
+        System.out.println(Arrays.toString(tempKeyArray));
+        for(int i = 0; i < tempKeyArray.length; i++) {
+            if(i != 8 && i != 13) {
+                keyArray[count] = tempKeyArray[i];
+                count++;
+            }
+        }
+        System.out.println(Arrays.toString(keyArray));
         for (int i = 0; i < keyArray.length; i++) {
+            //THIS IS A TEMPORARY FIX, WE MUST ADD SPACE IN THE MARKET AND/OR REORDER OUR ELEMENTS
+            String name = keyArray[i];
             AnchorPane itemSlot = (AnchorPane) (inventoryItems.getChildren().get(i));
             ImageView itemImg = (ImageView) itemSlot.getChildren().get(0);
             itemImg.setImage(map.get(keyArray[i]).getImage());
             Label itemCount = (Label) itemSlot.getChildren().get(1);
             itemCount.setText(map.get(keyArray[i]).getCount() + "/ 100");
+            count++;
         }
     }
 
@@ -99,9 +107,9 @@ public class MarketInventoryUiController implements Initializable {
     public void sellItem(ActionEvent actionEvent) {
         int sellAmount = Integer.parseInt(selectedItemQuantity.getText());
         for (InventoryItem i: map.values()) {
-            if (i.getItemName() == selectedItemName.getText() && i.getCount() >= sellAmount) {
+            if (i.getItemName().equals(selectedItemName.getText()) && i.getCount() >= sellAmount) {
                 String selectedItem = selectedItemName.getText();
-                i.setCount(i.getCount() - sellAmount);
+//                i.setCount(i.getCount() - sellAmount);
                 myGame.sellFromInventory(selectedItem, sellAmount, i.getBasePrice());
             }
         }

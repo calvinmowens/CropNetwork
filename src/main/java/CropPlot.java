@@ -18,6 +18,7 @@ public class CropPlot {
      * 4: full
      */
     private int maturity;
+
     /**
      * Maturity: stage
      * 0: empty plot
@@ -26,7 +27,9 @@ public class CropPlot {
      * 3: mature
      * 4: dead
      * */
+    private int fertilized;
 
+    private boolean pestApplied = false;
 
     ////////////////////////////////////////////////////
     ///////////////////  Arrays   //////////////////////
@@ -47,6 +50,14 @@ public class CropPlot {
             "/main/resources/water_level_too_full.png"
     };
 
+    private final String[] fertImgArray = {
+            "/main/resources/fertilizer_empty.png",
+            "/main/resources/fertilizer_level1.png",
+            "/main/resources/fertilizer_level2.png",
+            "/main/resources/fertilizer_level3.png",
+            "/main/resources/fertilizer_full.png"
+    };
+
 
     ////////////////////////////////////////////////////
     ///////////////////  Constructor   /////////////////
@@ -63,6 +74,7 @@ public class CropPlot {
         this.maturity = maturity;
         this.image = getImage();
         this.waterLevel = 3;
+        this.fertilized = 1;
     }
 
 
@@ -84,9 +96,13 @@ public class CropPlot {
             cropName = "Empty Plot";
             waterLevel = 0;
             maturity = 0;
+            fertilized = 0;
+            setPestApplied(false);
         }
         if (maturity > 0 && maturity < 4) {
             waterLevel--;
+            if(fertilized > 0)
+                fertilized--;
         }
         String imgString = cropImgMatrix[nameToInt()][maturity];
         image = new Image(imgString);
@@ -101,12 +117,30 @@ public class CropPlot {
         }
     }
 
+    public int fertilizeCrop(int count) {
+        if(fertilized < 4 && count > 0) {
+            fertilized++;
+            count--;
+        }
+        return count;
+    }
+
     public void killCrop() {
         maturity = 4;
         waterLevel = 0;
     }
 
+    public void resetCrop() {
+        cropName = "Empty Plot";
+        maturity = 0;
+        waterLevel = 0;
+        fertilized = 0;
+        pestApplied = false;
+    }
 
+    public void applyPesticide() {
+        setPestApplied(true);
+    }
 
     ////////////////////////////////////////////////////
     //////////////  Getters & Setters   ////////////////
@@ -134,6 +168,11 @@ public class CropPlot {
         return new Image(url);
     }
 
+    public Image getFertilizeImg() {
+        String url = fertImgArray[fertilized];
+        return new Image(url);
+    }
+
     public Image getImage() {
         int myNameInt = nameToInt();
         String url = cropImgMatrix[myNameInt][maturity];
@@ -143,6 +182,22 @@ public class CropPlot {
     public void setImage(Image image) {
         this.image = image;
     }
+
+    public boolean isPestApplied() {
+        return pestApplied;
+    }
+
+    public void setPestApplied(boolean pestApplied) {
+        this.pestApplied = pestApplied;
+    }
+    public int getFertilized() {
+        return fertilized;
+    }
+
+    public void setFertilized(int fertilized) {
+        this.fertilized = fertilized;
+    }
+
 
     /**
      * This is a method that returns crop name as an int.

@@ -112,6 +112,12 @@ public class MainUiController implements Initializable {
     @FXML private Label cornSeedBagCounter;
     @FXML private Label onionSeedBagCounter;
 
+    //Tools
+    @FXML
+    public Label fertCounter;
+    @FXML
+    public Label pestCounter;
+
     // visibility toggles
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
     private BooleanProperty seedModalToggle = new SimpleBooleanProperty(false);
@@ -234,6 +240,12 @@ public class MainUiController implements Initializable {
             if (myPlots[i] != null) {
                 ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
                 waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
+                fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
+                if(myPlots[i].isPestApplied()) {
+                    pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
+                } else {
+                    pesticideArray[i].setImage(null);
+                }
             }
         }
         InventoryItem defaultItem = myGame.getDefaultItem();
@@ -250,6 +262,10 @@ public class MainUiController implements Initializable {
         watermelonCropCounter.setText(Integer.toString(inventory.getOrDefault("Watermelon", defaultItem).getCount()));
         onionCropCounter.setText(Integer.toString(inventory.getOrDefault("Onion", defaultItem).getCount()));
         potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
+
+        // Set Fertilizer and Pesticide counters to current inventory count.
+        fertCounter.setText(Integer.toString(inventory.get("Fertilizer").getCount()));
+        pestCounter.setText(Integer.toString(inventory.get("Pesticide").getCount()));
     }
 
     ////////////////////////////////////////////////////
@@ -445,8 +461,40 @@ public class MainUiController implements Initializable {
                 waterCrop(id);
             } else if (mode.equals("Seed")) {
                 plantCrop(id);
+            } else if (mode.equals("Fert")) {
+                fertCrop(id);
+            } else if (mode.equals("Pest")) {
+                pestCrop(id);
             }
         }
+    }
+
+    private void pestCrop(String id) {
+        CropPlot[] myPlots = myGame.getPlots();
+        int plotId = Integer.parseInt(id.substring(4)) - 1;
+
+        Map<String, InventoryItem> map = myGame.getInventoryMap();
+
+        if(myPlots[plotId] != null) {
+            if(!myPlots[plotId].isPestApplied()) {
+                InventoryItem item = map.get("Pesticide");
+                if(item.getCount() > 0) {
+                    item.setCount(item.getCount() - 1);
+                    myPlots[plotId].applyPesticide();
+                }
+
+            }
+        }
+        initData(myGame);
+    }
+
+    private void fertCrop(String id) {
+        CropPlot[] myPlots = myGame.getPlots();
+        int plotId = Integer.parseInt(id.substring(4)) - 1;
+        CropPlot myCrop = myPlots[plotId];
+        int count = myGame.getInventoryMap().get("Fertilizer").getCount();
+        myGame.getInventoryMap().get("Fertilizer").setCount(myCrop.fertilizeCrop(count));
+        this.initData(myGame);
     }
 
     /**
@@ -469,6 +517,7 @@ public class MainUiController implements Initializable {
                     myPlots[plotId].setCropName(selectedSeed);
                     myPlots[plotId].setMaturity(1);
                     myPlots[plotId].setWaterLevel(3);
+                    myPlots[plotId].setFertilized(1);
 
                 }
             }
@@ -486,14 +535,19 @@ public class MainUiController implements Initializable {
     public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
-
+        //TODO: Make it so that yield of fertilized crops is different
         InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
         // if plot is not empty and fully mature, we can harvest
         if (myPlots[plotId] != null) {
             if (myPlots[plotId].getMaturity() == 3) {
-                String cropName = myCrop.getCropName();
+                String cropName;
+                if(!myPlots[plotId].isPestApplied()) {
+                    cropName = myCrop.getCropName();
+                } else {
+                    cropName = myCrop.getCropName() + " P";
+                }
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
                 item.setCount(item.getCount() + 5);
@@ -502,13 +556,9 @@ public class MainUiController implements Initializable {
                 }
                 System.out.println(cropName);
                 System.out.println(map.get(cropName).getCount());
-                myPlots[plotId].setCropName("Empty Plot");
-                myPlots[plotId].setMaturity(0);
-                myPlots[plotId].setWaterLevel(0);
+                myPlots[plotId].resetCrop();
             } else if (myPlots[plotId].getMaturity() == 4) {
-                myPlots[plotId].setCropName("Empty Plot");
-                myPlots[plotId].setMaturity(0);
-                myPlots[plotId].setWaterLevel(0);
+                myPlots[plotId].resetCrop();
             }
         }
         this.initData(myGame);
@@ -533,5 +583,29 @@ public class MainUiController implements Initializable {
         daysLabel.setText("Day " + myGame.getDay());
         // update UI
         this.initData(myGame);
+    }
+
+    public void toolFertClick(ActionEvent actionEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Fert"))) {
+            myGame.setPlotClickMode("Fert");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.MOVE);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
+    }
+
+    public void toolPestClick(ActionEvent actionEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Pest"))) {
+            myGame.setPlotClickMode("Pest");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.OPEN_HAND);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
     }
 }
