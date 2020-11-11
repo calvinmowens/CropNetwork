@@ -24,8 +24,9 @@ public class CropPlot {
      * 0: empty plot
      * 1: seeded
      * 2: immature
-     * 3: mature
-     * 4: dead
+     * 3: immature
+     * 4: mature
+     * 5: dead
      * */
     private int fertilized;
 
@@ -36,10 +37,10 @@ public class CropPlot {
     ////////////////////////////////////////////////////
     private final String[][] cropImgMatrix = {
             {"/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png", "/main/resources/blank.png"},
-            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/watermelon_seeded.png", "/main/resources/watermelon_immature.png", "/main/resources/watermelon_mature.png", "/main/resources/dead_watermelon_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/onion_seeded.png", "/main/resources/onion_immature.png", "/main/resources/onion_mature.png", "/main/resources/dead_onion_plot.png"},
-            {"/main/resources/blank.png", "/main/resources/almond_seeded.png", "/main/resources/potato_immature.png", "/main/resources/potato_mature.png", "/main/resources/dead_potato_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/corn_seeded.png", "/main/resources/corn_immature.png","/main/resources/corn_immature.png", "/main/resources/corn_mature.png", "/main/resources/dead_corn_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/watermelon_seeded.png", "/main/resources/watermelon_immature.png","/main/resources/watermelon_immature.png", "/main/resources/watermelon_mature.png", "/main/resources/dead_watermelon_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/onion_seeded.png", "/main/resources/onion_immature.png","/main/resources/onion_immature.png", "/main/resources/onion_mature.png", "/main/resources/dead_onion_plot.png"},
+            {"/main/resources/blank.png", "/main/resources/almond_seeded.png", "/main/resources/potato_immature.png","/main/resources/potato_immature.png", "/main/resources/potato_mature.png", "/main/resources/dead_potato_plot.png"},
     };
 
     private final String[] waterImgArray = {
@@ -88,18 +89,21 @@ public class CropPlot {
      */
     public void nextDayCheck() {
         // change maturity
-        if((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
+        if((maturity > 0 && maturity < 4) && (waterLevel > 1)) {
+            if(fertilized > 1 && (maturity == 1 || maturity == 2)) {
+                maturity++;
+            }
             maturity++;
-        } else if((maturity > 0 && maturity < 4) && waterLevel <= 1) {
+        } else if((maturity > 0 && maturity < 5) && waterLevel <= 1) {
             killCrop();
-        } else if (maturity == 4) {
+        } else if (maturity == 5) {
             cropName = "Empty Plot";
             waterLevel = 0;
             maturity = 0;
             fertilized = 0;
             setPestApplied(false);
         }
-        if (maturity > 0 && maturity < 4) {
+        if (maturity > 0 && maturity < 5) {
             waterLevel--;
             if(fertilized > 0)
                 fertilized--;
@@ -109,7 +113,7 @@ public class CropPlot {
     }
 
     public void waterCrop() {
-        if (maturity != 4) { // if crop is not dead, water
+        if (maturity != 5) { // if crop is not dead, water
             waterLevel++;
             if (waterLevel > 4) { // if water goes beyond full, kill it
                 killCrop();
@@ -126,7 +130,7 @@ public class CropPlot {
     }
 
     public void killCrop() {
-        maturity = 4;
+        maturity = 5;
         waterLevel = 0;
     }
 

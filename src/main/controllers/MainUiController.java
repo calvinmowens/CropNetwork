@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainUiController implements Initializable {
 
@@ -541,7 +542,7 @@ public class MainUiController implements Initializable {
         CropPlot myCrop = myPlots[plotId];
         // if plot is not empty and fully mature, we can harvest
         if (myPlots[plotId] != null) {
-            if (myPlots[plotId].getMaturity() == 3) {
+            if (myPlots[plotId].getMaturity() == 4) {
                 String cropName;
                 if(!myPlots[plotId].isPestApplied()) {
                     cropName = myCrop.getCropName();
@@ -550,14 +551,25 @@ public class MainUiController implements Initializable {
                 }
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
-                item.setCount(item.getCount() + 5);
+                if(myCrop.getFertilized() == 0) {
+                    item.setCount(item.getCount() + 5);
+                } else if (myCrop.getFertilized() == 1) {
+                    int randomNum = ThreadLocalRandom.current().nextInt(1, 2 + 1);
+                    item.setCount(item.getCount() + 5 + randomNum);
+                } else if (myCrop.getFertilized() == 3 || myCrop.getFertilized() == 2) {
+                    int randomNum = ThreadLocalRandom.current().nextInt(2, 3 + 1);
+                    item.setCount(item.getCount() + 5 + randomNum);
+                } else {
+                    int randomNum = ThreadLocalRandom.current().nextInt(4, 5 + 1);
+                    item.setCount(item.getCount() + 5 + randomNum);
+                }
                 if (item.getCount() > 25) {
                     item.setCount(25);
                 }
                 System.out.println(cropName);
                 System.out.println(map.get(cropName).getCount());
                 myPlots[plotId].resetCrop();
-            } else if (myPlots[plotId].getMaturity() == 4) {
+            } else if (myPlots[plotId].getMaturity() == 5) {
                 myPlots[plotId].resetCrop();
             }
         }
