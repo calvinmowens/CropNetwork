@@ -156,10 +156,12 @@ public class CropPlot {
     }
 
     public Image getWaterLevelImg() {
-        if (waterLevel > 4)
+        if (waterLevel > 4) {
             waterLevel = 4;
-        if (waterLevel < 0)
+        }
+        if (waterLevel < 0) {
             waterLevel = 0;
+        }
         String url = waterImgArray[waterLevel];
         return new Image(url);
     }

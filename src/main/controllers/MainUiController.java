@@ -1,6 +1,5 @@
 package main.controllers;
 
-import com.sun.scenario.effect.Crop;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -98,8 +97,8 @@ public class MainUiController implements Initializable {
     @FXML private AnchorPane rainPopup;
     @FXML private AnchorPane droughtPopup;
     @FXML private Label locustPopupLabel; // these labels will change based on difficulty
-    @FXML private Label rainPopupLabel;
-    @FXML private Label droughtPopupLabel;
+    @FXML private Label rainPopupLabel = new Label("");
+    @FXML private Label droughtPopupLabel = new Label("");
 
     // inventory modal elements
     @FXML private AnchorPane inventoryModal;
@@ -357,13 +356,11 @@ public class MainUiController implements Initializable {
         backgroundToggle.set(!backgroundToggle.get());
     }
 
-//    /**
-//     * This method was used to close modals and background toggle on background click.
-//     * May implement later.
-//     */
-//    public void closeModals(ActionEvent mouseEvent) {
-//
-//    }
+    //    /**
+    //     * This method was used to close modals and background toggle on background click.
+    //     * May implement later.
+    //     */
+
 
     /**
      * This method will open the market scene on click of the market button.
@@ -592,24 +589,20 @@ public class MainUiController implements Initializable {
         }
     }
 
-    private void increaseWaterlevelRandomly(CropPlot[] plot) {
+    public void increaseWaterlevelRandomly(CropPlot[] plot) {
         Random rand = new Random();
-//        rainPopup.setVisible(true);
         rainPopupToggle.set(true);
 
         int increment = rand.nextInt(5);
         rainPopupLabel.setText(Integer.toString(increment));
         for (int i = 0; i < plot.length; i++) {
-            //System.out.println(plot[i].getImage().getUrl());
             if (!plot[i].getImage().getUrl().contains("/main/resources/blank.png")) {
-                System.out.println("before at "+ i+": "+plot[i].getWaterLevel());
                 int newWaterLevel = plot[i].getWaterLevel() + increment;
                 plot[i].setWaterLevel(newWaterLevel);
-                System.out.println("after at "+ i+": "+plot[i].getWaterLevel());
             }
         }
     }
-    private void decreaseWaterlevelRandomly(CropPlot[] plot) {
+    public void decreaseWaterlevelRandomly(CropPlot[] plot) {
         Random rand = new Random();
         droughtPopupToggle.set(true);
         int decrement = rand.nextInt(5);
@@ -620,7 +613,7 @@ public class MainUiController implements Initializable {
             }
         }
     }
-    private void killPlantsRandomly(CropPlot[] plot) {
+    public void killPlantsRandomly(CropPlot[] plot) {
         Random rand = new Random();
         locustPopupToggle.set(true);
         int count = 0;
