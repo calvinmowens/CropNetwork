@@ -16,9 +16,11 @@ import main.java.CropPlot;
 import main.java.Game;
 import main.java.InventoryItem;
 
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -32,7 +34,7 @@ public class MainUiController implements Initializable {
     private ImageView[] waterLevelsArray;
     private ImageView[] fertLevelsArray;
     private ImageView[] pesticideArray;
-    Map<String, InventoryItem> inventory;
+    private Map<String, InventoryItem> inventory;
     private String selectedSeed;
 
     // backgrounds
@@ -96,8 +98,8 @@ public class MainUiController implements Initializable {
     @FXML private AnchorPane rainPopup;
     @FXML private AnchorPane droughtPopup;
     @FXML private Label locustPopupLabel; // these labels will change based on difficulty
-    @FXML private Label rainPopupLabel;
-    @FXML private Label droughtPopupLabel;
+    @FXML private Label rainPopupLabel = new Label("");
+    @FXML private Label droughtPopupLabel = new Label("");
 
     // inventory modal elements
     @FXML private AnchorPane inventoryModal;
@@ -129,10 +131,12 @@ public class MainUiController implements Initializable {
     private BooleanProperty droughtPopupToggle = new SimpleBooleanProperty(false);
 
     // seed image array for displaying starting seed
-    String[] seedImages = {"/main/resources/potatoes.png",
-            "/main/resources/watermelon.png",
-            "/main/resources/corn.png",
-            "/main/resources/onion.png"};
+    private String[] seedImages = {
+        "/main/resources/potatoes.png",
+        "/main/resources/watermelon.png",
+        "/main/resources/corn.png",
+        "/main/resources/onion.png"};
+    private boolean warning = false;
 
 
 
@@ -144,9 +148,11 @@ public class MainUiController implements Initializable {
      * We use this to hide certain elements and to create arrays of FXML elements.
      *
      * @param url               The location used to resolve
-     *                          relative paths for the root object, or null if the location is not known.
+     *                          relative paths for the root object,
+     *                          or null if the location is not known.
      * @param resourceBundle    The resources used to
-     *                          localize the root object, or null if the root object was not localized.
+     *                          localize the root object,
+     *                          or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -161,48 +167,48 @@ public class MainUiController implements Initializable {
         droughtPopup.visibleProperty().bind(droughtPopupToggle);
 
         waterLevelsArray = new ImageView[] {
-                plot1WaterLevel,
-                plot2WaterLevel,
-                plot3WaterLevel,
-                plot4WaterLevel,
-                plot5WaterLevel,
-                plot6WaterLevel,
-                plot7WaterLevel,
-                plot8WaterLevel,
-                plot9WaterLevel,
-                plot10WaterLevel,
-                plot11WaterLevel,
-                plot12WaterLevel
+            plot1WaterLevel,
+            plot2WaterLevel,
+            plot3WaterLevel,
+            plot4WaterLevel,
+            plot5WaterLevel,
+            plot6WaterLevel,
+            plot7WaterLevel,
+            plot8WaterLevel,
+            plot9WaterLevel,
+            plot10WaterLevel,
+            plot11WaterLevel,
+            plot12WaterLevel
         };
 
         fertLevelsArray = new ImageView[] {
-                plot1FertLevel,
-                plot2FertLevel,
-                plot3FertLevel,
-                plot4FertLevel,
-                plot5FertLevel,
-                plot6FertLevel,
-                plot7FertLevel,
-                plot8FertLevel,
-                plot9FertLevel,
-                plot10FertLevel,
-                plot11FertLevel,
-                plot12FertLevel
+            plot1FertLevel,
+            plot2FertLevel,
+            plot3FertLevel,
+            plot4FertLevel,
+            plot5FertLevel,
+            plot6FertLevel,
+            plot7FertLevel,
+            plot8FertLevel,
+            plot9FertLevel,
+            plot10FertLevel,
+            plot11FertLevel,
+            plot12FertLevel
         };
 
         pesticideArray = new ImageView[] {
-                plot1Pesticide,
-                plot2Pesticide,
-                plot3Pesticide,
-                plot4Pesticide,
-                plot5Pesticide,
-                plot6Pesticide,
-                plot7Pesticide,
-                plot8Pesticide,
-                plot9Pesticide,
-                plot10Pesticide,
-                plot11Pesticide,
-                plot12Pesticide
+            plot1Pesticide,
+            plot2Pesticide,
+            plot3Pesticide,
+            plot4Pesticide,
+            plot5Pesticide,
+            plot6Pesticide,
+            plot7Pesticide,
+            plot8Pesticide,
+            plot9Pesticide,
+            plot10Pesticide,
+            plot11Pesticide,
+            plot12Pesticide
         };
     }
 
@@ -223,11 +229,13 @@ public class MainUiController implements Initializable {
             avatar.setImage(new Image(getClass().
                     getResourceAsStream("/main/resources/female.png")));
         }
-        backgroundSeason.setImage(new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
+        backgroundSeason.setImage(
+                new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
 
-        if(myGame.getInitCounter() == 0) {
+        if (myGame.getInitCounter() == 0) {
             seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
-            selectedSeed = setStartingSeedHelper().substring(0, setStartingSeedHelper().indexOf('.'));
+            selectedSeed = setStartingSeedHelper()
+                    .substring(0, setStartingSeedHelper().indexOf('.'));
             selectedSeed = selectedSeed.substring(16);
             String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
             selectedSeed = firstLetter + selectedSeed.substring(1);
@@ -252,21 +260,32 @@ public class MainUiController implements Initializable {
         InventoryItem defaultItem = myGame.getDefaultItem();
 
         // Set seed counters to current inventory count.
-        cornSeedBagCounter.setText(Integer.toString(inventory.get("Corn Seed").getCount()));
-        watermelonSeedBagCounter
-                .setText(Integer.toString(inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
-        onionSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
-        potatoSeedBagCounter.setText(Integer.toString(inventory.getOrDefault("Potato Seed", defaultItem).getCount()));
+        cornSeedBagCounter.setText(
+                Integer.toString(
+                        inventory.get("Corn Seed").getCount()));
+        watermelonSeedBagCounter.setText(
+                Integer.toString(
+                        inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
+        onionSeedBagCounter.setText(
+                Integer.toString(
+                        inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
+        potatoSeedBagCounter.setText(
+                Integer.toString(
+                        inventory.getOrDefault("Potato Seed", defaultItem).getCount()));
 
         // Set crop counters to current inventory count.
-        cornCropCounter.setText(Integer.toString(inventory.getOrDefault("Corn", defaultItem).getCount()));
-        watermelonCropCounter.setText(Integer.toString(inventory.getOrDefault("Watermelon", defaultItem).getCount()));
-        onionCropCounter.setText(Integer.toString(inventory.getOrDefault("Onion", defaultItem).getCount()));
-        potatoCropCounter.setText(Integer.toString(inventory.getOrDefault("Potato", defaultItem).getCount()));
-
-        // Set Fertilizer and Pesticide counters to current inventory count.
-        fertCounter.setText(Integer.toString(inventory.get("Fertilizer").getCount()));
-        pestCounter.setText(Integer.toString(inventory.get("Pesticide").getCount()));
+        cornCropCounter
+                .setText(Integer.toString(inventory
+                        .getOrDefault("Corn", defaultItem).getCount()));
+        watermelonCropCounter
+                .setText(Integer.toString(inventory
+                        .getOrDefault("Watermelon", defaultItem).getCount()));
+        onionCropCounter
+                .setText(Integer.toString(inventory
+                        .getOrDefault("Onion", defaultItem).getCount()));
+        potatoCropCounter
+                .setText(Integer.toString(inventory
+                        .getOrDefault("Potato", defaultItem).getCount()));
     }
 
     ////////////////////////////////////////////////////
@@ -302,29 +321,29 @@ public class MainUiController implements Initializable {
     private String setStartingSeedHelper() {
         if (myGame.getInitCounter() == 0) {
             switch (myGame.getStartingSeed()) {
-                case ("Potato"):
-                    return seedImages[0];
-                case ("Watermelon"):
-                    return seedImages[1];
-                case ("Corn"):
-                    return seedImages[2];
-                case ("Onion"):
-                    return seedImages[3];
-                default:
-                    throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+            case ("Potato"):
+                return seedImages[0];
+            case ("Watermelon"):
+                return seedImages[1];
+            case ("Corn"):
+                return seedImages[2];
+            case ("Onion"):
+                return seedImages[3];
+            default:
+                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
             }
         } else {
             switch (selectedSeed) {
-                case ("Potato"):
-                    return seedImages[0];
-                case ("Watermelon"):
-                    return seedImages[1];
-                case ("Corn"):
-                    return seedImages[2];
-                case ("Onion"):
-                    return seedImages[3];
-                default:
-                    throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+            case ("Potato"):
+                return seedImages[0];
+            case ("Watermelon"):
+                return seedImages[1];
+            case ("Corn"):
+                return seedImages[2];
+            case ("Onion"):
+                return seedImages[3];
+            default:
+                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
             }
         }
     }
@@ -340,7 +359,8 @@ public class MainUiController implements Initializable {
     }
 
     /**
-     * This method will toggle the background and inventory modal on click of inventory (bot-left) icon.
+     * This method will toggle the background and inventory
+     * modal on click of inventory (bot-left) icon.
      *
      * @param actionEvent   location of mouse click
      */
@@ -349,15 +369,11 @@ public class MainUiController implements Initializable {
         backgroundToggle.set(!backgroundToggle.get());
     }
 
-    /**
-     * This method was used to close modals and background toggle on background click.
-     * May implement later.
-     */
-//    public void closeModals(MouseEvent mouseEvent) {
-//        inventoryToggle.set(false);
-//        seedBagToggle.set(false);
-//        backgroundToggle.set(false);
-//    }
+    //    /**
+    //     * This method was used to close modals and background toggle on background click.
+    //     * May implement later.
+    //     */
+
 
     /**
      * This method will open the market scene on click of the market button.
@@ -448,7 +464,7 @@ public class MainUiController implements Initializable {
 
     /**
      *
-     * @param actionEvent
+     * @param actionEvent Mouse Click event
      */
     public void plotClickedHandler(ActionEvent actionEvent) {
         System.out.println("Plot clicked: " + myGame.getPlotClickMode());
@@ -510,10 +526,11 @@ public class MainUiController implements Initializable {
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         System.out.println(selectedSeed);
 
-        if(myPlots[plotId] != null) {
-            if(myPlots[plotId].getMaturity() == 0) {
+        if (myPlots[plotId] != null) {
+            if (myPlots[plotId].getMaturity() == 0) {
+                System.out.println(selectedSeed);
                 InventoryItem item = map.get(selectedSeed + " Seed");
-                if(item.getCount() > 0) {
+                if (item.getCount() > 0) {
                     item.setCount(item.getCount() - 5);
                     myPlots[plotId].setCropName(selectedSeed);
                     myPlots[plotId].setMaturity(1);
@@ -594,6 +611,14 @@ public class MainUiController implements Initializable {
         myGame.setDay(myGame.getDay() + 1);
         daysLabel.setText("Day " + myGame.getDay());
         // update UI
+        Random rand = new Random();
+        // set condition to rand.nextInt() % 10 > 0 during demo
+        boolean testing = true;
+        if (rand.nextInt() % 10 > 4 || testing) {
+            System.out.println("random event initiated!");
+            warning = true;
+            startRandomEvent();
+        }
         this.initData(myGame);
     }
 
@@ -619,5 +644,78 @@ public class MainUiController implements Initializable {
             Scene myScene = ((Node) actionEvent.getSource()).getScene();
             myScene.setCursor(Cursor.DEFAULT);
         }
+    public void startRandomEvent() {
+        Random rand = new Random();
+        int eventNum = rand.nextInt(3);
+        CropPlot[] gamePlot = myGame.getPlots();
+        System.out.println(eventNum);
+        // hardcode eventnum to demo each event
+        eventNum = 1;
+        switch (eventNum) {
+        case 0: // rain
+            System.out.println("rain");
+            increaseWaterlevelRandomly(gamePlot);
+            break;
+        case 1: // drought
+            System.out.println("drought");
+            decreaseWaterlevelRandomly(gamePlot);
+            break;
+        case 2: // locust
+            System.out.println("locust");
+            killPlantsRandomly(gamePlot);
+            break;
+        default:
+            break;
+        }
+    }
+
+    public void increaseWaterlevelRandomly(CropPlot[] plot) {
+        Random rand = new Random();
+        rainPopupToggle.set(true);
+
+        int increment = rand.nextInt(5);
+        rainPopupLabel.setText(Integer.toString(increment));
+        for (int i = 0; i < plot.length; i++) {
+            if (!plot[i].getImage().getUrl().contains("/main/resources/blank.png")) {
+                int newWaterLevel = plot[i].getWaterLevel() + increment;
+                plot[i].setWaterLevel(newWaterLevel);
+            }
+        }
+    }
+    public void decreaseWaterlevelRandomly(CropPlot[] plot) {
+        Random rand = new Random();
+        droughtPopupToggle.set(true);
+        int decrement = rand.nextInt(5);
+        droughtPopupLabel.setText(Integer.toString(decrement));
+        for (int i = 0; i < plot.length; i++) {
+            if (!plot[i].getImage().getUrl().contains("/main/resources/blank.png")) {
+                plot[i].setWaterLevel(plot[i].getWaterLevel() - decrement + 1);
+            }
+        }
+    }
+    public void killPlantsRandomly(CropPlot[] plot) {
+        Random rand = new Random();
+        locustPopupToggle.set(true);
+        int count = 0;
+        for (int i = 0; i < plot.length; i++) {
+            boolean kill = rand.nextBoolean();
+            if (kill && plot[i].getMaturity() > 0
+                    && plot[i].getWaterLevel() > 0 && plot[i].getWaterLevel() < 4)  {
+                plot[i].setMaturity(0);
+                plot[i].setWaterLevel(0);
+                count += 1;
+            }
+        }
+        locustPopupLabel.setText(Integer.toString(count));
+    }
+
+    public void closeWarning(MouseEvent mouseEvent) {
+        if (warning) {
+            locustPopupToggle.set(false);
+            droughtPopupToggle.set(false);
+            rainPopupToggle.set(false);
+        }
+        warning = false;
+        initData(myGame);
     }
 }

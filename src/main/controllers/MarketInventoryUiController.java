@@ -14,12 +14,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.Game;
-import main.java.Inventory;
 import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
+<<<<<<< HEAD
 import java.util.*;
+=======
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.Set;
+>>>>>>> randomEvents
 
 public class MarketInventoryUiController implements Initializable {
 

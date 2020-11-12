@@ -42,36 +42,37 @@ public class Game {
     }
     private Map<String, InventoryItem> inventoryMap = new HashMap<>();
 
-//    private HashMap<String, CropPlot> plotMap = new HashMap<>();
-//    public HashMap<String, CropPlot> getPlotMap() {
-//        return plotMap;
-//    }
+
     private CropPlot[] plots = new CropPlot[12];
-    private InventoryItem defaultItem = new InventoryItem(0, "default", "/main/resources/blank.png", 0);
+    private InventoryItem defaultItem = new InventoryItem(0, "default",
+            "/main/resources/blank.png", 0);
 
-//    public void addToInventory(String itemName, int increment, int sellPrice, String imgUrl) {
-//        if (this.inventoryMap.containsKey(itemName)) {
-//            this.inventoryMap.get(itemName).setCount( this.inventoryMap.get(itemName).getCount() + increment);
-//        } else {
-//            this.inventoryMap.put(itemName, new InventoryItem())
-//        }
-//    }
+
     public void initializeInventory() {
-        inventoryMap.put("Corn Seed", new InventoryItem(seedPrice, "Corn Seed", "/main/resources/cornBag.png", 0));
-        inventoryMap.put("Onion Seed", new InventoryItem(seedPrice, "Onion Seed", "/main/resources/onionBag.png", 0));
-        inventoryMap.put("Watermelon Seed", new InventoryItem(seedPrice, "Watermelon Seed", "/main/resources/watermelonBag.png", 0));
-        inventoryMap.put("Potato Seed", new InventoryItem(seedPrice, "Potato Seed", "/main/resources/potatoBag.png", 0));
-        inventoryMap.put("Corn", new InventoryItem(cropPrice, "Corn", "/main/resources/corn.png", 0));
-        inventoryMap.put("Onion", new InventoryItem(cropPrice, "Onion", "/main/resources/OnionCrop.png", 0));
-        inventoryMap.put("Watermelon", new InventoryItem(cropPrice, "Watermelon", "/main/resources/WatermelonCrop.png", 0));
-        inventoryMap.put("Potato", new InventoryItem(cropPrice, "Potato", "/main/resources/PotatoCrop.png", 0));
-        inventoryMap.put("Fertilizer", new InventoryItem(seedPrice, "Fertilizer", "/main/resources/Fertilizer.png", 0));
-        inventoryMap.put("Pesticide", new InventoryItem(seedPrice, "Pesticide", "/main/resources/Pesticide.png", 0));
-        inventoryMap.put("Corn P", new InventoryItem(cropPrice - 30, "Corn P", "/main/resources/corn-pesticide.png", 0));
-        inventoryMap.put("Onion P", new InventoryItem(cropPrice - 30, "Onion P", "/main/resources/onion-pesticide.png", 0));
-        inventoryMap.put("Watermelon P", new InventoryItem(cropPrice - 30, "Watermelon P", "/main/resources/watermelon-pesticide.png", 0));
-        inventoryMap.put("Potato P", new InventoryItem(cropPrice - 30, "Potato P", "/main/resources/potato-pesticide.png", 0));
-
+        inventoryMap.put("Corn Seed",
+                new InventoryItem(seedPrice, "Corn Seed",
+                        "/main/resources/cornBag.png", 0));
+        inventoryMap.put("Onion Seed",
+                new InventoryItem(seedPrice, "Onion Seed",
+                        "/main/resources/onionBag.png", 0));
+        inventoryMap.put("Watermelon Seed",
+                new InventoryItem(seedPrice, "Watermelon Seed",
+                        "/main/resources/watermelonBag.png", 0));
+        inventoryMap.put("Potato Seed",
+                new InventoryItem(seedPrice, "Potato Seed",
+                        "/main/resources/potatoBag.png", 0));
+        inventoryMap.put("Corn",
+                new InventoryItem(cropPrice, "Corn",
+                        "/main/resources/corn.png", 0));
+        inventoryMap.put("Onion",
+                new InventoryItem(cropPrice, "Onion",
+                        "/main/resources/OnionCrop.png", 0));
+        inventoryMap.put("Watermelon",
+                new InventoryItem(cropPrice, "Watermelon",
+                        "/main/resources/WatermelonCrop.png", 0));
+        inventoryMap.put("Potato",
+                new InventoryItem(cropPrice, "Potato",
+                        "/main/resources/PotatoCrop.png", 0));
     }
 
     public InventoryItem getDefaultItem() {
@@ -88,7 +89,9 @@ public class Game {
         this.plotClickMode = mode;
     }
 
-    public Map<String, InventoryItem> getInventoryMap() { return this.inventoryMap; }
+    public Map<String, InventoryItem> getInventoryMap() {
+        return this.inventoryMap;
+    }
 
     public CropPlot[] getPlots() {
         return plots;
