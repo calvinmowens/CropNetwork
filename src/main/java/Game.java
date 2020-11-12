@@ -10,7 +10,7 @@ public class Game {
     private String name;
     private String gender;
     private String difficulty; // 1-3
-    private String startingSeed; // convert this to an int??
+    private String currentSeed; // convert this to an int??
     private String startingSeason; // convert this to an int??
 
     public int getInitCounter() {
@@ -219,12 +219,12 @@ public class Game {
         this.difficulty = difficulty;
     }
 
-    public String getStartingSeed() {
-        return startingSeed;
+    public String getCurrentSeed() {
+        return currentSeed;
     }
 
-    public void setStartingSeed(String startingSeed) {
-        this.startingSeed = startingSeed;
+    public void setCurrentSeed(String currentSeed) {
+        this.currentSeed = currentSeed;
     }
 
     public String getStartingSeason() {
@@ -291,7 +291,7 @@ public class Game {
                 + "name='" + name + '\''
                 + ", gender='" + gender + '\''
                 + ", difficulty='" + difficulty + '\''
-                + ", startingSeed='" + startingSeed + '\''
+                + ", startingSeed='" + currentSeed + '\''
                 + ", startingSeason='" + startingSeason + '\''
                 + ", money=" + money
                 + '}';

@@ -24,9 +24,8 @@ public class CropPlot {
      * 0: empty plot
      * 1: seeded
      * 2: immature
-     * 3: immature
-     * 4: mature
-     * 5: dead
+     * 3: mature
+     * 4: dead
      * */
     private int fertilized;
 
@@ -109,34 +108,40 @@ public class CropPlot {
      */
     public void nextDayCheck() {
         // change maturity
-        if ((maturity > 0 && maturity < 4) && (waterLevel > 1)) {
-            if (fertilized > 1 && (maturity == 1 || maturity == 2)) {
+
+
+
+        if ((maturity > 0 && maturity < 3) && (waterLevel > 1)) {
+            if (fertilized > 1 && maturity < 2) {
                 maturity++;
             }
             maturity++;
-        } else if ((maturity > 0 && maturity < 5) && waterLevel <= 1) {
+        } else if ((maturity > 0 && maturity < 4) && waterLevel <= 1) {
             killCrop();
-        } else if (maturity == 5) {
+        } else if (maturity == 4) {
             cropName = "Empty Plot";
             waterLevel = 0;
             maturity = 0;
             fertilized = 0;
             setPestApplied(false);
         }
-        if (maturity > 0 && maturity < 5) {
+
+        if (maturity > 0 && maturity < 4) {
             waterLevel--;
             if (fertilized > 0) {
                 fertilized--;
             }
         }
+
         String imgString = cropImgMatrix[nameToInt()][maturity];
         image = new Image(imgString);
     }
 
     public void waterCrop() {
-        if (maturity != 5) { // if crop is not dead, water
-            waterLevel++;
-            if (waterLevel > 4) { // if water goes beyond full, kill it
+        if (maturity > 0 && maturity < 4) {
+            if (waterLevel < 4) {
+                waterLevel++;
+            } else {
                 killCrop();
             }
         }
@@ -151,7 +156,7 @@ public class CropPlot {
     }
 
     public void killCrop() {
-        maturity = 5;
+        maturity = 4;
         waterLevel = 0;
     }
 

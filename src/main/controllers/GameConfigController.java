@@ -129,7 +129,7 @@ public class GameConfigController implements Initializable {
             newGame.setName(name.getText());
             newGame.setGender(((RadioButton) gender.getSelectedToggle()).getText());
             newGame.setDifficulty(difficulty.getValue());
-            newGame.setStartingSeed(startingSeed.getValue());
+            newGame.setCurrentSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
             newGame.setMoney(newGame.getDifficulty());

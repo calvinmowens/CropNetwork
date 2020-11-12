@@ -231,15 +231,11 @@ public class MainUiController implements Initializable {
             backgroundSeason.setImage(
                     new Image(getClass().getResourceAsStream(setSeasonHelper())));
 
-            currentSeed = myGame.getStartingSeed();
+            currentSeed = myGame.getCurrentSeed();
             seedImage.setImage(
                     new Image(getClass()
                             .getResourceAsStream(setSeedHelper())));
-            currentSeed = setSeedHelper()
-                    .substring(0, setSeedHelper().indexOf('.'));
-            currentSeed = currentSeed.substring(16);
-            String firstLetter = currentSeed.substring(0, 1).toUpperCase();
-            currentSeed = firstLetter + currentSeed.substring(1);
+            System.out.println(currentSeed);
 
             money.setText("$" + Integer.toString(myGame.getMoney()));
 
@@ -336,7 +332,7 @@ public class MainUiController implements Initializable {
             case ("Onion"):
                 return seedImages[3];
             default:
-                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
+                throw new IllegalStateException("Unexpected value: " + myGame.getCurrentSeed());
         }
     }
 
@@ -394,8 +390,8 @@ public class MainUiController implements Initializable {
      * @param actionEvent   location of mouseclick, unused in method
      */
     public void changeSeed(ActionEvent actionEvent) {
-        currentSeed = ((Node) actionEvent.getSource()).getId();
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setSeedHelper())));
+        myGame.setCurrentSeed(((Node) actionEvent.getSource()).getId());
+        initData(myGame);
     }
 
     /**
@@ -457,21 +453,31 @@ public class MainUiController implements Initializable {
      * @param actionEvent Mouse Click event
      */
     public void plotClickedHandler(ActionEvent actionEvent) {
-        System.out.println("Plot clicked: " + myGame.getPlotClickMode());
         String id = ((Node) actionEvent.getSource()).getId();
         String mode = myGame.getPlotClickMode();
         // Based on the current plotClickMode in Game.java the plots will behave in a certain way.
         if (mode != null) {
-            if (mode.equals("Harvest")) {
-                harvestCrop(id);
-            } else if (mode.equals("Water")) {
-                waterCrop(id);
-            } else if (mode.equals("Seed")) {
-                plantCrop(id);
-            } else if (mode.equals("Fert")) {
-                fertCrop(id);
-            } else if (mode.equals("Pest")) {
-                pestCrop(id);
+            switch (mode) {
+                case "Harvest":
+                    harvestCrop(id);
+                    System.out.println("Crop harvested, " + id);
+                    break;
+                case "Water":
+                    waterCrop(id);
+                    System.out.println("Plot watered, " + id);
+                    break;
+                case "Seed":
+                    plantCrop(id);
+                    System.out.println("Seed planted, " + id);
+                    break;
+                case "Fert":
+                    fertCrop(id);
+                    System.out.println("Crop fertilized, " + id);
+                    break;
+                case "Pest":
+                    pestCrop(id);
+                    System.out.println("Pesticide sprayed, " + id);
+                    break;
             }
         }
     }
@@ -498,6 +504,7 @@ public class MainUiController implements Initializable {
     private void fertCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
+
         CropPlot myCrop = myPlots[plotId];
         int count = myGame.getInventoryMap().get("Fertilizer").getCount();
         myGame.getInventoryMap().get("Fertilizer").setCount(myCrop.fertilizeCrop(count));
@@ -543,14 +550,18 @@ public class MainUiController implements Initializable {
     public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
+
         InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
+        System.out.println("Start of if statements.");
+        System.out.println(myCrop.getMaturity());
         // if plot is not empty and fully mature, we can harvest
-        if (myPlots[plotId] != null) {
-            if (myPlots[plotId].getMaturity() == 4) {
+        if (myCrop != null) {
+            if (myCrop.getMaturity() == 3) {
+                System.out.println("Crop is mature.");
                 String cropName;
-                if (!myPlots[plotId].isPestApplied()) {
+                if (!myCrop.isPestApplied()) {
                     cropName = myCrop.getCropName();
                 } else {
                     cropName = myCrop.getCropName() + " P"; // ???
@@ -603,7 +614,7 @@ public class MainUiController implements Initializable {
         Random rand = new Random();
         // set condition to rand.nextInt() % 10 > 0 during demo
         boolean testing = false;
-        if (rand.nextInt() % 10 > 4 && testing) { // change back to || during demo
+        if (rand.nextInt() % 10 > 4 || testing) { // change back to || during demo
             System.out.println("random event initiated!");
             warning = true;
             startRandomEvent();
@@ -617,7 +628,7 @@ public class MainUiController implements Initializable {
         CropPlot[] gamePlot = myGame.getPlots();
         System.out.println(eventNum);
         // hardcode eventnum to demo each event
-        eventNum = 2;
+//        eventNum = 2;
         switch (eventNum) {
         case 0: // rain
             System.out.println("rain");
