@@ -38,12 +38,15 @@ public class GameConfigController implements Initializable {
     private ChoiceBox<String> startingSeason;
 
     private Game newGame;
+
     public Game getGame() {
         return this.newGame;
     }
+
     public void setName(String name) {
         this.name = new TextField(name);
     }
+
     public TextField getName() {
         return this.name;
     }

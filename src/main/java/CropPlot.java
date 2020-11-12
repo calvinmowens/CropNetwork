@@ -204,12 +204,12 @@ public class CropPlot {
         String url = waterImgArray[waterLevel];
         return new Image(url);
     }
+
     public void killPlant() {
         this.setImage(new Image(cropImgMatrix[0][0]));
         this.setMaturity(0);
         this.setWaterLevel(0);
     }
-
 
     public Image getFertilizeImg() {
         String url = fertImgArray[fertilized];
@@ -233,6 +233,7 @@ public class CropPlot {
     public void setPestApplied(boolean pestApplied) {
         this.pestApplied = pestApplied;
     }
+
     public int getFertilized() {
         return fertilized;
     }

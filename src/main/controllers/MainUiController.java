@@ -35,7 +35,7 @@ public class MainUiController implements Initializable {
     private ImageView[] fertLevelsArray;
     private ImageView[] pesticideArray;
     private Map<String, InventoryItem> inventory;
-    private String selectedSeed = "Corn";
+    private String currentSeed = "Corn";
 
     // backgrounds
     @FXML private AnchorPane background;
@@ -156,7 +156,6 @@ public class MainUiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initilize runs");
         seedModal.visibleProperty().bind(seedModalToggle);
         background.visibleProperty().bind(backgroundToggle);
         inventoryModal.visibleProperty().bind(inventoryModalToggle);
@@ -218,7 +217,6 @@ public class MainUiController implements Initializable {
      * @param newGame   the Game object used to update UI with data
      */
     public void initData(Game newGame) {
-        System.out.println("init data runs");
         // establish new game and inventory
         myGame = newGame;
         if (plotPane != null) { // helper for testing purpose. keep it in future milestones
@@ -231,19 +229,18 @@ public class MainUiController implements Initializable {
                         getResourceAsStream("/main/resources/female.png")));
             }
             backgroundSeason.setImage(
-                    new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
+                    new Image(getClass().getResourceAsStream(setSeasonHelper())));
 
-            if (myGame.getInitCounter() == 0) {
-                seedImage.setImage(
-                        new Image(getClass()
-                                .getResourceAsStream(setStartingSeedHelper())));
-                selectedSeed = setStartingSeedHelper()
-                        .substring(0, setStartingSeedHelper().indexOf('.'));
-                selectedSeed = selectedSeed.substring(16);
-                String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
-                selectedSeed = firstLetter + selectedSeed.substring(1);
-                myGame.setInitCounter(myGame.getInitCounter() + 1);
-            }
+            currentSeed = myGame.getStartingSeed();
+            seedImage.setImage(
+                    new Image(getClass()
+                            .getResourceAsStream(setSeedHelper())));
+            currentSeed = setSeedHelper()
+                    .substring(0, setSeedHelper().indexOf('.'));
+            currentSeed = currentSeed.substring(16);
+            String firstLetter = currentSeed.substring(0, 1).toUpperCase();
+            currentSeed = firstLetter + currentSeed.substring(1);
+
             money.setText("$" + Integer.toString(myGame.getMoney()));
 
             // establish crop plots
@@ -306,20 +303,20 @@ public class MainUiController implements Initializable {
      *
      * @return  a String with the image URL for starting season
      */
-    private String setStartingSeasonHelper() {
+    private String setSeasonHelper() {
         String[] seasonImages = {"/main/resources/spring.png",
             "/main/resources/summer.png", "/main/resources/fall.png", "/main/resources/winter.png"};
         switch (myGame.getStartingSeason()) {
-        case ("Spring"):
-            return seasonImages[0];
-        case ("Summer"):
-            return seasonImages[1];
-        case ("Fall"):
-            return seasonImages[2];
-        case ("Winter"):
-            return seasonImages[3];
-        default:
-            throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeason());
+            case ("Spring"):
+                return seasonImages[0];
+            case ("Summer"):
+                return seasonImages[1];
+            case ("Fall"):
+                return seasonImages[2];
+            case ("Winter"):
+                return seasonImages[3];
+            default:
+                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeason());
         }
     }
 
@@ -328,9 +325,8 @@ public class MainUiController implements Initializable {
      *
      * @return  a String with the image URL for starting seed
      */
-    private String setStartingSeedHelper() {
-        if (myGame.getInitCounter() == 0) {
-            switch (myGame.getStartingSeed()) {
+    private String setSeedHelper() {
+        switch (currentSeed) {
             case ("Potato"):
                 return seedImages[0];
             case ("Watermelon"):
@@ -341,20 +337,6 @@ public class MainUiController implements Initializable {
                 return seedImages[3];
             default:
                 throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
-            }
-        } else {
-            switch (selectedSeed) {
-            case ("Potato"):
-                return seedImages[0];
-            case ("Watermelon"):
-                return seedImages[1];
-            case ("Corn"):
-                return seedImages[2];
-            case ("Onion"):
-                return seedImages[3];
-            default:
-                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeed());
-            }
         }
     }
 
@@ -412,10 +394,8 @@ public class MainUiController implements Initializable {
      * @param actionEvent   location of mouseclick, unused in method
      */
     public void changeSeed(ActionEvent actionEvent) {
-        String buttonClicked = ((Node) actionEvent.getSource()).getId();
-        buttonClicked = buttonClicked.substring(0, buttonClicked.indexOf('B'));
-        selectedSeed = buttonClicked;
-        seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
+        currentSeed = ((Node) actionEvent.getSource()).getId();
+        seedImage.setImage(new Image(getClass().getResourceAsStream(setSeedHelper())));
     }
 
     /**
@@ -534,15 +514,15 @@ public class MainUiController implements Initializable {
         int plotId = Integer.parseInt(id.substring(4)) - 1;
 
         Map<String, InventoryItem> map = myGame.getInventoryMap();
-        System.out.println(selectedSeed);
+        System.out.println(currentSeed);
 
         if (myPlots[plotId] != null) {
             if (myPlots[plotId].getMaturity() == 0) {
-                System.out.println(selectedSeed);
-                InventoryItem item = map.get(selectedSeed + " Seed");
+                System.out.println(currentSeed);
+                InventoryItem item = map.get(currentSeed + " Seed");
                 if (item.getCount() > 0) {
                     item.setCount(item.getCount() - 5);
-                    myPlots[plotId].setCropName(selectedSeed);
+                    myPlots[plotId].setCropName(currentSeed);
                     myPlots[plotId].setMaturity(1);
                     myPlots[plotId].setWaterLevel(3);
                     myPlots[plotId].setFertilized(1);
@@ -551,7 +531,7 @@ public class MainUiController implements Initializable {
             }
         }
         System.out.println(myPlots[plotId].getMaturity() + ", " + myPlots[plotId].getCropName());
-        System.out.println(map.get(selectedSeed).getCount());
+        System.out.println(map.get(currentSeed).getCount());
         initData(myGame);
     }
 
