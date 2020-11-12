@@ -143,6 +143,7 @@ public class MarketUiController implements Initializable {
     public void buyItem(ActionEvent actionEvent) {
         int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
         String selectedItem = selectedItemName.getText();
+        System.out.println(selectedItemName.getText());
         int price = myGame.getInventoryMap().get(selectedItem).getBasePrice();
         myGame.buyFromMarket(selectedItem, buyAmount, price);
         this.initData(myGame);

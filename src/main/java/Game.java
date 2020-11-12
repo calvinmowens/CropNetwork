@@ -49,30 +49,104 @@ public class Game {
 
 
     public void initializeInventory() {
-        inventoryMap.put("Corn Seed",
-                new InventoryItem(seedPrice, "Corn Seed",
-                        "/main/resources/cornBag.png", 0));
-        inventoryMap.put("Onion Seed",
-                new InventoryItem(seedPrice, "Onion Seed",
-                        "/main/resources/onionBag.png", 0));
-        inventoryMap.put("Watermelon Seed",
-                new InventoryItem(seedPrice, "Watermelon Seed",
-                        "/main/resources/watermelonBag.png", 0));
-        inventoryMap.put("Potato Seed",
-                new InventoryItem(seedPrice, "Potato Seed",
-                        "/main/resources/potatoBag.png", 0));
-        inventoryMap.put("Corn",
-                new InventoryItem(cropPrice, "Corn",
-                        "/main/resources/corn.png", 0));
-        inventoryMap.put("Onion",
-                new InventoryItem(cropPrice, "Onion",
-                        "/main/resources/OnionCrop.png", 0));
-        inventoryMap.put("Watermelon",
-                new InventoryItem(cropPrice, "Watermelon",
-                        "/main/resources/WatermelonCrop.png", 0));
-        inventoryMap.put("Potato",
-                new InventoryItem(cropPrice, "Potato",
-                        "/main/resources/PotatoCrop.png", 0));
+        inventoryMap.put(
+                "Corn Seed",
+                new InventoryItem(
+                        seedPrice,
+                        "Corn Seed",
+                        "/main/resources/cornBag.png",
+                        0));
+        inventoryMap.put(
+                "Onion Seed",
+                new InventoryItem(
+                        seedPrice,
+                        "Onion Seed",
+                        "/main/resources/onionBag.png",
+                        0));
+        inventoryMap.put(
+                "Watermelon Seed",
+                new InventoryItem(
+                        seedPrice,
+                        "Watermelon Seed",
+                        "/main/resources/watermelonBag.png",
+                        0));
+        inventoryMap.put(
+                "Potato Seed",
+                new InventoryItem(
+                        seedPrice,
+                        "Potato Seed",
+                        "/main/resources/potatoBag.png",
+                        0));
+        inventoryMap.put(
+                "Corn",
+                new InventoryItem(
+                        cropPrice,
+                        "Corn",
+                        "/main/resources/corn.png",
+                        0));
+        inventoryMap.put(
+                "Onion",
+                new InventoryItem(
+                        cropPrice,
+                        "Onion",
+                        "/main/resources/OnionCrop.png",
+                        0));
+        inventoryMap.put(
+                "Watermelon",
+                new InventoryItem(
+                        cropPrice,
+                        "Watermelon",
+                        "/main/resources/WatermelonCrop.png",
+                        0));
+        inventoryMap.put(
+                "Potato",
+                new InventoryItem(
+                        cropPrice,
+                        "Potato",
+                        "/main/resources/PotatoCrop.png",
+                        0));
+        inventoryMap.put(
+                "Fertilizer",
+                new InventoryItem(
+                        seedPrice,
+                        "Fertilizer",
+                        "/main/resources/Fertilizer.png",
+                        0));
+        inventoryMap.put(
+                "Pesticide",
+                new InventoryItem(
+                        seedPrice,
+                        "Pesticide",
+                        "/main/resources/Pesticide.png",
+                        0));
+        inventoryMap.put(
+                "Corn P",
+                new InventoryItem(
+                        cropPrice - 30,
+                        "Corn P",
+                        "/main/resources/corn-pesticide.png",
+                        0));
+        inventoryMap.put(
+                "Onion P",
+                new InventoryItem(
+                        cropPrice - 30,
+                        "Onion P",
+                        "/main/resources/onion-pesticide.png",
+                        0));
+        inventoryMap.put(
+                "Watermelon P",
+                new InventoryItem(
+                        cropPrice - 30,
+                        "Watermelon P",
+                        "/main/resources/watermelon-pesticide.png",
+                        0));
+        inventoryMap.put(
+                "Potato P",
+                new InventoryItem(
+                        cropPrice - 30,
+                        "Potato P",
+                        "/main/resources/potato-pesticide.png",
+                        0));
     }
 
     public InventoryItem getDefaultItem() {
@@ -195,69 +269,18 @@ public class Game {
         if (inventoryMap.get(itemName) != null) {
             inventoryMap.get(itemName).setCount(inventoryMap.get(itemName).getCount() - amount);
             setMoney(getMoney() + amount * price);
-            }
-//        switch (itemName) {
-//        case "Corn":
-//            inventory.setCornCount(inventory.getCornCount() - amount);
-//            setMoney(getMoney() + amount * price);
-//            break;
-//        case "Watermelon":
-//            inventory.setWatermelonCount(inventory.getWatermelonCount() - amount);
-//            setMoney(getMoney() + amount * price);
-//            break;
-//        case "Onion":
-//            inventory.setOnionCount(inventory.getOnionCount() - amount);
-//            setMoney(getMoney() + amount * price);
-//            break;
-//        case "Potato":
-//            inventory.setPotatoCount(inventory.getPotatoCount() - amount);
-//            setMoney(getMoney() + amount * price);
-//            break;
-//        default:
-//            System.out.println("Item not selected");
-//        }
+        }
+
     }
 
     public void buyFromMarket(String itemName, int amount, int price) {
         if (inventoryMap.get(itemName) != null) {
-            if(inventoryMap.get(itemName).getCount() + amount <= 100
+            if (inventoryMap.get(itemName).getCount() + amount <= 100
                     && (getMoney() - amount * price) > 0) {
                 inventoryMap.get(itemName).setCount(inventoryMap.get(itemName).getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
         }
-//        switch (itemName) {
-//        case "Corn":
-//            if (inventoryMap.get("Corn Seed").getCount() + amount <= 100
-//                    && (getMoney() - amount * price) > 0) {
-//                inventoryMap.get("Corn Seed").setCount(inventoryMap.get("Corn Seed").getCount() + amount);
-//                setMoney(getMoney() - amount * price);
-//            }
-//            break;
-//        case "Watermelon":
-//            if (inventoryMap.get("Watermelon Seed").getCount() + amount <= 100
-//                    && (getMoney() - amount * price) > 0) {
-//                inventoryMap.get("Watermelon Seed").setCount(inventoryMap.get("Watermelon Seed").getCount() + amount);
-//                setMoney(getMoney() - amount * price);
-//            }
-//            break;
-//        case "Onion":
-//            if (inventoryMap.get("Onion Seed").getCount() + amount <= 100
-//                    && (getMoney() - amount * price) > 0) {
-//                inventoryMap.get("Onion Seed").setCount(inventoryMap.get("Onion Seed").getCount() + amount);
-//                setMoney(getMoney() - amount * price);
-//            }
-//            break;
-//        case "Potato":
-//            if (inventoryMap.get("Potato Seed").getCount() + amount <= 100
-//                    && (getMoney() - amount * price) > 0) {
-//                inventoryMap.get("Potato Seed").setCount(inventoryMap.get("Potato Seed").getCount() + amount);
-//                setMoney(getMoney() - amount * price);
-//            }
-//            break;
-//        default:
-//            System.out.println("Item not selected");
-//        }
     }
 
 

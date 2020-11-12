@@ -107,8 +107,7 @@ Graphic Credits
                 <Button id="plot12" layoutX="875.0" layoutY="330.0" mnemonicParsing="false" onAction="#plotClickedHandler" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
                 <!-- END OF PLOT (IMAGE VIEWS & BUTTONS)-->
 
-            </children>
-        </AnchorPane>
+
 
         <!-- START OF WATER LEVELS-->
         <ImageView fx:id="plot1WaterLevel" fitHeight="86.0" fitWidth="31.0" layoutX="203.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
@@ -298,6 +297,8 @@ Graphic Credits
             </image>
         </ImageView>
         <!-- END OF FERTILIZER LEVELS -->
+            </children>
+        </AnchorPane>
 
         <!-- RAIN ANIMATION -->
         <ImageView fx:id="rainAnimation" fitHeight="741.0" fitWidth="1377.0" layoutX="-51.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
@@ -354,7 +355,7 @@ Graphic Credits
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="767.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolFertClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+        <Button id="fertilizer" layoutX="767.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolFertClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
                 <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -363,7 +364,7 @@ Graphic Credits
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="875.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolPestClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
+        <Button id="pesticide" layoutX="875.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolPestClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
                 <ImageView fitHeight="62.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>

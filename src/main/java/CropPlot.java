@@ -72,11 +72,11 @@ public class CropPlot {
     };
 
     private final String[] fertImgArray = {
-            "/main/resources/fertilizer_empty.png",
-            "/main/resources/fertilizer_level1.png",
-            "/main/resources/fertilizer_level2.png",
-            "/main/resources/fertilizer_level3.png",
-            "/main/resources/fertilizer_full.png"
+        "/main/resources/fertilizer_empty.png",
+        "/main/resources/fertilizer_level1.png",
+        "/main/resources/fertilizer_level2.png",
+        "/main/resources/fertilizer_level3.png",
+        "/main/resources/fertilizer_full.png"
     };
 
 
@@ -105,16 +105,16 @@ public class CropPlot {
     /**
      * Logic around advancing the day based on maturity and water levels.
      *
-     * TODO: Add functionality with fertilizers.
+     *
      */
     public void nextDayCheck() {
         // change maturity
-        if((maturity > 0 && maturity < 4) && (waterLevel > 1)) {
-            if(fertilized > 1 && (maturity == 1 || maturity == 2)) {
+        if ((maturity > 0 && maturity < 4) && (waterLevel > 1)) {
+            if (fertilized > 1 && (maturity == 1 || maturity == 2)) {
                 maturity++;
             }
             maturity++;
-        } else if((maturity > 0 && maturity < 5) && waterLevel <= 1) {
+        } else if ((maturity > 0 && maturity < 5) && waterLevel <= 1) {
             killCrop();
         } else if (maturity == 5) {
             cropName = "Empty Plot";
@@ -125,8 +125,9 @@ public class CropPlot {
         }
         if (maturity > 0 && maturity < 5) {
             waterLevel--;
-            if(fertilized > 0)
+            if (fertilized > 0) {
                 fertilized--;
+            }
         }
         String imgString = cropImgMatrix[nameToInt()][maturity];
         image = new Image(imgString);
@@ -142,7 +143,7 @@ public class CropPlot {
     }
 
     public int fertilizeCrop(int count) {
-        if(fertilized < 4 && count > 0) {
+        if (fertilized < 4 && count > 0) {
             fertilized++;
             count--;
         }

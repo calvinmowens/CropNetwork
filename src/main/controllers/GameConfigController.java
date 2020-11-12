@@ -146,29 +146,6 @@ public class GameConfigController implements Initializable {
                 }
             }
 
-            Map<String, InventoryItem> myMap = newGame.getInventoryMap();
-            //myMap.put("default", new InventoryItem(0, "default", "/main/resources/blank.png", 0)); // used for getOrDefault()
-            switch(startingSeed.getValue()) {
-                case "Corn":
-                    myMap.put("Corn Seed",
-                            new InventoryItem(newGame.getSeedPrice(), "Corn Seed",
-                                    "/main/resources/cornBag.png", 10));
-                    break;
-                case "Onion":
-                    myMap.put("Onion Seed",
-                            new InventoryItem(newGame.getSeedPrice(), "Onion Seed",
-                                    "/main/resources/onionBag.png", 10));
-                    break;
-                case "Potato":
-                    myMap.put("Potato Seed",
-                            new InventoryItem(newGame.getSeedPrice(), "Potato Seed",
-                                    "/main/resources/potatoBag.png", 10));
-                    break;
-                case "Watermelon":
-                    myMap.put("Watermelon Seed",
-                            new InventoryItem(newGame.getSeedPrice(), "Watermelon Seed",
-                                    "/main/resources/watermelonBag.png", 10));
-                    break;
 
             Map<String, InventoryItem> myMap = newGame.getInventoryMap();
             //myMap.put("default", new InventoryItem(0, "default",
@@ -215,3 +192,4 @@ public class GameConfigController implements Initializable {
         }
     }
 }
+

@@ -35,91 +35,91 @@ public class MainUiController implements Initializable {
     private ImageView[] fertLevelsArray;
     private ImageView[] pesticideArray;
     private Map<String, InventoryItem> inventory;
-    private String selectedSeed;
+    private String selectedSeed = "Corn";
 
     // backgrounds
     @FXML private AnchorPane background;
-    @FXML private ImageView backgroundSeason;
+    @FXML private ImageView backgroundSeason = new ImageView();
 
     // top left menu
-    @FXML private ImageView avatar;
-    @FXML private Label farmName;
-    @FXML private Label money;
+    @FXML private ImageView avatar = new ImageView();
+    @FXML private Label farmName = new Label("Cattle Farm");
+    @FXML private Label money = new Label("10000");
     @FXML private Label daysLabel;
 
     @FXML private AnchorPane plotPane;
-    @FXML private ImageView seedImage;
+    @FXML private ImageView seedImage = new ImageView();
 
     // water levels
-    @FXML private ImageView plot1WaterLevel;
-    @FXML private ImageView plot2WaterLevel;
-    @FXML private ImageView plot3WaterLevel;
-    @FXML private ImageView plot4WaterLevel;
-    @FXML private ImageView plot5WaterLevel;
-    @FXML private ImageView plot6WaterLevel;
-    @FXML private ImageView plot7WaterLevel;
-    @FXML private ImageView plot8WaterLevel;
-    @FXML private ImageView plot9WaterLevel;
-    @FXML private ImageView plot10WaterLevel;
-    @FXML private ImageView plot11WaterLevel;
-    @FXML private ImageView plot12WaterLevel;
+    @FXML private ImageView plot1WaterLevel = new ImageView();
+    @FXML private ImageView plot2WaterLevel = new ImageView();
+    @FXML private ImageView plot3WaterLevel = new ImageView();
+    @FXML private ImageView plot4WaterLevel = new ImageView();
+    @FXML private ImageView plot5WaterLevel = new ImageView();
+    @FXML private ImageView plot6WaterLevel = new ImageView();
+    @FXML private ImageView plot7WaterLevel = new ImageView();
+    @FXML private ImageView plot8WaterLevel = new ImageView();
+    @FXML private ImageView plot9WaterLevel = new ImageView();
+    @FXML private ImageView plot10WaterLevel = new ImageView();
+    @FXML private ImageView plot11WaterLevel = new ImageView();
+    @FXML private ImageView plot12WaterLevel = new ImageView();
 
     // fertilizer levels
-    @FXML private ImageView plot1FertLevel;
-    @FXML private ImageView plot2FertLevel;
-    @FXML private ImageView plot3FertLevel;
-    @FXML private ImageView plot4FertLevel;
-    @FXML private ImageView plot5FertLevel;
-    @FXML private ImageView plot6FertLevel;
-    @FXML private ImageView plot7FertLevel;
-    @FXML private ImageView plot8FertLevel;
-    @FXML private ImageView plot9FertLevel;
-    @FXML private ImageView plot10FertLevel;
-    @FXML private ImageView plot11FertLevel;
-    @FXML private ImageView plot12FertLevel;
+    @FXML private ImageView plot1FertLevel = new ImageView();
+    @FXML private ImageView plot2FertLevel = new ImageView();
+    @FXML private ImageView plot3FertLevel = new ImageView();
+    @FXML private ImageView plot4FertLevel = new ImageView();
+    @FXML private ImageView plot5FertLevel = new ImageView();
+    @FXML private ImageView plot6FertLevel = new ImageView();
+    @FXML private ImageView plot7FertLevel = new ImageView();
+    @FXML private ImageView plot8FertLevel = new ImageView();
+    @FXML private ImageView plot9FertLevel = new ImageView();
+    @FXML private ImageView plot10FertLevel = new ImageView();
+    @FXML private ImageView plot11FertLevel = new ImageView();
+    @FXML private ImageView plot12FertLevel = new ImageView();
 
     // pesticide images
-    @FXML private ImageView plot1Pesticide;
-    @FXML private ImageView plot2Pesticide;
-    @FXML private ImageView plot3Pesticide;
-    @FXML private ImageView plot4Pesticide;
-    @FXML private ImageView plot5Pesticide;
-    @FXML private ImageView plot6Pesticide;
-    @FXML private ImageView plot7Pesticide;
-    @FXML private ImageView plot8Pesticide;
-    @FXML private ImageView plot9Pesticide;
-    @FXML private ImageView plot10Pesticide;
-    @FXML private ImageView plot11Pesticide;
-    @FXML private ImageView plot12Pesticide;
+    @FXML private ImageView plot1Pesticide = new ImageView();
+    @FXML private ImageView plot2Pesticide = new ImageView();
+    @FXML private ImageView plot3Pesticide = new ImageView();
+    @FXML private ImageView plot4Pesticide = new ImageView();
+    @FXML private ImageView plot5Pesticide = new ImageView();
+    @FXML private ImageView plot6Pesticide = new ImageView();
+    @FXML private ImageView plot7Pesticide = new ImageView();
+    @FXML private ImageView plot8Pesticide = new ImageView();
+    @FXML private ImageView plot9Pesticide = new ImageView();
+    @FXML private ImageView plot10Pesticide = new ImageView();
+    @FXML private ImageView plot11Pesticide = new ImageView();
+    @FXML private ImageView plot12Pesticide = new ImageView();
 
     // rain animation + popups + labels
     @FXML private ImageView rainAnimation;
     @FXML private AnchorPane locustPopup;
     @FXML private AnchorPane rainPopup;
     @FXML private AnchorPane droughtPopup;
-    @FXML private Label locustPopupLabel; // these labels will change based on difficulty
+    @FXML private Label locustPopupLabel = new Label("");
     @FXML private Label rainPopupLabel = new Label("");
     @FXML private Label droughtPopupLabel = new Label("");
 
     // inventory modal elements
     @FXML private AnchorPane inventoryModal;
-    @FXML private Label onionCropCounter;
-    @FXML private Label potatoCropCounter;
-    @FXML private Label watermelonCropCounter;
-    @FXML private Label cornCropCounter;
+    @FXML private Label onionCropCounter = new Label("0");
+    @FXML private Label potatoCropCounter = new Label("0");
+    @FXML private Label watermelonCropCounter = new Label("0");
+    @FXML private Label cornCropCounter = new Label("0");
 
     // seed modal elements
     @FXML private AnchorPane seedModal;
-    @FXML private Label watermelonSeedBagCounter;
-    @FXML private Label potatoSeedBagCounter;
-    @FXML private Label cornSeedBagCounter;
-    @FXML private Label onionSeedBagCounter;
+    @FXML private Label watermelonSeedBagCounter = new Label("0");
+    @FXML private Label potatoSeedBagCounter = new Label("0");
+    @FXML private Label cornSeedBagCounter = new Label("0");
+    @FXML private Label onionSeedBagCounter = new Label("0");
 
     //Tools
     @FXML
-    public Label fertCounter;
+    private Label fertCounter = new Label("0");
     @FXML
-    public Label pestCounter;
+    private Label pestCounter = new Label("0");
 
     // visibility toggles
     private BooleanProperty backgroundToggle = new SimpleBooleanProperty(false);
@@ -221,71 +221,81 @@ public class MainUiController implements Initializable {
         System.out.println("init data runs");
         // establish new game and inventory
         myGame = newGame;
-        inventory = myGame.getInventoryMap();
+        if (plotPane != null) { // helper for testing purpose. keep it in future milestones
+            inventory = myGame.getInventoryMap();
 
-        // populate TOP LEFT data
-        farmName.setText(myGame.getName());
-        if (myGame.getGender().equals("FEMALE")) {
-            avatar.setImage(new Image(getClass().
-                    getResourceAsStream("/main/resources/female.png")));
-        }
-        backgroundSeason.setImage(
-                new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
+            // populate TOP LEFT data
+            farmName.setText(myGame.getName());
+            if (myGame.getGender().equals("FEMALE")) {
+                avatar.setImage(new Image(getClass().
+                        getResourceAsStream("/main/resources/female.png")));
+            }
+            backgroundSeason.setImage(
+                    new Image(getClass().getResourceAsStream(setStartingSeasonHelper())));
 
-        if (myGame.getInitCounter() == 0) {
-            seedImage.setImage(new Image(getClass().getResourceAsStream(setStartingSeedHelper())));
-            selectedSeed = setStartingSeedHelper()
-                    .substring(0, setStartingSeedHelper().indexOf('.'));
-            selectedSeed = selectedSeed.substring(16);
-            String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
-            selectedSeed = firstLetter + selectedSeed.substring(1);
-            myGame.setInitCounter(myGame.getInitCounter() + 1);
-        }
-        money.setText("$" + Integer.toString(myGame.getMoney()));
+            if (myGame.getInitCounter() == 0) {
+                seedImage.setImage(
+                        new Image(getClass()
+                                .getResourceAsStream(setStartingSeedHelper())));
+                selectedSeed = setStartingSeedHelper()
+                        .substring(0, setStartingSeedHelper().indexOf('.'));
+                selectedSeed = selectedSeed.substring(16);
+                String firstLetter = selectedSeed.substring(0, 1).toUpperCase();
+                selectedSeed = firstLetter + selectedSeed.substring(1);
+                myGame.setInitCounter(myGame.getInitCounter() + 1);
+            }
+            money.setText("$" + Integer.toString(myGame.getMoney()));
 
-        // establish crop plots
-        CropPlot[] myPlots = myGame.getPlots();
-        for (int i = 0; i < myPlots.length; i++) {
-            if (myPlots[i] != null) {
-                ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
-                waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
-                fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
-                if(myPlots[i].isPestApplied()) {
-                    pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
-                } else {
-                    pesticideArray[i].setImage(null);
+            // establish crop plots
+            CropPlot[] myPlots = myGame.getPlots();
+            for (int i = 0; i < myPlots.length; i++) {
+                if (myPlots[i] != null && plotPane != null) {
+                    ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
+                    waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
+                    fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
+                    if (myPlots[i].isPestApplied()) {
+                        pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
+                    } else {
+                        pesticideArray[i].setImage(null);
+                    }
                 }
             }
+            InventoryItem defaultItem = myGame.getDefaultItem();
+
+            // Set seed counters to current inventory count.
+            cornSeedBagCounter.setText(
+                    Integer.toString(
+                            inventory.get("Corn Seed").getCount()));
+            watermelonSeedBagCounter.setText(
+                    Integer.toString(
+                            inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
+            onionSeedBagCounter.setText(
+                    Integer.toString(
+                            inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
+            potatoSeedBagCounter.setText(
+                    Integer.toString(
+                            inventory.getOrDefault("Potato Seed", defaultItem).getCount()));
+
+            // Set crop counters to current inventory count.
+            cornCropCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Corn", defaultItem).getCount()));
+            watermelonCropCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Watermelon", defaultItem).getCount()));
+            onionCropCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Onion", defaultItem).getCount()));
+            potatoCropCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Potato", defaultItem).getCount()));
+            pestCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Pesticide", defaultItem).getCount()));
+            fertCounter
+                    .setText(Integer.toString(inventory
+                            .getOrDefault("Fertilizer", defaultItem).getCount()));
         }
-        InventoryItem defaultItem = myGame.getDefaultItem();
-
-        // Set seed counters to current inventory count.
-        cornSeedBagCounter.setText(
-                Integer.toString(
-                        inventory.get("Corn Seed").getCount()));
-        watermelonSeedBagCounter.setText(
-                Integer.toString(
-                        inventory.getOrDefault("Watermelon Seed", defaultItem).getCount()));
-        onionSeedBagCounter.setText(
-                Integer.toString(
-                        inventory.getOrDefault("Onion Seed", defaultItem).getCount()));
-        potatoSeedBagCounter.setText(
-                Integer.toString(
-                        inventory.getOrDefault("Potato Seed", defaultItem).getCount()));
-
-        // Set crop counters to current inventory count.
-        cornCropCounter
-                .setText(Integer.toString(inventory
-                        .getOrDefault("Corn", defaultItem).getCount()));
-        watermelonCropCounter
-                .setText(Integer.toString(inventory
-                        .getOrDefault("Watermelon", defaultItem).getCount()));
-        onionCropCounter
-                .setText(Integer.toString(inventory
-                        .getOrDefault("Onion", defaultItem).getCount()));
-        potatoCropCounter
-                .setText(Integer.toString(inventory
-                        .getOrDefault("Potato", defaultItem).getCount()));
     }
 
     ////////////////////////////////////////////////////
@@ -492,10 +502,10 @@ public class MainUiController implements Initializable {
 
         Map<String, InventoryItem> map = myGame.getInventoryMap();
 
-        if(myPlots[plotId] != null) {
-            if(!myPlots[plotId].isPestApplied()) {
+        if (myPlots[plotId] != null) {
+            if (!myPlots[plotId].isPestApplied()) {
                 InventoryItem item = map.get("Pesticide");
-                if(item.getCount() > 0) {
+                if (item.getCount() > 0) {
                     item.setCount(item.getCount() - 1);
                     myPlots[plotId].applyPesticide();
                 }
@@ -553,7 +563,6 @@ public class MainUiController implements Initializable {
     public void harvestCrop(String id) {
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
-        //TODO: Make it so that yield of fertilized crops is different
         InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
@@ -561,14 +570,14 @@ public class MainUiController implements Initializable {
         if (myPlots[plotId] != null) {
             if (myPlots[plotId].getMaturity() == 4) {
                 String cropName;
-                if(!myPlots[plotId].isPestApplied()) {
+                if (!myPlots[plotId].isPestApplied()) {
                     cropName = myCrop.getCropName();
                 } else {
-                    cropName = myCrop.getCropName() + " P";
+                    cropName = myCrop.getCropName() + " P"; // ???
                 }
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
-                if(myCrop.getFertilized() == 0) {
+                if (myCrop.getFertilized() == 0) {
                     item.setCount(item.getCount() + 5);
                 } else if (myCrop.getFertilized() == 1) {
                     int randomNum = ThreadLocalRandom.current().nextInt(1, 2 + 1);
@@ -613,8 +622,8 @@ public class MainUiController implements Initializable {
         // update UI
         Random rand = new Random();
         // set condition to rand.nextInt() % 10 > 0 during demo
-        boolean testing = true;
-        if (rand.nextInt() % 10 > 4 || testing) {
+        boolean testing = false;
+        if (rand.nextInt() % 10 > 4 && testing) { // change back to || during demo
             System.out.println("random event initiated!");
             warning = true;
             startRandomEvent();
@@ -622,35 +631,13 @@ public class MainUiController implements Initializable {
         this.initData(myGame);
     }
 
-    public void toolFertClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Fert"))) {
-            myGame.setPlotClickMode("Fert");
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.MOVE);
-        } else {
-            myGame.setPlotClickMode(null);
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.DEFAULT);
-        }
-    }
-
-    public void toolPestClick(ActionEvent actionEvent) {
-        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Pest"))) {
-            myGame.setPlotClickMode("Pest");
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.OPEN_HAND);
-        } else {
-            myGame.setPlotClickMode(null);
-            Scene myScene = ((Node) actionEvent.getSource()).getScene();
-            myScene.setCursor(Cursor.DEFAULT);
-        }
     public void startRandomEvent() {
         Random rand = new Random();
         int eventNum = rand.nextInt(3);
         CropPlot[] gamePlot = myGame.getPlots();
         System.out.println(eventNum);
         // hardcode eventnum to demo each event
-        eventNum = 1;
+        eventNum = 2;
         switch (eventNum) {
         case 0: // rain
             System.out.println("rain");
@@ -682,6 +669,7 @@ public class MainUiController implements Initializable {
             }
         }
     }
+
     public void decreaseWaterlevelRandomly(CropPlot[] plot) {
         Random rand = new Random();
         droughtPopupToggle.set(true);
@@ -693,6 +681,7 @@ public class MainUiController implements Initializable {
             }
         }
     }
+
     public void killPlantsRandomly(CropPlot[] plot) {
         Random rand = new Random();
         locustPopupToggle.set(true);
@@ -700,13 +689,41 @@ public class MainUiController implements Initializable {
         for (int i = 0; i < plot.length; i++) {
             boolean kill = rand.nextBoolean();
             if (kill && plot[i].getMaturity() > 0
-                    && plot[i].getWaterLevel() > 0 && plot[i].getWaterLevel() < 4)  {
+                    && plot[i].getWaterLevel() > 0
+                    && plot[i].getWaterLevel() < 4
+                    && !plot[i].isPestApplied())  {
                 plot[i].setMaturity(0);
                 plot[i].setWaterLevel(0);
                 count += 1;
             }
         }
         locustPopupLabel.setText(Integer.toString(count));
+    }
+
+
+    public void toolFertClick(ActionEvent actionEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Fert"))) {
+            myGame.setPlotClickMode("Fert");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.MOVE);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
+    }
+
+    public void toolPestClick(ActionEvent actionEvent) {
+        if (myGame.getPlotClickMode() == null || !(myGame.getPlotClickMode().equals("Pest"))) {
+            myGame.setPlotClickMode("Pest");
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.OPEN_HAND);
+        } else {
+            myGame.setPlotClickMode(null);
+            Scene myScene = ((Node) actionEvent.getSource()).getScene();
+            myScene.setCursor(Cursor.DEFAULT);
+        }
+
     }
 
     public void closeWarning(MouseEvent mouseEvent) {
