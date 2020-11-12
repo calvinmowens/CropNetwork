@@ -182,9 +182,7 @@ public class GameConfigController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
             Parent startGame = loader.load();
-
             Scene startGameScene = new Scene(startGame);
-
             MainUiController controller = loader.getController();
             controller.initData(newGame);
             // Stage and show the new scene

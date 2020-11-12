@@ -303,16 +303,16 @@ public class MainUiController implements Initializable {
         String[] seasonImages = {"/main/resources/spring.png",
             "/main/resources/summer.png", "/main/resources/fall.png", "/main/resources/winter.png"};
         switch (myGame.getStartingSeason()) {
-            case ("Spring"):
-                return seasonImages[0];
-            case ("Summer"):
-                return seasonImages[1];
-            case ("Fall"):
-                return seasonImages[2];
-            case ("Winter"):
-                return seasonImages[3];
-            default:
-                throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeason());
+        case ("Spring"):
+            return seasonImages[0];
+        case ("Summer"):
+            return seasonImages[1];
+        case ("Fall"):
+            return seasonImages[2];
+        case ("Winter"):
+            return seasonImages[3];
+        default:
+            throw new IllegalStateException("Unexpected value: " + myGame.getStartingSeason());
         }
     }
 
@@ -323,16 +323,16 @@ public class MainUiController implements Initializable {
      */
     private String setSeedHelper() {
         switch (currentSeed) {
-            case ("Potato"):
-                return seedImages[0];
-            case ("Watermelon"):
-                return seedImages[1];
-            case ("Corn"):
-                return seedImages[2];
-            case ("Onion"):
-                return seedImages[3];
-            default:
-                throw new IllegalStateException("Unexpected value: " + myGame.getCurrentSeed());
+        case ("Potato"):
+            return seedImages[0];
+        case ("Watermelon"):
+            return seedImages[1];
+        case ("Corn"):
+            return seedImages[2];
+        case ("Onion"):
+            return seedImages[3];
+        default:
+            throw new IllegalStateException("Unexpected value: " + myGame.getCurrentSeed());
         }
     }
 
@@ -458,26 +458,28 @@ public class MainUiController implements Initializable {
         // Based on the current plotClickMode in Game.java the plots will behave in a certain way.
         if (mode != null) {
             switch (mode) {
-                case "Harvest":
-                    harvestCrop(id);
-                    System.out.println("Crop harvested, " + id);
-                    break;
-                case "Water":
-                    waterCrop(id);
-                    System.out.println("Plot watered, " + id);
-                    break;
-                case "Seed":
-                    plantCrop(id);
-                    System.out.println("Seed planted, " + id);
-                    break;
-                case "Fert":
-                    fertCrop(id);
-                    System.out.println("Crop fertilized, " + id);
-                    break;
-                case "Pest":
-                    pestCrop(id);
-                    System.out.println("Pesticide sprayed, " + id);
-                    break;
+            case "Harvest":
+                harvestCrop(id);
+                System.out.println("Crop harvested, " + id);
+                break;
+            case "Water":
+                waterCrop(id);
+                System.out.println("Plot watered, " + id);
+                break;
+            case "Seed":
+                plantCrop(id);
+                System.out.println("Seed planted, " + id);
+                break;
+            case "Fert":
+                fertCrop(id);
+                System.out.println("Crop fertilized, " + id);
+                break;
+            case "Pest":
+                pestCrop(id);
+                System.out.println("Pesticide sprayed, " + id);
+                break;
+            default:
+                break;
             }
         }
     }
@@ -613,7 +615,7 @@ public class MainUiController implements Initializable {
         // update UI
         Random rand = new Random();
         // set condition to rand.nextInt() % 10 > 0 during demo
-        boolean testing = false;
+        boolean testing = true;
         if (rand.nextInt() % 10 > 4 || testing) { // change back to || during demo
             System.out.println("random event initiated!");
             warning = true;
@@ -628,7 +630,7 @@ public class MainUiController implements Initializable {
         CropPlot[] gamePlot = myGame.getPlots();
         System.out.println(eventNum);
         // hardcode eventnum to demo each event
-//        eventNum = 2;
+        eventNum = 0;
         switch (eventNum) {
         case 0: // rain
             System.out.println("rain");
@@ -650,7 +652,7 @@ public class MainUiController implements Initializable {
     public void increaseWaterlevelRandomly(CropPlot[] plot) {
         Random rand = new Random();
         rainPopupToggle.set(true);
-
+        rainAnimationToggle.set(true);
         int increment = rand.nextInt(5);
         rainPopupLabel.setText(Integer.toString(increment));
         for (int i = 0; i < plot.length; i++) {
@@ -722,7 +724,9 @@ public class MainUiController implements Initializable {
             locustPopupToggle.set(false);
             droughtPopupToggle.set(false);
             rainPopupToggle.set(false);
+            rainAnimationToggle.set(false);
         }
+
         warning = false;
         initData(myGame);
     }
