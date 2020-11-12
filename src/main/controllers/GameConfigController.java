@@ -17,9 +17,12 @@ import javafx.stage.Stage;
 import main.java.CropPlot;
 import main.java.Game;
 import main.java.Inventory;
+import main.java.InventoryItem;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class GameConfigController implements Initializable {
@@ -35,12 +38,15 @@ public class GameConfigController implements Initializable {
     private ChoiceBox<String> startingSeason;
 
     private Game newGame;
+
     public Game getGame() {
         return this.newGame;
     }
+
     public void setName(String name) {
         this.name = new TextField(name);
     }
+
     public TextField getName() {
         return this.name;
     }
@@ -123,17 +129,54 @@ public class GameConfigController implements Initializable {
             newGame.setName(name.getText());
             newGame.setGender(((RadioButton) gender.getSelectedToggle()).getText());
             newGame.setDifficulty(difficulty.getValue());
-            newGame.setStartingSeed(startingSeed.getValue());
+            newGame.setCurrentSeed(startingSeed.getValue());
             newGame.setStartingSeason(startingSeason.getValue());
             newGame.setInventory(new Inventory());
             newGame.setMoney(newGame.getDifficulty());
+            newGame.initializeInventory();
+            for (int i = 0; i < newGame.getPlots().length; i++) {
+                Random rand = new Random();
+                int cropNum = rand.nextInt(4) + 1;
+                int maturityNum = rand.nextInt(3) + 1;
+                if (cropNum == 1) {
+                    newGame.getPlots()[i] = new CropPlot("Corn", maturityNum);
+                } else if (cropNum == 2) {
+                    newGame.getPlots()[i] = new CropPlot("Watermelon", maturityNum);
+                } else if (cropNum == 3) {
+                    newGame.getPlots()[i] = new CropPlot("Onion", maturityNum);
+                } else if (cropNum == 4) {
+                    newGame.getPlots()[i] = new CropPlot("Potato", maturityNum);
+                }
+            }
 
-            CropPlot[] plots = newGame.getPlots();
-            String watermelon = "/main/resources/watermelon_mature.png";
-            plots[1] = new CropPlot("Watermelon Mature", 3, watermelon);
-            plots[3] = new CropPlot("Potato Mature", 3, "/main/resources/potato_mature.png");
-            plots[5] = new CropPlot("Corn Mature", 3, "/main/resources/corn_mature.png");
-            plots[8] = new CropPlot("Onion Mature", 3, "/main/resources/onion_mature.png");
+
+            Map<String, InventoryItem> myMap = newGame.getInventoryMap();
+            //myMap.put("default", new InventoryItem(0, "default",
+            // "/main/resources/blank.png", 0)); // used for getOrDefault()
+            switch (startingSeed.getValue()) {
+            case "Corn":
+                myMap.put("Corn Seed",
+                        new InventoryItem(10, "Corn Seed",
+                                "/main/resources/cornBag.png", 10));
+                break;
+            case "Onion":
+                myMap.put("Onion Seed",
+                        new InventoryItem(10, "Onion Seed",
+                                "/main/resources/onionBag.png", 10));
+                break;
+            case "Potato":
+                myMap.put("Potato Seed",
+                        new InventoryItem(10, "Potato Seed",
+                                "/main/resources/potatoBag.png", 10));
+                break;
+            case "Watermelon":
+                myMap.put("Watermelon Seed",
+                        new InventoryItem(10, "Watermelon Seed",
+                                "/main/resources/watermelonBag.png", 10));
+                break;
+            default:
+                break;
+            }
 
             // setting up the loader
             FXMLLoader loader = new FXMLLoader();
@@ -152,3 +195,4 @@ public class GameConfigController implements Initializable {
         }
     }
 }
+

@@ -3,3 +3,4 @@
 /out
 checkstyle-*.jar
 */module-info.java
+*/.idea

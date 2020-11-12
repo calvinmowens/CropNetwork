@@ -42,6 +42,18 @@ public class MarketUiController implements Initializable {
     private AnchorPane marketItem3;
     @FXML
     private AnchorPane marketItem4;
+    @FXML
+    private AnchorPane marketItem5;
+    @FXML
+    private AnchorPane marketItem6;
+    @FXML
+    private AnchorPane marketItem7;
+    @FXML
+    private AnchorPane marketItem8;
+    @FXML
+    private AnchorPane marketItem9;
+    @FXML
+    private AnchorPane marketItem10;
 
 
 
@@ -77,6 +89,16 @@ public class MarketUiController implements Initializable {
         item4Image.setImage(new Image("/main/resources/potatoes.png"));
         item4Label.setText("$" + myGame.getSeedPrice());
 
+        ImageView item5Image = (ImageView) (marketItem5.getChildren().get(0));
+        Label item5Label = (Label) (marketItem5.getChildren().get(1));
+        item5Image.setImage(new Image("/main/resources/Fertilizer.png"));
+        item5Label.setText("$" + myGame.getSeedPrice());
+
+        ImageView item6Image = (ImageView) (marketItem6.getChildren().get(0));
+        Label item6Label = (Label) (marketItem6.getChildren().get(1));
+        item6Image.setImage(new Image("/main/resources/Pesticide.png"));
+        item6Label.setText("$" + myGame.getSeedPrice());
+
     }
 
     public void switchToInventory(MouseEvent mouseEvent) throws IOException {
@@ -97,17 +119,23 @@ public class MarketUiController implements Initializable {
         String id = ((Node) mouseEvent.getSource()).getId();
         int slotId = Integer.parseInt(id.substring(10)) - 1;
         if (slotId == 0) {
-            selectedItemName.setText("Corn");
+            selectedItemName.setText("Corn Seed");
             selectedItemImage.setImage(new Image("/main/resources/corn.png"));
         } else if (slotId == 1) {
-            selectedItemName.setText("Watermelon");
+            selectedItemName.setText("Watermelon Seed");
             selectedItemImage.setImage(new Image("/main/resources/watermelon.png"));
         } else if (slotId == 2) {
-            selectedItemName.setText("Onion");
+            selectedItemName.setText("Onion Seed");
             selectedItemImage.setImage(new Image("/main/resources/onion.png"));
         } else if (slotId == 3) {
-            selectedItemName.setText("Potato");
+            selectedItemName.setText("Potato Seed");
             selectedItemImage.setImage(new Image("/main/resources/potatoes.png"));
+        } else if (slotId == 4) {
+            selectedItemName.setText("Fertilizer");
+            selectedItemImage.setImage(new Image("/main/resources/Fertilizer.png"));
+        } else if (slotId == 5) {
+            selectedItemName.setText("Pesticide");
+            selectedItemImage.setImage(new Image("/main/resources/Pesticide.png"));
         }
         selectedItemPrice.setText(Integer.toString(myGame.getSeedPrice()));
     }
@@ -115,7 +143,9 @@ public class MarketUiController implements Initializable {
     public void buyItem(ActionEvent actionEvent) {
         int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
         String selectedItem = selectedItemName.getText();
-        myGame.buyFromMarket(selectedItem, buyAmount, myGame.getSeedPrice());
+        System.out.println(selectedItemName.getText());
+        int price = myGame.getInventoryMap().get(selectedItem).getBasePrice();
+        myGame.buyFromMarket(selectedItem, buyAmount, price);
         this.initData(myGame);
     }
 
