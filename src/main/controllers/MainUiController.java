@@ -247,6 +247,7 @@ public class MainUiController implements Initializable {
             CropPlot[] myPlots = myGame.getPlots();
             for (int i = 0; i < myPlots.length; i++) {
                 if (myPlots[i] != null && plotPane != null) {
+                    System.out.println(plotPane.getChildren().get(i * 2).getClass());
                     ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
                     waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
                     fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
