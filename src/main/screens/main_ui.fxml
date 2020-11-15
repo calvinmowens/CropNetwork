@@ -27,17 +27,17 @@ Graphic Credits
             </image>
         </ImageView>
         <!-- END OF SEASON BACKGROUND -->
-
+        <!-- RAIN ANIMATION -->
+        <ImageView fx:id="rainAnimation" fitHeight="741.0" fitWidth="1377.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resources/rain.gif" />
+            </image>
+        </ImageView>
         <!-- PLOTS PANE -->
         <AnchorPane fx:id="plotPane">
             <children>
       
-              <!-- RAIN ANIMATION -->
-              <ImageView fx:id="rainAnimation" fitHeight="741.0" fitWidth="1377.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                      <Image url="@../resources/rain.gif" />
-                  </image>
-              </ImageView>
+
 
                 <!-- START OF PLOTS (IMAGE VIEWS & BUTTONS) -->
                 <ImageView id="plot1IMG" fitHeight="150.0" fitWidth="200.0" layoutX="203.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
