@@ -31,6 +31,13 @@ Graphic Credits
         <!-- PLOTS PANE -->
         <AnchorPane fx:id="plotPane">
             <children>
+      
+              <!-- RAIN ANIMATION -->
+              <ImageView fx:id="rainAnimation" fitHeight="741.0" fitWidth="1377.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../resources/rain.gif" />
+                  </image>
+              </ImageView>
 
                 <!-- START OF PLOTS (IMAGE VIEWS & BUTTONS) -->
                 <ImageView id="plot1IMG" fitHeight="150.0" fitWidth="200.0" layoutX="203.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
@@ -95,13 +102,13 @@ Graphic Credits
                 <Button id="plot10" layoutX="692.0" layoutY="416.0" mnemonicParsing="false" onAction="#plotClickedHandler" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
                 <ImageView id="plot11IMG" fitHeight="150.0" fitWidth="200.0" layoutX="737.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../resources/almond_seeded.png" />
+                        <Image url="@../resources/unpurchasedLand1.png" />
                     </image>
                 </ImageView>
                 <Button id="plot11" layoutX="785.0" layoutY="377.0" mnemonicParsing="false" onAction="#plotClickedHandler" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
                 <ImageView id="plot12IMG" fitHeight="150.0" fitWidth="200.0" layoutX="825.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../resources/onion_seeded.png" />
+                        <Image url="@../resources/unpurchasedLand1.png" />
                     </image>
                 </ImageView>
                 <Button id="plot12" layoutX="875.0" layoutY="330.0" mnemonicParsing="false" onAction="#plotClickedHandler" prefHeight="66.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
@@ -162,12 +169,12 @@ Graphic Credits
         </ImageView>
         <ImageView fx:id="plot11WaterLevel" fitHeight="86.0" fitWidth="31.0" layoutX="740.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/water_level_too_low.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <ImageView fx:id="plot12WaterLevel" fitHeight="86.0" fitWidth="31.0" layoutX="828.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/water_level_too_full.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <!-- END OF WATER LEVELS -->
@@ -225,12 +232,12 @@ Graphic Credits
         </ImageView>
         <ImageView fx:id="plot11Pesticide" fitHeight="21.0" fitWidth="24.0" layoutX="796.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/Pesticide.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <ImageView fx:id="plot12Pesticide" fitHeight="21.0" fitWidth="24.0" layoutX="885.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/Pesticide.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <!-- END OF PESTICIDES -->
@@ -288,24 +295,17 @@ Graphic Credits
         </ImageView>
         <ImageView fx:id="plot11FertLevel" fitHeight="55.0" fitWidth="31.0" layoutX="838.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/fertilizer_full.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <ImageView fx:id="plot12FertLevel" fitHeight="55.0" fitWidth="31.0" layoutX="934.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/fertilizer_full.png" />
+                <Image url="@../resources/blank.png" />
             </image>
         </ImageView>
         <!-- END OF FERTILIZER LEVELS -->
             </children>
         </AnchorPane>
-
-        <!-- RAIN ANIMATION -->
-        <ImageView fx:id="rainAnimation" fitHeight="741.0" fitWidth="1377.0" layoutX="-51.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../resources/rain.gif" />
-            </image>
-        </ImageView>
 
         <!-- TOP LEFT MENU (AVATAR, NAME, MONEY, DAY, etc.) -->
         <Button layoutX="68.0" layoutY="22.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="202.0" style="-fx-background-color: white; -fx-background-radius: 300px; -fx-border-radius: 300px; -fx-border-width: 4px; -fx-border-color: #C6971E;" />
@@ -589,6 +589,24 @@ Graphic Credits
                 </Label>
             </children>
         </AnchorPane>
+      <AnchorPane fx:id="rainPopup1" layoutX="10.0" layoutY="10.0">
+         <children>
+            <ImageView id="maxWaterPopup" fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/maxWaterPopup.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="rainPopup11" layoutX="20.0" layoutY="20.0">
+         <children>
+            <ImageView id="maxHarvestPopup" fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/maxHarvestPopup.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
         <!-- END OF POPUPS -->
 
     </children>
