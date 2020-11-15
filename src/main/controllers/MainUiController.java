@@ -30,7 +30,7 @@ public class MainUiController implements Initializable {
     /////////////////  Variables   /////////////////////
     ////////////////////////////////////////////////////
     // non-FXML
-    private Game myGame;
+    private static Game myGame;
     private ImageView[] waterLevelsArray;
     private ImageView[] fertLevelsArray;
     private ImageView[] pesticideArray;
@@ -210,6 +210,10 @@ public class MainUiController implements Initializable {
             plot12Pesticide
         };
     }
+    public static Game getGame() {
+        return myGame;
+    }
+
 
     /**
      * This method updates the UI based on current Game.java data.
@@ -630,7 +634,7 @@ public class MainUiController implements Initializable {
         CropPlot[] gamePlot = myGame.getPlots();
         System.out.println(eventNum);
         // hardcode eventnum to demo each event
-        eventNum = 0;
+        eventNum = 2;
         switch (eventNum) {
         case 0: // rain
             System.out.println("rain");
