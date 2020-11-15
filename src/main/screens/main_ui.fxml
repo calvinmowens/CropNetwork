@@ -339,7 +339,7 @@ Graphic Credits
         </Button>
         <Button id="fork_tool" layoutX="551.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolHarvestClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
-                <ImageView fitHeight="56.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="harvestToolImage"  fitHeight="56.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../resources/fork.png" />
                     </image>
@@ -348,7 +348,7 @@ Graphic Credits
         </Button>
         <Button id="water_tool" layoutX="659.0" layoutY="610.0" mnemonicParsing="false" onAction="#toolWaterClick" prefHeight="86.0" prefWidth="86.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #C6971E; -fx-border-width: 3px;">
             <graphic>
-                <ImageView fitHeight="89.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="waterToolImage"  fitHeight="89.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../resources/water.png" />
                     </image>
@@ -589,20 +589,20 @@ Graphic Credits
                 </Label>
             </children>
         </AnchorPane>
-      <AnchorPane fx:id="rainPopup1" layoutX="10.0" layoutY="10.0">
+      <AnchorPane fx:id="maxWaterPopup" layoutX="10.0" layoutY="10.0">
          <children>
             <ImageView id="maxWaterPopup" fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/maxWaterPopup.png" />
+                  <Image url="@../resources/maxHarvestPopup.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rainPopup11" layoutX="20.0" layoutY="20.0">
+      <AnchorPane fx:id="maxHarvestPopup" layoutX="20.0" layoutY="20.0">
          <children>
             <ImageView id="maxHarvestPopup" fitHeight="311.0" fitWidth="677.0" layoutX="267.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/maxHarvestPopup.png" />
+                  <Image url="@../resources/maxWaterPopup.png" />
                </image>
             </ImageView>
          </children>

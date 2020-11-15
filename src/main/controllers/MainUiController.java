@@ -49,6 +49,8 @@ public class MainUiController implements Initializable {
 
     @FXML private AnchorPane plotPane;
     @FXML private ImageView seedImage = new ImageView();
+    @FXML private ImageView harvestToolImage = new ImageView();
+    @FXML private ImageView waterToolImage = new ImageView();
 
     // water levels
     @FXML private ImageView plot1WaterLevel = new ImageView();
@@ -97,6 +99,8 @@ public class MainUiController implements Initializable {
     @FXML private AnchorPane locustPopup;
     @FXML private AnchorPane rainPopup;
     @FXML private AnchorPane droughtPopup;
+    @FXML private AnchorPane maxHarvestPopup;
+    @FXML private AnchorPane maxWaterPopup;
     @FXML private Label locustPopupLabel = new Label("");
     @FXML private Label rainPopupLabel = new Label("");
     @FXML private Label droughtPopupLabel = new Label("");
@@ -129,6 +133,8 @@ public class MainUiController implements Initializable {
     private BooleanProperty rainPopupToggle = new SimpleBooleanProperty(false);
     private BooleanProperty rainAnimationToggle = new SimpleBooleanProperty(false);
     private BooleanProperty droughtPopupToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty maxHarvestPopupToggle = new SimpleBooleanProperty(false);
+    private BooleanProperty maxWaterPopupToggle = new SimpleBooleanProperty(false);
 
     // seed image array for displaying starting seed
     private String[] seedImages = {
@@ -137,6 +143,9 @@ public class MainUiController implements Initializable {
         "/main/resources/corn.png",
         "/main/resources/onion.png"};
     private boolean warning = false;
+    private boolean usingTractor = false;
+    private boolean usingIrrigation = false;
+
 
 
 
@@ -164,6 +173,9 @@ public class MainUiController implements Initializable {
         locustPopup.visibleProperty().bind(locustPopupToggle);
         rainPopup.visibleProperty().bind(rainPopupToggle);
         droughtPopup.visibleProperty().bind(droughtPopupToggle);
+
+        maxHarvestPopup.visibleProperty().bind(maxHarvestPopupToggle);
+        maxWaterPopup.visibleProperty().bind(maxWaterPopupToggle);
 
         waterLevelsArray = new ImageView[] {
             plot1WaterLevel,
@@ -239,7 +251,6 @@ public class MainUiController implements Initializable {
             seedImage.setImage(
                     new Image(getClass()
                             .getResourceAsStream(setSeedHelper())));
-            System.out.println(currentSeed);
 
             money.setText("$" + Integer.toString(myGame.getMoney()));
 
@@ -247,7 +258,6 @@ public class MainUiController implements Initializable {
             CropPlot[] myPlots = myGame.getPlots();
             for (int i = 0; i < myPlots.length; i++) {
                 if (myPlots[i] != null && plotPane != null) {
-                    System.out.println(plotPane.getChildren().get(i * 2).getClass());
                     ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
                     waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
                     fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
@@ -293,6 +303,18 @@ public class MainUiController implements Initializable {
             fertCounter
                     .setText(Integer.toString(inventory
                             .getOrDefault("Fertilizer", defaultItem).getCount()));
+        }
+        if (inventory.get("Tractor").getCount() > 0) {
+            usingTractor = true;
+            harvestToolImage.setImage(new Image(getClass()
+                    .getResourceAsStream("/main/resources/tractor.png")));
+            myGame.incrementMaxPlotHarvested();
+        }
+        if (inventory.get("Irrigation").getCount() > 0) {
+            usingIrrigation = true;
+            waterToolImage.setImage(new Image(getClass()
+                    .getResourceAsStream("/main/resources/irrigation.png")));
+            myGame.incrementMaxPlotWatered();
         }
     }
 
@@ -502,7 +524,6 @@ public class MainUiController implements Initializable {
                     item.setCount(item.getCount() - 1);
                     myPlots[plotId].applyPesticide();
                 }
-
             }
         }
         initData(myGame);
@@ -528,11 +549,9 @@ public class MainUiController implements Initializable {
         int plotId = Integer.parseInt(id.substring(4)) - 1;
 
         Map<String, InventoryItem> map = myGame.getInventoryMap();
-        System.out.println(currentSeed);
 
         if (myPlots[plotId] != null) {
             if (myPlots[plotId].getMaturity() == 0) {
-                System.out.println(currentSeed);
                 InventoryItem item = map.get(currentSeed + " Seed");
                 if (item.getCount() > 0) {
                     item.setCount(item.getCount() - 5);
@@ -544,8 +563,8 @@ public class MainUiController implements Initializable {
                 }
             }
         }
-        System.out.println(myPlots[plotId].getMaturity() + ", " + myPlots[plotId].getCropName());
-        System.out.println(map.get(currentSeed).getCount());
+//        System.out.println(myPlots[plotId].getMaturity() + ", " + myPlots[plotId].getCropName());
+//        System.out.println(map.get(currentSeed).getCount());
         initData(myGame);
     }
 
@@ -555,14 +574,18 @@ public class MainUiController implements Initializable {
      * @param id    a String containing which plot was clicked
      */
     public void harvestCrop(String id) {
+        if (myGame.getPlotHarvested() >= Game.MAX_HARVEST_PER_DAY) {
+            maxHarvestPopupToggle.setValue(true);
+            warning = true;
+            return;
+        }
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
-
         InventoryItem defaultItem = myGame.getDefaultItem();
         Map<String, InventoryItem> map = myGame.getInventoryMap();
         CropPlot myCrop = myPlots[plotId];
-        System.out.println("Start of if statements.");
-        System.out.println(myCrop.getMaturity());
+//        System.out.println("Start of if statements.");
+//        System.out.println(myCrop.getMaturity());
         // if plot is not empty and fully mature, we can harvest
         if (myCrop != null) {
             if (myCrop.getMaturity() == 3) {
@@ -571,7 +594,7 @@ public class MainUiController implements Initializable {
                 if (!myCrop.isPestApplied()) {
                     cropName = myCrop.getCropName();
                 } else {
-                    cropName = myCrop.getCropName() + " P"; // ???
+                    cropName = myCrop.getCropName() + " P";
                 }
                 InventoryItem item = map.get(cropName);
                 System.out.println(map.get(cropName).getCount());
@@ -587,12 +610,12 @@ public class MainUiController implements Initializable {
                     int randomNum = ThreadLocalRandom.current().nextInt(4, 5 + 1);
                     item.setCount(item.getCount() + 5 + randomNum);
                 }
-                if (item.getCount() > 25) {
-                    item.setCount(25);
+
+                if (item.getCount() > 50) {
+                    item.setCount(50);
                 }
-                System.out.println(cropName);
-                System.out.println(map.get(cropName).getCount());
                 myPlots[plotId].resetCrop();
+                myGame.incrementPlotHarvested();
             } else if (myPlots[plotId].getMaturity() == 5) {
                 myPlots[plotId].resetCrop();
             }
@@ -601,11 +624,16 @@ public class MainUiController implements Initializable {
     }
 
     public void waterCrop(String id) {
+        if (myGame.getPlotWatered() > Game.MAX_WATER_PER_DAY) {
+            myGame.resetPlotWatered();
+            warning = true;
+            return;
+        }
         CropPlot[] myPlots = myGame.getPlots();
         int plotId = Integer.parseInt(id.substring(4)) - 1;
         CropPlot myCrop = myPlots[plotId];
-
         myCrop.waterCrop();
+        myGame.incrementPlotWatered();
         this.initData(myGame);
     }
 
@@ -620,12 +648,15 @@ public class MainUiController implements Initializable {
         // update UI
         Random rand = new Random();
         // set condition to rand.nextInt() % 10 > 0 during demo
-        boolean testing = true;
+        boolean testing = false;
         if (rand.nextInt() % 10 > 4 || testing) { // change back to || during demo
-            System.out.println("random event initiated!");
             warning = true;
             startRandomEvent();
         }
+
+        // reset plotHarvested and plotWatered
+        myGame.resetPlotHarvested();
+        myGame.resetPlotWatered();
         this.initData(myGame);
     }
 
@@ -633,9 +664,8 @@ public class MainUiController implements Initializable {
         Random rand = new Random();
         int eventNum = rand.nextInt(3);
         CropPlot[] gamePlot = myGame.getPlots();
-        System.out.println(eventNum);
         // hardcode eventnum to demo each event
-        eventNum = 2;
+//        eventNum = 2;
         switch (eventNum) {
         case 0: // rain
             System.out.println("rain");
@@ -725,11 +755,14 @@ public class MainUiController implements Initializable {
     }
 
     public void closeWarning(MouseEvent mouseEvent) {
+
         if (warning) {
             locustPopupToggle.set(false);
             droughtPopupToggle.set(false);
             rainPopupToggle.set(false);
             rainAnimationToggle.set(false);
+            maxHarvestPopupToggle.set(false);
+            maxWaterPopupToggle.set(false);
         }
 
         warning = false;

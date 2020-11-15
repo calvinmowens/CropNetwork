@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-
+    public static int MAX_HARVEST_PER_DAY = 1;
+    public static int MAX_WATER_PER_DAY = 1;
     private String name;
     private String gender;
     private String difficulty; // 1-3
@@ -46,6 +47,34 @@ public class Game {
     private CropPlot[] plots = new CropPlot[12];
     private InventoryItem defaultItem = new InventoryItem(0, "default",
             "/main/resources/blank.png", 0);
+    private int plotHarvested = 0; // count plots that has been harvested in one day
+    private int plotWatered = 0; // count plots that has been watered in one day
+    public int getPlotHarvested() {
+        return plotHarvested;
+    }
+    public int getPlotWatered() {
+        return plotWatered;
+    }
+    public void incrementPlotHarvested() {
+        this.plotHarvested++;
+    }
+    public void incrementPlotWatered() {
+        this.plotWatered++;
+    }
+    public void resetPlotWatered() {
+        this.plotWatered = 0;
+    }
+    public void resetPlotHarvested() {
+        this.plotHarvested = 0;
+    }
+    public void incrementMaxPlotHarvested() {
+        MAX_HARVEST_PER_DAY = 2;
+    }
+    public void incrementMaxPlotWatered() {
+        MAX_WATER_PER_DAY = 2;
+    }
+
+
 
 
     public void initializeInventory() {
@@ -146,6 +175,20 @@ public class Game {
                         cropPrice - 30,
                         "Potato P",
                         "/main/resources/potato-pesticide.png",
+                        0));
+        inventoryMap.put(
+                "Irrigation",
+                new InventoryItem(
+                        5000,
+                        "Irrigation",
+                        "/main/resources/irrigation.png",
+                        0));
+        inventoryMap.put(
+                "Tractor",
+                new InventoryItem(
+                        5000,
+                        "Tractor",
+                        "/main/resources/tractor.png",
                         0));
     }
 
@@ -276,7 +319,7 @@ public class Game {
     public void buyFromMarket(String itemName, int amount, int price) {
         if (inventoryMap.get(itemName) != null) {
             if (inventoryMap.get(itemName).getCount() + amount <= 100
-                    && (getMoney() - amount * price) > 0) {
+                    && (getMoney() - amount * price) >= 0) {
                 inventoryMap.get(itemName).setCount(inventoryMap.get(itemName).getCount() + amount);
                 setMoney(getMoney() - amount * price);
             }
