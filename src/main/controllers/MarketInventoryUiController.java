@@ -73,8 +73,8 @@ public class MarketInventoryUiController implements Initializable {
         String[] tempKeyArray = keys.toArray(new String[keys.size()]);
         int count = 0;
         System.out.println(Arrays.toString(tempKeyArray));
-        for (int i = 0; i < tempKeyArray.length; i++) {
-            if (i != 8 && i != 13) {
+        for(int i = 0; i < tempKeyArray.length; i++) {
+            if(i != 8 && i != 13) {
                 keyArray[count] = tempKeyArray[i];
                 count++;
             }
@@ -111,6 +111,7 @@ public class MarketInventoryUiController implements Initializable {
         for (InventoryItem i: map.values()) {
             if (i.getItemName().equals(selectedItemName.getText()) && i.getCount() >= sellAmount) {
                 String selectedItem = selectedItemName.getText();
+//                i.setCount(i.getCount() - sellAmount);
                 myGame.sellFromInventory(selectedItem, sellAmount, i.getBasePrice());
             }
         }
@@ -131,6 +132,7 @@ public class MarketInventoryUiController implements Initializable {
         loader.setLocation(getClass().getResource("/main/screens/main_ui.FXML"));
         Parent exitMarket = loader.load();
         Scene startExitMarket = new Scene(exitMarket);
+
         MainUiController controller = loader.getController();
         controller.initData(myGame);
         // Stage and show the new scene
