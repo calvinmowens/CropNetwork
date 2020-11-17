@@ -258,6 +258,23 @@ public class MainUiController implements Initializable {
                     }
                 }
             }
+            if (myGame.getMoney() == 0) {
+                boolean end = true;
+                for (CropPlot myPlot : myPlots) {
+                    if (myPlot != null) {
+                        if (myPlot.getMaturity() != 0 && myPlot.getMaturity() != 4) {
+                            end = false;
+                        }
+                    }
+                }
+                if (end) {
+                    try {
+                        endGame();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
             InventoryItem defaultItem = myGame.getDefaultItem();
 
             // Set seed counters to current inventory count.
@@ -294,6 +311,21 @@ public class MainUiController implements Initializable {
                     .setText(Integer.toString(inventory
                             .getOrDefault("Fertilizer", defaultItem).getCount()));
         }
+    }
+
+    private void endGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/screens/endGame.FXML"));
+        Parent endGame = loader.load();
+        Scene endGameScreen = new Scene(endGame);
+
+//        MarketUiController controller = loader.getController();
+//        controller.initData(myGame);
+        // Stage and show the new scene
+        Stage window = (Stage) daysLabel.getScene().getWindow();
+        window.setTitle("Game Over");
+        window.setScene(endGameScreen);
+        window.show();
     }
 
     ////////////////////////////////////////////////////
@@ -620,7 +652,7 @@ public class MainUiController implements Initializable {
         // update UI
         Random rand = new Random();
         // set condition to rand.nextInt() % 10 > 0 during demo
-        boolean testing = true;
+        boolean testing = false;
         if (rand.nextInt() % 10 > 4 || testing) { // change back to || during demo
             System.out.println("random event initiated!");
             warning = true;
