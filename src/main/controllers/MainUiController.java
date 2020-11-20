@@ -636,9 +636,26 @@ public class MainUiController implements Initializable {
         myGame.incrementPlotWatered();
         this.initData(myGame);
     }
-
     public void nextDay(ActionEvent actionEvent) {
         // plant functions
+        if (myGame.getMoney() == 0) {
+            boolean end = true;
+            CropPlot[] myPlots = myGame.getPlots();
+            for (CropPlot myPlot : myPlots) {
+                if (myPlot != null) {
+                    if (myPlot.getMaturity() != 0 && myPlot.getMaturity() != 4) {
+                        end = false;
+                    }
+                }
+            }
+            if (end) {
+                try {
+                    endGame(actionEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         for (CropPlot plot : myGame.getPlots()) {
             plot.nextDayCheck();
         }
@@ -658,6 +675,21 @@ public class MainUiController implements Initializable {
         myGame.resetPlotHarvested();
         myGame.resetPlotWatered();
         this.initData(myGame);
+    }
+
+    private void endGame(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/screens/endGame.FXML"));
+        Parent endGame = loader.load();
+        Scene endGameScreen = new Scene(endGame);
+
+        EndGameController controller = loader.getController();
+        controller.initData(myGame);
+        // Stage and show the new scene
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setTitle("Game Over");
+        window.setScene(endGameScreen);
+        window.show();
     }
 
     public void startRandomEvent() {
