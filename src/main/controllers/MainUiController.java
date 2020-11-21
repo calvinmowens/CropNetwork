@@ -256,8 +256,13 @@ public class MainUiController implements Initializable {
 
             // establish crop plots
             CropPlot[] myPlots = myGame.getPlots();
+            if(!myGame.isPlot11Purchased()) {
+                myPlots[10].resetCrop();
+            } else if (!myGame.isPlot12Purchased()) {
+                myPlots[11].resetCrop();
+            }
             for (int i = 0; i < myPlots.length; i++) {
-                if (myPlots[i] != null && plotPane != null) {
+                if (myPlots[i] != null && plotPane != null && i != 10 && i != 11) {
                     ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
                     waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
                     fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
@@ -265,6 +270,32 @@ public class MainUiController implements Initializable {
                         pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
                     } else {
                         pesticideArray[i].setImage(null);
+                    }
+                } else if (i == 10 && myPlots[i] != null && plotPane != null) {
+                    if(myGame.isPlot11Purchased()) {
+                        ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
+                        waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
+                        fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
+                        if (myPlots[i].isPestApplied()) {
+                            pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
+                        } else {
+                            pesticideArray[i].setImage(null);
+                        }
+                    } else {
+                        ((ImageView) plotPane.getChildren().get(i * 2)).setImage(new Image("/main/resources/unpurchasedLand1.png"));
+                    }
+                } else if (i == 11 && myPlots[i] != null && plotPane != null) {
+                    if(myGame.isPlot12Purchased()) {
+                        ((ImageView) plotPane.getChildren().get(i * 2)).setImage(myPlots[i].getImage());
+                        waterLevelsArray[i].setImage(myPlots[i].getWaterLevelImg());
+                        fertLevelsArray[i].setImage(myPlots[i].getFertilizeImg());
+                        if (myPlots[i].isPestApplied()) {
+                            pesticideArray[i].setImage(new Image("/main/resources/Pesticide.png"));
+                        } else {
+                            pesticideArray[i].setImage(null);
+                        }
+                    } else {
+                        ((ImageView) plotPane.getChildren().get(i * 2)).setImage(new Image("/main/resources/unpurchasedLand1.png"));
                     }
                 }
             }

@@ -14,6 +14,25 @@ public class Game {
     private String currentSeed; // convert this to an int??
     private String startingSeason; // convert this to an int??
 
+    public boolean isPlot11Purchased() {
+        return plot11Purchased;
+    }
+
+    public void setPlot11Purchased(boolean plot11Purchased) {
+        this.plot11Purchased = plot11Purchased;
+    }
+
+    public boolean isPlot12Purchased() {
+        return plot12Purchased;
+    }
+
+    public void setPlot12Purchased(boolean plot12Purchased) {
+        this.plot12Purchased = plot12Purchased;
+    }
+
+    private boolean plot11Purchased = false;
+    private boolean plot12Purchased = false;
+
     public int getInitCounter() {
         return initCounter;
     }
