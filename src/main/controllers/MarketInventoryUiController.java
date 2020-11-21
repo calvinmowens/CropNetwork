@@ -74,7 +74,7 @@ public class MarketInventoryUiController implements Initializable {
         int count = 0;
         System.out.println(Arrays.toString(tempKeyArray));
         for(int i = 0; i < tempKeyArray.length; i++) {
-            if(i != 8 && i != 13) {
+            if(i != 1 && i != 8 && i != 10 && i != 15) {
                 keyArray[count] = tempKeyArray[i];
                 count++;
             }
