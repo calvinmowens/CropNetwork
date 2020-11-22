@@ -684,7 +684,7 @@ public class MainUiController implements Initializable {
         Scene endGameScreen = new Scene(endGame);
 
         EndGameController controller = loader.getController();
-        controller.initData(myGame);
+        // TODO controller.initData(myGame);
         // Stage and show the new scene
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         window.setTitle("Game Over");
