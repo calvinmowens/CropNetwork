@@ -96,6 +96,13 @@ public class CropPlot {
         this.waterLevel = 3;
         this.fertilized = 1;
     }
+    public CropPlot(String cropName, int maturity, int waterLevel, int fertilized) {
+        this.cropName = cropName;
+        this.maturity = maturity;
+        this.image = getImage();
+        this.waterLevel = waterLevel;
+        this.fertilized = fertilized;
+    }
 
 
     ////////////////////////////////////////////////////

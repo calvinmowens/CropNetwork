@@ -108,6 +108,28 @@ public class MarketUiController implements Initializable {
         Label item8Label = (Label) (marketItem8.getChildren().get(1));
         item8Image.setImage(new Image("/main/resources/irrigation.png"));
         item8Label.setText("$5000");
+
+        if(!myGame.isPlot11Purchased()) {
+            ImageView item9Image = (ImageView) (marketItem9.getChildren().get(0));
+            Label item9Label = (Label) (marketItem9.getChildren().get(1));
+            item9Image.setImage(new Image("/main/resources/unpurchasedLand1.png"));
+            if(myGame.isPlot12Purchased()) {
+                item9Label.setText("$7000");
+            } else {
+                item9Label.setText("$5000");
+            }
+        }
+
+        if(!myGame.isPlot12Purchased()) {
+            ImageView item10Image = (ImageView) (marketItem10.getChildren().get(0));
+            Label item10Label = (Label) (marketItem10.getChildren().get(1));
+            item10Image.setImage(new Image("/main/resources/unpurchasedLand1.png"));
+            if(myGame.isPlot11Purchased()) {
+                item10Label.setText("$7000");
+            } else {
+                item10Label.setText("$5000");
+            }
+        }
     }
 
     public void switchToInventory(MouseEvent mouseEvent) throws IOException {
@@ -155,21 +177,50 @@ public class MarketUiController implements Initializable {
             selectedItemName.setText("Tractor");
             selectedItemImage.setImage(new Image("/main/resources/tractor.png"));
             selectedItemPrice.setText("5000");
-        }else if (slotId == 7) {
+        } else if (slotId == 7) {
             selectedItemName.setText("Irrigation");
             selectedItemImage.setImage(new Image("/main/resources/irrigation.png"));
             selectedItemPrice.setText("5000");
+        } else if (slotId == 8) {
+            selectedItemName.setText("Plot 11");
+            selectedItemImage.setImage(new Image("/main/resources/unpurchasedLand1.png"));
+            if(myGame.isPlot12Purchased()) {
+                selectedItemPrice.setText("7000");
+            } else {
+                selectedItemPrice.setText("5000");
+            }
+        } else if (slotId == 9) {
+            selectedItemName.setText("Plot 12");
+            selectedItemImage.setImage(new Image("/main/resources/unpurchasedLand1.png"));
+            if(myGame.isPlot11Purchased()) {
+                selectedItemPrice.setText("7000");
+            } else {
+                selectedItemPrice.setText("5000");
+            }
         }
     }
 
     public void buyItem(ActionEvent actionEvent) {
-        int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
-        String selectedItem = selectedItemName.getText();
-        System.out.println(selectedItemName.getText());
-        int price = myGame.getInventoryMap().get(selectedItem).getBasePrice();
-        System.out.println(price);
-        myGame.buyFromMarket(selectedItem, buyAmount, price);
-        this.initData(myGame);
+        if(!(selectedItemName.getText().equals("Plot 11") || selectedItemName.getText().equals("Plot 12"))) {
+            int buyAmount = Integer.parseInt(selectedItemQuantity.getText());
+            String selectedItem = selectedItemName.getText();
+            System.out.println(selectedItemName.getText());
+            int price = myGame.getInventoryMap().get(selectedItem).getBasePrice();
+            System.out.println(price);
+            myGame.buyFromMarket(selectedItem, buyAmount, price);
+            this.initData(myGame);
+        } else {
+            int cost = Integer.parseInt(selectedItemPrice.getText());
+            if (myGame.getMoney() >= cost) {
+                if (selectedItemName.getText().equals("Plot 11")) {
+                    myGame.setPlot11Purchased(true);
+                } else {
+                    myGame.setPlot12Purchased(true);
+                }
+                myGame.setMoney(myGame.getMoney() - 5000);
+                this.initData(myGame);
+            }
+        }
     }
 
     public void exitMarket(MouseEvent mouseEvent) throws IOException {

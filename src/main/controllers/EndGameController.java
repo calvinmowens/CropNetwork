@@ -16,7 +16,7 @@ public class EndGameController {
         Scene scene = new Scene(root);
 
         Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        window.setTitle("Config Screen");
+        window.setTitle("We are in the \"End Game\" now Stark...");
         window.setScene(scene);
         window.show();
     }
