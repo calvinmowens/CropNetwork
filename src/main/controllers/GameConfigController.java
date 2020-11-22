@@ -148,7 +148,7 @@ public class GameConfigController implements Initializable {
                     newGame.getPlots()[i] = new CropPlot("Potato", maturityNum);
                 }
             }
-
+            newGame.getPlots()[0] = new CropPlot("Onion", 3);
 
             Map<String, InventoryItem> myMap = newGame.getInventoryMap();
             //myMap.put("default", new InventoryItem(0, "default",
