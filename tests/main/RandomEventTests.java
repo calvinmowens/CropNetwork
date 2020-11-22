@@ -42,29 +42,29 @@ public class RandomEventTests extends ApplicationTest {
         mainstage.show();
     }
 
-    @Test
-    public void weAreInTheEndgameNowStark() throws InterruptedException {
-        clickOn("#startGameBtn");
-        moveTo("#name").clickOn("#name").write("1");
-        moveTo("#difficulty").clickOn("#difficulty").clickOn("Casual");
-        moveTo("#FemaleRadioBtn").clickOn("#FemaleRadioBtn");
-        moveTo("#startingSeed").clickOn("#startingSeed").clickOn("Onion");
-        moveTo("#startingSeason").clickOn("#startingSeason").clickOn("Spring");
-        moveTo("#startGameBtn").clickOn("#startGameBtn");
-        moveTo("#market").clickOn("#market");
-        moveTo("#marketItem7").clickOn("#marketItem7");
-        moveTo("#selectedItemQuantity").clickOn("#selectedItemQuantity").write("1");
-        moveTo("#buyItemBtn").clickOn("#buyItemBtn");
-        moveTo("#marketItem8").clickOn("#marketItem8");
-        moveTo("#buyItemBtn").clickOn("#buyItemBtn");
-        moveTo("#exit").clickOn("#exit");
-        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
-        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
-        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
-        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
-        verifyThat(window("We are in the \"End Game\" now Stark..."), WindowMatchers.isShowing());
-
-    }
+//    @Test
+//    public void weAreInTheEndgameNowStark() throws InterruptedException {
+//        clickOn("#startGameBtn");
+//        moveTo("#name").clickOn("#name").write("1");
+//        moveTo("#difficulty").clickOn("#difficulty").clickOn("Casual");
+//        moveTo("#FemaleRadioBtn").clickOn("#FemaleRadioBtn");
+//        moveTo("#startingSeed").clickOn("#startingSeed").clickOn("Onion");
+//        moveTo("#startingSeason").clickOn("#startingSeason").clickOn("Spring");
+//        moveTo("#startGameBtn").clickOn("#startGameBtn");
+//        moveTo("#market").clickOn("#market");
+//        moveTo("#marketItem7").clickOn("#marketItem7");
+//        moveTo("#selectedItemQuantity").clickOn("#selectedItemQuantity").write("1");
+//        moveTo("#buyItemBtn").clickOn("#buyItemBtn");
+//        moveTo("#marketItem8").clickOn("#marketItem8");
+//        moveTo("#buyItemBtn").clickOn("#buyItemBtn");
+//        moveTo("#exit").clickOn("#exit");
+//        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
+//        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
+//        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
+//        moveTo("#nextDayBtn").clickOn("#nextDayBtn");
+//        verifyThat(window("We are in the \"End Game\" now Stark..."), WindowMatchers.isShowing());
+//
+//    }
 
 
     @Test
