@@ -210,7 +210,8 @@ public class MarketUiController implements Initializable {
             myGame.buyFromMarket(selectedItem, buyAmount, price);
             this.initData(myGame);
         } else {
-            if (myGame.getMoney() >= 5000) {
+            int cost = Integer.parseInt(selectedItemPrice.getText());
+            if (myGame.getMoney() >= cost) {
                 if (selectedItemName.getText().equals("Plot 11")) {
                     myGame.setPlot11Purchased(true);
                 } else {
