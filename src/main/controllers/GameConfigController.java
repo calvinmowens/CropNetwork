@@ -147,6 +147,9 @@ public class GameConfigController implements Initializable {
                 } else if (cropNum == 4) {
                     newGame.getPlots()[i] = new CropPlot("Potato", maturityNum);
                 }
+                if(i == 11 || i == 10) {
+                    newGame.getPlots()[i] = new CropPlot("Empty Plot", 0, 0, 0);
+                }
             }
             newGame.getPlots()[0] = new CropPlot("Onion", 3);
 
