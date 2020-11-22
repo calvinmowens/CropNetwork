@@ -113,14 +113,22 @@ public class MarketUiController implements Initializable {
             ImageView item9Image = (ImageView) (marketItem9.getChildren().get(0));
             Label item9Label = (Label) (marketItem9.getChildren().get(1));
             item9Image.setImage(new Image("/main/resources/unpurchasedLand1.png"));
-            item9Label.setText("$5000");
+            if(myGame.isPlot12Purchased()) {
+                item9Label.setText("$7000");
+            } else {
+                item9Label.setText("$5000");
+            }
         }
 
         if(!myGame.isPlot12Purchased()) {
             ImageView item10Image = (ImageView) (marketItem10.getChildren().get(0));
             Label item10Label = (Label) (marketItem10.getChildren().get(1));
             item10Image.setImage(new Image("/main/resources/unpurchasedLand1.png"));
-            item10Label.setText("$5000");
+            if(myGame.isPlot11Purchased()) {
+                item10Label.setText("$7000");
+            } else {
+                item10Label.setText("$5000");
+            }
         }
     }
 
@@ -176,11 +184,19 @@ public class MarketUiController implements Initializable {
         } else if (slotId == 8) {
             selectedItemName.setText("Plot 11");
             selectedItemImage.setImage(new Image("/main/resources/unpurchasedLand1.png"));
-            selectedItemPrice.setText("5000");
+            if(myGame.isPlot12Purchased()) {
+                selectedItemPrice.setText("7000");
+            } else {
+                selectedItemPrice.setText("5000");
+            }
         } else if (slotId == 9) {
             selectedItemName.setText("Plot 12");
             selectedItemImage.setImage(new Image("/main/resources/unpurchasedLand1.png"));
-            selectedItemPrice.setText("5000");
+            if(myGame.isPlot11Purchased()) {
+                selectedItemPrice.setText("7000");
+            } else {
+                selectedItemPrice.setText("5000");
+            }
         }
     }
 
