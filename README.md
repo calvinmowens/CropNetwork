@@ -1,7 +1,10 @@
 # CropNetwork
 
-A farming simulator built with a small team (5) for my CS2340 course - Software Engineering
-This project was in the Top 10 projects of our course, out of 101 total projects
+A farming simulator built with a small team (5) for my CS2340 course - Software Engineering<br \>
+This project was placed in the Top 10 projects of our class
+
+For a demo of this project, see the link below 👇🏻
+https://youtu.be/DrZ9oa9w-xI
 
 # What I learned...
 
