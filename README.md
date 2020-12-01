@@ -16,4 +16,12 @@ https://youtu.be/DrZ9oa9w-xI
 
 ## How to run...
 
-These instructions will be for IntelliJ:  
+These instructions will be for IntelliJ:
+
+### Credits:
+I couldn't have built this without my amazing team:  
+Sungeun Seb  
+Selena Do  
+Luke Kim  
+Parth Shah  
+❤️
