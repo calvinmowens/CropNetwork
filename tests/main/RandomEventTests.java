@@ -36,30 +36,6 @@ public class RandomEventTests extends ApplicationTest {
         mainstage.setScene(new Scene(mainroot, 1280, 720));
         mainstage.show();
     }
-    @Test
-    public void fertilizedCropHaveHigherYield() {
-        Game myGame = new Game();
-        myGame.setGender("FEMALE");
-        myGame.setStartingSeason("Spring");
-        myGame.setStartingSeed("Corn");
-
-        CropPlot[] myPlots = myGame.getPlots();
-        for (int i = 0; i < 12; i++) {
-            myPlots[i] = new CropPlot("Corn", 4);
-            myPlots[i].setFertilized(4);
-        }
-        MainUiController mainUiController = new MainUiController();
-        mainUiController.initData(myGame);
-        Map<String, InventoryItem> myMap = myGame.getInventoryMap();
-        myMap.put("Corn",
-                new InventoryItem(10, "Corn",
-                        "/main/resources/cornBag.png", 0));
-        mainUiController.harvestCrop("plot1");
-        System.out.println("Test: " + myGame.getInventoryMap().get("Corn").getCount());
-        assertTrue(myGame.getInventoryMap().get("Corn").getCount() > 5);
-
-    }
-
 
     @Test
     public void pesticideAppearsOnScreenWhenClicked() throws InterruptedException {
