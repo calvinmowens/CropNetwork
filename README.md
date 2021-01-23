@@ -20,7 +20,7 @@ Instructions coming soon...
 
 ### Credits:
 I couldn't have built this without my amazing team:  
-Harry (Sungeun) Bae
+Harry (Sungeun) Bae  
 Selena Do  
 Luke Kim  
 Parth Shah  
